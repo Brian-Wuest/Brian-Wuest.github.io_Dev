@@ -1,0 +1,87 @@
+<div class="row">
+        <h1 class="col-xs-12 align-text-center">Experience Calculator</h1>
+        <div class="col-xs-12">
+            <hr />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row" style="display:none">
+                <form>
+                    <div class="col-xs-12 form-group">
+                        <label class="col-xs-5 col-md-1 col-md-offset-1">Experience System</label>
+                        <div class="col-xs-7 col-sm-3 col-md-3">
+                            <select class="form-control">
+                                <option value="5thEdition" selected>D&amp;D 5th Edition</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-xs-12 col-md-4 col-md-offset-1 well">
+                <h2>Number of Monsters and Challenge Rating</h2>
+                <hr/>
+                <form name="monstersForm" id="monstersForm">
+                    <table class="col-xs-12">
+                        <thead>
+                            <tr>
+                                <th style="width: 25%;"></th>
+                                <th style="width: 33%;" class="align-text-center">Challenge Rating</th>
+                                <th style="width: 33%;" class="align-text-center">Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let monster of currentMonsters">
+                                <td class="right-left-padding-10">
+                                    <button class="btn btn-default" style="margin-bottom: 5px;" (click)="removeMonster(monster)">Remove</button>
+                                </td>
+                                <td class="right-left-padding-10">
+                                    <select class="form-control input-sm" style="margin-bottom: 5px;" [name]="monster.MonsterId" [ngModel]="monster.XpInfo" (ngModelChange)="updatePlayersXP('monstersForm', $event, monster)">
+                                        <option *ngFor="let challenge of globals.dnd5thMonsterExperience" [ngValue]="challenge">{{challenge.challengeRating}}</option>
+                                    </select>
+                                </td>
+                                <td class="right-left-padding-10">
+                                    <input [name]="monster.MonsterId + 'monsterCount'" class="form-control input-sm" style="margin-bottom: 5px;" type="number" min="0" max="100" ng-min="0" ng-max="100" [(ngModel)]="monster.MonsterCount" (ngModelChange)="updatePlayersXP('monstersForm')"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+                <div class="row">
+                    <div class="col-xs-3 col-md-2">
+                        <button class="btn btn-default" style="margin-top: 10px;" (click)="addMonster()">Add Monster</button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-xs-12 col-md-4 col-md-offset-1 well">
+                <!--This is for the number of players and total experience.-->
+                <h2>Player Count and Calculated Experience</h2>
+                <hr/>
+                <form name="playersForm" id="playersForm">
+                    <div class="row form-group">
+                        <label class="col-xs-6 col-sm-6 col-md-4">Player Count: </label>
+                        <div class="col-xs-6 col-sm-6 col-md-4">
+                            <input name="playerCount" class="form-control input-sm" type="number" min="0" max="100" step="1" (ngModelChange)="updatePlayersXP('playersForm')" [(ngModel)]="playerCount"
+                            />
+                        </div>
+                    </div>
+    
+                    <div class="row form-group">
+                        <label class="col-xs-6 col-sm-6 col-md-4">Per-Player Experience: </label>
+                        <div class="col-xs-6 col-sm-6 col-md-4">
+                            <input class="form-control input-sm" readonly [value]="playerXp | number: '1.0-0'" />
+                        </div>
+                    </div>
+    
+                    <div class="row form-group">
+                        <label class="col-xs-6 col-sm-6 col-md-4">Total Experience: </label>
+                        <div class="col-xs-6 col-sm-6 col-md-4">
+                            <input class="form-control input-sm" readonly [value]="totalXp | number: '1.0-0'" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
