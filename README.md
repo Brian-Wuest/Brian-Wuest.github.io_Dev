@@ -20,4 +20,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Production build
 
-run "npm run-script prod" for production builds
+run `npm run-script prod` for production builds
