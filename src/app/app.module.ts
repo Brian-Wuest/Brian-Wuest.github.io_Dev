@@ -9,6 +9,7 @@ import { NavComponent } from './nav/nav.component';
 import { AboutComponent } from './about/about.component';
 import { WelcomeComponent} from './welcome/welcome.component';
 import { XpCalculatorComponent } from './rpg_tools/xp_calculator/xp_calculator.component';
+import { StarfinderComponent } from './rpg_tools/starfinder/starfinder.component';
 
 const appRoutes: Routes = [
   {
@@ -21,6 +22,9 @@ const appRoutes: Routes = [
     path: 'experience_calculator', component: XpCalculatorComponent
   },
   {
+    path: 'starfinder_pointbuy', component: StarfinderComponent
+  },
+  {
     path: '', redirectTo: 'welcome', pathMatch: 'full'
   }
 ];
@@ -31,7 +35,8 @@ const appRoutes: Routes = [
     NavComponent,
     AboutComponent,
     WelcomeComponent,
-    XpCalculatorComponent
+    XpCalculatorComponent,
+    StarfinderComponent
   ],
   imports: [
     CommonModule,

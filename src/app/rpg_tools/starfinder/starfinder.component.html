@@ -1,0 +1,98 @@
+<div class="row">
+	<h1 class="col-xs-12 align-text-center">Starfinder Character Attribute Point Buy</h1>
+	<div class="col-xs-12">
+		<hr />
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12 col-md-3 col-md-offset-1 well">
+		<h2>Race and Theme</h2>
+		<hr/>
+
+		<form name="raceForm" id="raceForm">
+			<div class="row form-group">
+				<label class="col-xs-6 col-sm-6 col-md-4">Race: </label>
+				<div class="col-xs-6 col-sm-6 col-md-5">
+					<select class="form-control input-sm" style="margin-bottom: 5px;" name="raceSelector" [(ngModel)]="currentRace" (ngModelChange)="updateStats('raceForm', $event)">
+                        <option *ngFor="let race of races" [ngValue]="race">{{race.name}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="row form-group">
+				<label class="col-xs-6 col-sm-6 col-md-4">Theme: </label>
+				<div class="col-xs-6 col-sm-6 col-md-5">
+					<select class="form-control input-sm" style="margin-bottom: 5px;" name="themeSelector" [(ngModel)]="currentTheme" (ngModelChange)="updateStats('raceForm', $event)">
+                        <option *ngFor="let theme of themes" [ngValue]="theme">{{theme.name}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="row form-group" *ngIf="getIsHuman()">
+				<label class="col-xs-6 col-sm-6 col-md-4">Human Attribute: </label>
+				<div class="col-xs-6 col-sm-6 col-md-5">
+					<select class="form-control input-sm" style="margin-bottom: 5px;" name="humanSelector" [(ngModel)]="humanModifier" (ngModelChange)="updateStats('raceForm', $event)">
+                        <option *ngFor="let attribute of characterAttributes" [ngValue]="attribute">{{attribute.name}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="row form-group" *ngIf="getIsThemeLess()">
+				<label class="col-xs-6 col-sm-6 col-md-4">Themeless Attribute: </label>
+				<div class="col-xs-6 col-sm-6 col-md-5">
+					<select class="form-control input-sm" style="margin-bottom: 5px;" name="themelessSelector" [(ngModel)]="themelessModifier"
+					    (ngModelChange)="updateStats('raceForm', $event)">
+                        <option *ngFor="let attribute of characterAttributes" [ngValue]="attribute">{{attribute.name}}</option>
+                    </select>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div class="col-xs-12 col-md-6 col-md-offset-1 well">
+		<h2>Player Stats</h2>
+		<hr/>
+
+		<form id="statsForm" name="statsForm">
+			<div class="row">
+				<div class="col-xs-6">
+					<label>Available Points: {{availablePoints}}</label>
+                </div>
+			</div>
+			<div class="row">
+				<table class="col-xs-12">
+					<thead>
+						<tr>
+							<th style="width: 15%;" class="align-text-center">Name</th>
+							<th style="width: 15%;" class="align-text-center">Base</th>
+							<th style="width: 15%;" class="align-text-center">Points</th>
+							<th style="width: 15%;" class="align-text-center">Race</th>
+							<th style="width: 15%;" class="align-text-center">Theme</th>
+							<th style="width: 15%;" class="align-text-center">Result</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let attribute of characterAttributes">
+							<td class="right-left-padding-10">
+								<input class="form-control input-sm align-text-center" readonly [value]="attribute.name" />
+							</td>
+							<td class="right-left-padding-10">
+								<input class="form-control input-sm align-text-center" readonly value="10" />
+							</td>
+							<td class="right-left-padding-10">
+								<input class="form-control input-sm align-text-center" type="number" min="0" [max]="getMaximumPoints(attribute)" [name]="attribute.name"
+								    (ngModelChange)="updateStats('statsForm', $event)" [(ngModel)]="attribute.points" />
+							</td>
+							<td class="right-left-padding-10">
+								<input class="form-control input-sm align-text-center" readonly [value]="getRacialStat(attribute)" />
+							</td>
+							<td class="right-left-padding-10">
+								<input class="form-control input-sm align-text-center" readonly [value]="getThemeStat(attribute)" />
+							</td>
+							<td class="right-left-padding-10">
+								<input class="form-control input-sm align-text-center" readonly [value]="getComputedStat(attribute)" />
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</form>
+	</div>
+</div>
