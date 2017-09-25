@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MonsterXP } from '../../shared/monsterXP';
+import { MonsterXP } from './monsterXP';
 import { Globals } from '../../shared/globals';
 import { Title } from '@angular/platform-browser';
 
@@ -16,7 +16,7 @@ export class XpCalculatorComponent implements OnInit {
 
     constructor(private _titleService: Title) {
         this.globals = new Globals();
-        this.templateMonster = this.globals.dnd5thMonsterExperience[0];
+        this.templateMonster = MonsterXP.dnd5thMonsterExperience[0];
         this.playerCount = 4;
         this.currentMonsters = [];
         this.playerXp = 0;
@@ -78,6 +78,10 @@ export class XpCalculatorComponent implements OnInit {
         }
 
         this.playerXp = this.totalXp / this.playerCount;
+    }
+
+    getMonsterXPList(): Array<MonsterXP> {
+        return MonsterXP.dnd5thMonsterExperience;
     }
 }
 

@@ -37,7 +37,7 @@
                                 </td>
                                 <td class="right-left-padding-10">
                                     <select class="form-control input-sm" style="margin-bottom: 5px;" [name]="monster.MonsterId" [ngModel]="monster.XpInfo" (ngModelChange)="updatePlayersXP('monstersForm', $event, monster)">
-                                        <option *ngFor="let challenge of globals.dnd5thMonsterExperience" [ngValue]="challenge">{{challenge.challengeRating}}</option>
+                                        <option *ngFor="let challenge of getMonsterXPList()" [ngValue]="challenge">{{challenge.challengeRating}}</option>
                                     </select>
                                 </td>
                                 <td class="right-left-padding-10">
