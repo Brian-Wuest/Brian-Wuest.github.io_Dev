@@ -82,8 +82,8 @@ export class StarfinderComponent implements OnInit {
             new CharacterAttribute('STR', 0, 0, 0),
             new CharacterAttribute('DEX', 0, 0, 0),
             new CharacterAttribute('CON', 0, 0, 0),
-            new CharacterAttribute('WIS', 0, 0, 0),
             new CharacterAttribute('INT', 0, 0, 0),
+            new CharacterAttribute('WIS', 0, 0, 0),
             new CharacterAttribute('CHR', 0, 0, 0)
         ];
     }
