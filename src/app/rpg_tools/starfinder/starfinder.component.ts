@@ -17,8 +17,8 @@ export class StarfinderComponent implements OnInit {
     characterAttributes: Array<CharacterAttribute>;
     currentRace: Race;
     currentTheme: Theme;
-    humanModifier: AttributeModifier;
-    themelessModifier: AttributeModifier;
+    humanModifier: CharacterAttribute;
+    themelessModifier: CharacterAttribute;
     availablePoints: number;
 
     constructor() {
@@ -98,10 +98,10 @@ export class StarfinderComponent implements OnInit {
 
     getRacialStat(attribute: CharacterAttribute): number {
         if (this.currentRace) {
-            if (this.getIsHuman() && this.humanModifier.attributeName === attribute.name) {
+            if (this.getIsHuman() && this.humanModifier && this.humanModifier.name === attribute.name) {
                 return 2;
             }
-            else {
+            else if (this.currentRace.modifiers) {
                 for (const modifier of this.currentRace.modifiers) {
                     if (modifier.attributeName === attribute.name) {
                         return modifier.value;
@@ -115,10 +115,10 @@ export class StarfinderComponent implements OnInit {
 
     getThemeStat(attribute: CharacterAttribute): number {
         if (this.currentTheme) {
-            if (this.getIsThemeLess() && this.themelessModifier.attributeName === attribute.name) {
+            if (this.getIsThemeLess() && this.themelessModifier && this.themelessModifier.name === attribute.name) {
                 return 1;
             }
-            else if (attribute.name === this.currentTheme.modifier.attributeName) {
+            else if (this.currentTheme.modifier && attribute.name === this.currentTheme.modifier.attributeName) {
                 return this.currentTheme.modifier.value;
             }
         }
