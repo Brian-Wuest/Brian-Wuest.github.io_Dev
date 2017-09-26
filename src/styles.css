@@ -2,7 +2,6 @@
 
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 @import "../node_modules/font-awesome/css/font-awesome.min.css";
-@import "./assets/bootswatch/slate.css";
 
 img {
 	max-width: 100%;

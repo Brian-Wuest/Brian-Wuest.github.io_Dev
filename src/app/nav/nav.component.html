@@ -2,7 +2,7 @@
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
-			<button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			<button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
                 <i class="fa fa-bars"></i>
             </button>
 			<a class="navbar-brand" routerLink="welcome">
@@ -11,7 +11,7 @@
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		<div class="collapse navbar-collapse" id="navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li>
 					<a role="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -45,7 +45,7 @@
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown" id="theme-dropdown">
+				<li class="dropdown" id="help-dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-question fa-lg">
                         </i> Help<b class="caret"></b>
@@ -65,6 +65,23 @@
 							<a routerLink="about">
                                 <i class="fa fa-info-circle fa-lg"></i> About
                             </a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown" id="theme-dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-cog fa-lg">
+						</i> Theme<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu">
+						<li *ngFor="let theme of themes">
+							<a (click)="themeClick(theme)" id="theme_{{theme.name}}">
+								<i class="fa fa-check" aria-hidden="true" *ngIf="theme.selected"></i>
+								<span [class.dropdownPadding]="!theme.selected">{{theme.name}}</span>
+							</a>
 						</li>
 					</ul>
 				</li>

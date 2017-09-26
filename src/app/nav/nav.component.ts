@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppTheme } from '../../ts/appTheme';
+import { ThemeLoader } from '../../ts/themeLoader';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -6,13 +8,18 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './nav.component.html'
 })
 export class NavComponent implements OnInit {
+  themes: Array<AppTheme>;
 
-    constructor() {
+  constructor() {
+    this.themes = ThemeLoader.instance.themes;
+  }
 
-    }
+  ngOnInit(): void {
 
-    ngOnInit(): void {
+  }
 
-    }
+  themeClick(theme: AppTheme) {
+    ThemeLoader.instance.themeClick(theme);
+  }
 
 }
