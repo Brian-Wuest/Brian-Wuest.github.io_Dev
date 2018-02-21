@@ -1,34 +1,29 @@
-<nav class="navbar navbar-inverse" id="mainNavBar">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="mainNavBar">
 	<div class="container-fluid">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+		<a class="navbar-brand" href="#" routerLink="welcome">
+			<img class="navbar-image" src="./assets/images/ProfilePic.png" alt="Home" /> 
+			Home
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false"
+		    aria-label="Toggle navigation" aria-controls="navbar-collapse-1">
                 <i class="fa fa-bars"></i>
-            </button>
-			<a class="navbar-brand" routerLink="welcome">
-				<div><img class="navbar-image" src="./assets/images/ProfilePic.png" alt="Home" /> Home</div>
-			</a>
-		</div>
+		</button>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li>
-					<a role="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<li class="nav-item dropdown">
+					<a role="button" class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         RPG Tools<b class="caret"></b>
                     </a>
-					<ul class="dropdown-menu">
-						<li>
-							<a routerLink="experience_calculator">
+					<div class="dropdown-menu">
+						<a class="dropdown-item" routerLink="experience_calculator">
                                 Experience Calculator
                             </a>
-						</li>
-						<li>
-							<a routerLink="starfinder_pointbuy">
+						<a class="dropdown-item" routerLink="starfinder_pointbuy">
 								Starfinder Point Buy
 							</a>
-						</li>
-					</ul>
+					</div>
 				</li>
 				<!-- <li>
 					<a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
@@ -44,46 +39,38 @@
 				</li> -->
 			</ul>
 
-			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown" id="help-dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+			<ul class="nav navbar-nav ml-auto">
+				<li class="nav-item dropdown" id="help-dropdown">
+					<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-question fa-lg">
                         </i> Help<b class="caret"></b>
                     </a>
-					<ul class="dropdown-menu">
-						<li class="button">
-							<a href="https://github.com/Brian-Wuest/Brian-Wuest.github.io/issues/new" target="_blank">
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="https://github.com/Brian-Wuest/Brian-Wuest.github.io/issues/new" target="_blank">
                                 <i class="fa fa-exclamation-circle fa-lg"></i> Report Issue
                             </a>
-						</li>
-						<li class="button">
-							<a href="https://github.com/Brian-Wuest/Brian-Wuest.github.io/wiki" target="_blank">
+						<a class="dropdown-item" href="https://github.com/Brian-Wuest/Brian-Wuest.github.io/wiki" target="_blank">
                                 <i class="fa fa-wikipedia-w fa-lg"></i> Open Wiki
                             </a>
-						</li>
-						<li class="button">
-							<a routerLink="about">
+						<a class="dropdown-item" href="#" routerLink="about">
                                 <i class="fa fa-info-circle fa-lg"></i> About
                             </a>
-						</li>
-					</ul>
+					</div>
 				</li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown" id="theme-dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+				<li class="nav-item dropdown" id="theme-dropdown">
+					<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 						<i class="fa fa-cog fa-lg">
 						</i> Theme<b class="caret"></b>
 					</a>
-					<ul class="dropdown-menu">
-						<li *ngFor="let theme of themes">
-							<a (click)="themeClick(theme)" id="theme_{{theme.name}}">
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="#" *ngFor="let theme of themes" (click)="themeClick(theme)" id="theme_{{theme.name}}">
 								<i class="fa fa-check" aria-hidden="true" *ngIf="theme.selected"></i>
 								<span [class.dropdownPadding]="!theme.selected">{{theme.name}}</span>
 							</a>
-						</li>
-					</ul>
+					</div>
 				</li>
 			</ul>
 		</div>

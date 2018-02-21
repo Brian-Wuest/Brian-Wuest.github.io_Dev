@@ -54,7 +54,7 @@ label {
     Updating Navbar collapse for small devices.
 */
 
-@media (max-width: 991px) {
+/* @media (max-width: 991px) {
 	.navbar-header {
 		float: none;
 	}
@@ -82,7 +82,7 @@ label {
 		padding-top: 10px;
 		padding-bottom: 10px;
 	}
-}
+} */
 
 .carousel-image {
     max-height: 350px;
@@ -94,4 +94,12 @@ label {
         max-height: 350px;
         max-width: 300px;
     }
+}
+
+.navbar {
+	margin-bottom: 20px;
+}
+
+.card {
+	margin-bottom: 20px;
 }
