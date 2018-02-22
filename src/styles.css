@@ -45,10 +45,13 @@ label {
 }
 
 .right-left-padding-10 {
-	padding-right: 10px;
-	padding-left: 10px;
+	padding-right: 10px !important;
+	padding-left: 10px !important;
 }
 
+.card-body {
+	padding-top: 0px !important;
+}
 
 /*
     Updating Navbar collapse for small devices.
@@ -102,4 +105,17 @@ label {
 
 .card {
 	margin-bottom: 20px;
+}
+
+.no-wrap {
+	word-wrap: normal;
+}
+
+.form-control.input-sm {
+	padding-right: 0px !important;
+	padding-left: 0px !important;
+}
+
+.pad-top-5 {
+	padding-top: 5px;
 }

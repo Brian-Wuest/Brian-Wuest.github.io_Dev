@@ -61,12 +61,12 @@
 
 			<ul class="nav navbar-nav navbar-right">
 				<li class="nav-item dropdown" id="theme-dropdown">
-					<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 						<i class="fa fa-cog fa-lg">
 						</i> Theme<b class="caret"></b>
 					</a>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="#" *ngFor="let theme of themes" (click)="themeClick(theme)" id="theme_{{theme.name}}">
+						<a class="dropdown-item" *ngFor="let theme of themes" (click)="themeClick(theme)" id="theme_{{theme.name}}">
 								<i class="fa fa-check" aria-hidden="true" *ngIf="theme.selected"></i>
 								<span [class.dropdownPadding]="!theme.selected">{{theme.name}}</span>
 							</a>
