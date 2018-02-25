@@ -81,7 +81,7 @@ export class ThemeLoader {
                     }
                 }
             } else {
-                this.setTheme(this.themes[5]);
+                this.setTheme(this.themes[0]);
             }
         }
     }
