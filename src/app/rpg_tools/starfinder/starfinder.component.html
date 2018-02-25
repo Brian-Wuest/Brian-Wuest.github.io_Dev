@@ -7,16 +7,15 @@
 <div class="row">
 	<div class="col-12 col-md-5">
 		<div class="card">
-			<div class="card-title align-text-center">
-				<h2>Race and Theme</h2>
-				<hr/>
+			<div class="card-header align-text-center">
+				<div>Race and Theme</div>
 			</div>
 
 			<form class="card-body" name="raceForm" id="raceForm">
 				<div class="row form-group">
 					<label class="col-6 col-sm-6 col-md-4">Race: </label>
 					<div class="col-6 col-sm-6 col-md-8">
-						<select class="form-control input-sm" style="margin-bottom: 5px;" name="raceSelector" [(ngModel)]="currentRace" (ngModelChange)="updateStats('raceForm', $event)">
+						<select class="form-control form-control-sm" style="margin-bottom: 5px;" name="raceSelector" [(ngModel)]="currentRace" (ngModelChange)="updateStats('raceForm', $event)">
                         <option *ngFor="let race of races" [ngValue]="race">{{race.name}}</option>
                     </select>
 					</div>
@@ -24,7 +23,7 @@
 				<div class="row form-group">
 					<label class="col-6 col-sm-6 col-md-4">Theme: </label>
 					<div class="col-6 col-sm-6 col-md-8">
-						<select class="form-control input-sm" style="margin-bottom: 5px;" name="themeSelector" [(ngModel)]="currentTheme" (ngModelChange)="updateStats('raceForm', $event)">
+						<select class="form-control form-control-sm" style="margin-bottom: 5px;" name="themeSelector" [(ngModel)]="currentTheme" (ngModelChange)="updateStats('raceForm', $event)">
                         <option *ngFor="let theme of themes" [ngValue]="theme">{{theme.name}}</option>
                     </select>
 					</div>
@@ -32,7 +31,7 @@
 				<div class="row form-group" *ngIf="getIsHuman()">
 					<label class="col-6 col-sm-6 col-md-4">Human Attribute: </label>
 					<div class="col-6 col-sm-6 col-md-8">
-						<select class="form-control input-sm" style="margin-bottom: 5px;" name="humanSelector" [(ngModel)]="humanModifier" (ngModelChange)="updateStats('raceForm', $event)">
+						<select class="form-control form-control-sm" style="margin-bottom: 5px;" name="humanSelector" [(ngModel)]="humanModifier" (ngModelChange)="updateStats('raceForm', $event)">
                         <option *ngFor="let attribute of characterAttributes" [ngValue]="attribute">{{attribute.name}}</option>
                     </select>
 					</div>
@@ -40,7 +39,7 @@
 				<div class="row form-group" *ngIf="getIsThemeLess()">
 					<label class="col-6 col-sm-6 col-md-4 no-wrap">Themeless Attribute: </label>
 					<div class="col-6 col-sm-6 col-md-8">
-						<select class="form-control input-sm" style="margin-bottom: 5px;" name="themelessSelector" [(ngModel)]="themelessModifier"
+						<select class="form-control form-control-sm" style="margin-bottom: 5px;" name="themelessSelector" [(ngModel)]="themelessModifier"
 						    (ngModelChange)="updateStats('raceForm', $event)">
                         <option *ngFor="let attribute of characterAttributes" [ngValue]="attribute">{{attribute.name}}</option>
                     </select>
@@ -52,9 +51,8 @@
 
 	<div class="col-12 col-md-6 offset-md-1">
 		<div class="card">
-			<div class="card-title align-text-center">
-				<h2>Player Stats</h2>
-				<hr/>
+			<div class="card-header align-text-center">
+				<div>Player Stats</div>
 			</div>
 
 			<form class="card-body" id="statsForm" name="statsForm">
@@ -73,23 +71,23 @@
 				</div>
 				<div class="row pad-top-5" *ngFor="let attribute of characterAttributes">
 					<div class="col-2 right-left-padding-10">
-						<input class="form-control input-sm align-text-center" readonly [value]="attribute.name" />
+						<input class="form-control form-control-sm align-text-center" readonly [value]="attribute.name" />
 					</div>
 					<div class="col-2 right-left-padding-10">
-						<input class="form-control input-sm align-text-center" readonly value="10" />
+						<input class="form-control form-control-sm align-text-center" readonly value="10" />
 					</div>
 					<div class="col-2 right-left-padding-10">
-						<input class="form-control input-sm align-text-center" type="number" min="0" [max]="getMaximumPoints(attribute)" [name]="attribute.name"
+						<input class="form-control form-control-sm align-text-center" type="number" min="0" [max]="getMaximumPoints(attribute)" [name]="attribute.name"
 						    (ngModelChange)="updateStats('statsForm', $event)" [(ngModel)]="attribute.points" />
 					</div>
 					<div class="col-2 right-left-padding-10">
-						<input class="form-control input-sm align-text-center" readonly [value]="getRacialStat(attribute)" />
+						<input class="form-control form-control-sm align-text-center" readonly [value]="getRacialStat(attribute)" />
 					</div>
 					<div class="col-2 right-left-padding-10">
-						<input class="form-control input-sm align-text-center" readonly [value]="getThemeStat(attribute)" />
+						<input class="form-control form-control-sm align-text-center" readonly [value]="getThemeStat(attribute)" />
 					</div>
 					<div class="col-2 right-left-padding-10">
-						<input class="form-control input-sm align-text-center" readonly [value]="getComputedStat(attribute)" />
+						<input class="form-control form-control-sm align-text-center" readonly [value]="getComputedStat(attribute)" />
 					</div>
 				</div>
 			</form>

@@ -13,20 +13,8 @@ export class ThemeLoader {
         this.supportsStorage = this.globals.getSupportsHtml5Storage();
 
         this.themes = [
-            new AppTheme('Cerulean', '/assets/bootswatch/cerulean.css', false),
-            new AppTheme('Cosmo', '/assets/bootswatch/cosmo.css', false),
-            new AppTheme('Cyborg', '/assets/bootswatch/cyborg.css', false),
-            new AppTheme('Darkly', '/assets/bootswatch/darkly.css', false),
-            new AppTheme('Flatly', '/assets/bootswatch/flatly.css', false),
-            new AppTheme('Lumen', '/assets/bootswatch/lumen.css', false),
-            new AppTheme('Materia', '/assets/bootswatch/Materia.css', false),
-            new AppTheme('Pulse', '/assets/bootswatch/pulse.css', false),
-            new AppTheme('Slate', '/assets/bootswatch/slate.css', false),
-            new AppTheme('Solar', '/assets/bootswatch/solar.css', false),
-            new AppTheme('Spacelab', '/assets/bootswatch/spacelab.css', false),
-            new AppTheme('Superhero', '/assets/bootswatch/superhero.css', false),
-            new AppTheme('United', '/assets/bootswatch/united.css', false),
-            new AppTheme('Yeti', '/assets/bootswatch/yeti.css', false)
+            new AppTheme('Dark', '/assets/bootswatch/slate.css', false),
+            new AppTheme('Light', '/assets/bootswatch/spacelab.css', false)
         ];
     }
 
@@ -46,9 +34,9 @@ export class ThemeLoader {
                 }
             }
             else {
-                linkElement.href = this.themes[5].href;
-                localStorage.theme = this.themes[5].name;
-                this.themes[5].selected = true;
+                linkElement.href = this.themes[0].href;
+                localStorage.theme = this.themes[0].name;
+                this.themes[0].selected = true;
             }
 
             window.document.head.appendChild(linkElement);

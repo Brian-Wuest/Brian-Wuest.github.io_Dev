@@ -7,32 +7,31 @@
 <div class="row">
 	<div class="col-12 col-md-5">
 		<div class="card">
-			<div class="card-title">
-				<h2>Number of Monsters and Challenge Rating</h2>
-				<hr/>
+			<div class="card-header">
+				Number of Monsters and Challenge Rating
 			</div>
 			<div class="card-body">
-				<form name="monstersForm" id="monstersForm">
+				<form name="monstersForm" class="border border-dark rounded bg-secondary" id="monstersForm">
 					<table class="col-12">
 						<thead>
 							<tr>
 								<th style="width: 25%;"></th>
-								<th style="width: 33%;" class="align-text-center">Challenge Rating</th>
-								<th style="width: 33%;" class="align-text-center">Count</th>
+								<th style="width: 33%;" class="align-text-center text-light">Challenge Rating</th>
+								<th style="width: 33%;" class="align-text-center text-light">Count</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr *ngFor="let monster of currentMonsters">
 								<td class="right-left-padding-10">
-									<button class="btn btn-default" style="margin-bottom: 5px;" (click)="removeMonster(monster)">Remove</button>
+									<button class="btn btn-primary btn-md" style="margin-bottom: 5px;" (click)="removeMonster(monster)">Remove</button>
 								</td>
 								<td class="right-left-padding-10">
-									<select class="form-control input-sm" style="margin-bottom: 5px;" [name]="monster.MonsterId" [ngModel]="monster.XpInfo" (ngModelChange)="updatePlayersXP('monstersForm', $event, monster)">
+									<select class="form-control form-control-sm" style="margin-bottom: 5px;" [name]="monster.MonsterId" [ngModel]="monster.XpInfo" (ngModelChange)="updatePlayersXP('monstersForm', $event, monster)">
                                         <option *ngFor="let challenge of getMonsterXPList()" [ngValue]="challenge">{{challenge.challengeRating}}</option>
                                     </select>
 								</td>
 								<td class="right-left-padding-10">
-									<input [name]="monster.MonsterId + 'monsterCount'" class="form-control input-sm" style="margin-bottom: 5px;" type="number"
+									<input [name]="monster.MonsterId + 'monsterCount'" class="form-control form-control-sm" style="margin-bottom: 5px;" type="number"
 									    min="0" max="100" [(ngModel)]="monster.MonsterCount" (ngModelChange)="updatePlayersXP('monstersForm')" />
 								</td>
 							</tr>
@@ -41,7 +40,7 @@
 				</form>
 				<div class="row">
 					<div class="col-3 col-md-2">
-						<button class="btn btn-default" style="margin-top: 10px;" (click)="addMonster()">Add Monster</button>
+						<button class="btn btn-primary" style="margin-top: 10px;" (click)="addMonster()">Add Monster</button>
 					</div>
 				</div>
 			</div>
@@ -50,16 +49,15 @@
 
 	<div class="col-12 col-md-6 offset-md-1">
 		<div class="card">
-			<div class="card-title">
+			<div class="card-header">
 				<!--This is for the number of players and total experience.-->
-				<h2>Player Count and Calculated Experience</h2>
-				<hr/>
+				Player Count and Calculated Experience
 			</div>
 			<form class="card-body" name="playersForm" id="playersForm">
 				<div class="row form-group">
-					<label class="col-6 col-sm-6 col-md-4">Player Count: </label>
+					<label class="col-6 col-sm-6 col-md-4 form-control-label">Player Count: </label>
 					<div class="col-6">
-						<input name="playerCount" class="form-control input-sm" type="number" min="0" max="100" step="1" (ngModelChange)="updatePlayersXP('playersForm')"
+						<input name="playerCount" class="form-control form-control-sm" type="number" min="0" max="100" step="1" (ngModelChange)="updatePlayersXP('playersForm')"
 						    [(ngModel)]="playerCount" />
 					</div>
 				</div>
@@ -67,14 +65,14 @@
 				<div class="row form-group">
 					<label class="col-6 col-sm-6 col-md-4 no-wrap">Per-Player Experience: </label>
 					<div class="col-6">
-						<input class="form-control input-sm" readonly [value]="playerXp | number: '1.0-0'" />
+						<input class="form-control form-control-sm" readonly [value]="playerXp | number: '1.0-0'" />
 					</div>
 				</div>
 
 				<div class="row form-group">
 					<label class="col-6 col-sm-6 col-md-4 no-wrap">Total Experience: </label>
 					<div class="col-6">
-						<input class="form-control input-sm" readonly [value]="totalXp | number: '1.0-0'" />
+						<input class="form-control form-control-sm" readonly [value]="totalXp | number: '1.0-0'" />
 					</div>
 				</div>
 			</form>
