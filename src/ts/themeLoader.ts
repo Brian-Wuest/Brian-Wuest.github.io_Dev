@@ -24,7 +24,9 @@ export class ThemeLoader {
             linkElement.rel = 'stylesheet';
             linkElement.id = 'selectedTheme';
 
-            if (localStorage.theme) {
+            if (localStorage.theme
+                && (localStorage.theme === 'Dark'
+                    || localStorage.theme === 'Light')) {
                 for (const theme of this.themes) {
                     if (theme.name === localStorage.theme) {
                         linkElement.href = theme.href;
