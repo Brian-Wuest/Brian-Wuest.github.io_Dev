@@ -92,3 +92,12 @@ label {
 .text-offwhite {
 	color: #e9ecef !important;
 }
+
+.tooltip {
+	width: 345px !important;
+}
+
+.tooltip-inner {
+	max-width: 345px !important;
+	text-align: start !important;
+}
