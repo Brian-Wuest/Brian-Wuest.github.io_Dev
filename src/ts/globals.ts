@@ -27,7 +27,7 @@ export class Globals {
      * @param {string} formId - The form id to find on the page.
      */
     validateForm(formId: string): boolean {
-        const form = document.getElementById(formId) as HTMLFormElement;
+        const form: HTMLFormElement = document.getElementById(formId) as HTMLFormElement;
         let test = true;
 
         if (form) {
@@ -38,6 +38,22 @@ export class Globals {
             }
 
             return test;
+        }
+    }
+
+    /**
+     * Sets the html5 validity of a form.
+     * @param {string} formId The form to set the validity for.
+     * @param {boolean} validForm: True if this form should be set to valid, otherwise false.
+     */
+    setFormElementValidity(formId: string, controlName: string, validForm: boolean) {
+        const form: HTMLFormElement = document.getElementById(formId) as HTMLFormElement;
+
+        if (form) {
+            const element: Element = form.elements.namedItem(controlName) as Element;
+
+            if (element) {
+            }
         }
     }
 

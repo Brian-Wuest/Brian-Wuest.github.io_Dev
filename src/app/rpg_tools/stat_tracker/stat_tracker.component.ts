@@ -160,7 +160,7 @@ export class StatTrackerComponent implements OnInit {
      */
     addStat() {
         if (this.selectedCharacter) {
-            const stat: Stat = new Stat('New Stat', 0);
+            const stat: Stat = new Stat('New Stat', 0, -999, 9999);
             this.selectedCharacter.stats.push(stat);
             this.updateSelectedStat(stat);
             this.saveCharacters();
@@ -200,6 +200,15 @@ export class StatTrackerComponent implements OnInit {
         }
         else if (eventKey === 'value') {
             this.selectedStat.value = eventData;
+        }
+        else if (eventKey === 'min') {
+            const minValue: number = eventData;
+
+            if (minValue > this.selectedStat.maxValue) {
+            }
+        }
+        else if (eventKey === 'max') {
+
         }
 
         this.saveCharacters();

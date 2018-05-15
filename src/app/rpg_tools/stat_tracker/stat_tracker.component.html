@@ -62,8 +62,16 @@
 				<div class="row">
 					<div class="col-12">
 						<div class="list-group">
-							<button type="button" *ngFor="let stat of selectedCharacter?.stats" (click)="updateSelectedStat(stat);" class="list-group-item list-group-item-action"
-							    [ngClass]="{'active': stat.selected}">{{stat.name}}: {{stat.value}}</button>
+							<div *ngFor="let stat of selectedCharacter?.stats" (click)="updateSelectedStat(stat);" class="list-group-item list-group-item-action"
+							    [ngClass]="{'active': stat.selected}">
+								<div class="row">
+									<div class="col-6"><span>{{stat.name}}: {{stat.value}}</span></div>
+									<div class="col-3 offset-md-1 button-group">
+										<button type="button" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></button>
+										<button type="button" class="btn btn-primary btn-sm"><i class="fa fa-minus"></i></button>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -90,17 +98,37 @@
 
 			<form class="card-body" id="updateStatsForm" name="updateStatsForm">
 				<div class="row form-group">
-					<label class="col-4 no-wrap">Stat Name:</label>
+					<label class="col-4 no-wrap">Name:</label>
 					<div class="col-6">
 						<input type="text" name="statName" class="form-control form-control-sm" required [ngModel]="selectedStat?.name" (ngModelChange)="checkUpdateForm('updateStatsForm', $event, 'name')"
 						    [disabled]='selectedStat === null' />
 					</div>
 				</div>
+
 				<div class="row form-group">
-					<label class="col-4 no-wrap">State Value:</label>
+					<label class="col-4 no-wrap">Value:</label>
 					<div class="col-6">
-						<input type="number" min="-999" max="9999" step="0.1" name="statValue" class="form-control form-control-sm" [ngModel]="selectedStat?.value"
-						    (ngModelChange)="checkUpdateForm('updateStatsForm', $event, 'value')" [disabled]='selectedStat === null' />
+						<input type="number" [min]="selectedStat?.minValue" [max]="selectedStat?.maxValue" step="0.1" name="statValue" class="form-control form-control-sm"
+						    [ngModel]="selectedStat?.value" (ngModelChange)="checkUpdateForm('updateStatsForm', $event, 'value')" [disabled]='selectedStat === null'
+						/>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<label class="col-4 no-wrap">Min Value:</label>
+					<div class="col-6">
+						<input type="number" min="-9999" [max]="selectedStat?.maxValue" step="0.1" name="minValue" class="form-control form-control-sm"
+						    [ngModel]="selectedStat?.minValue" (ngModelChange)="checkUpdateForm('updateStatsForm', $event, 'min')" [disabled]='selectedStat === null'
+						/>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<label class="col-4 no-wrap">Max Value:</label>
+					<div class="col-6">
+						<input type="number" [min]="selectedStat?.minValue" max="9999" step="0.1" name="maxValue" class="form-control form-control-sm"
+						    [ngModel]="selectedStat?.maxValue" (ngModelChange)="checkUpdateForm('updateStatsForm', $event, 'max')" [disabled]='selectedStat === null'
+						/>
 					</div>
 				</div>
 			</form>

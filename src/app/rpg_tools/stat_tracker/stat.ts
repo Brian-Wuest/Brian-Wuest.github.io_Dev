@@ -6,12 +6,12 @@ import { Globals } from '../../../ts/globals';
 export class Stat {
 
     /**
-     * Determines if this character has been selected.
+     * Determines if this stat has been selected.
      */
     public selected: boolean;
 
     /**
-     * The id of this character.
+     * The id of this stat.
      */
     public id: string;
 
@@ -20,7 +20,7 @@ export class Stat {
      * @param {string} name The name of the statistic.
      * @param {number} value The value of the statistic.
      */
-    constructor(public name: string, public value: number) {
+    constructor(public name: string, public value: number, public minValue: number, public maxValue: number) {
         this.selected = false;
 
         const globals = new Globals();
