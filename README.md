@@ -21,3 +21,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Production build
 
 run `.\prod_build.ps1` for production builds
+
+Font Icons:
+    This site uses Font-Awesome and RPG-Awesome font icons.
+    Font-Awesome Reference Site: <https://fontawesome.com/icons?d=listing&m=free>
+    RPG-Awesome Reference Site: <https://nagoshiashumari.github.io/Rpg-Awesome/>

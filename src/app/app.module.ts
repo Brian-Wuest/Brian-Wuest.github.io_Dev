@@ -14,6 +14,7 @@ import { WelcomeComponent} from './welcome/welcome.component';
 import { XpCalculatorComponent } from './rpg_tools/xp_calculator/xp_calculator.component';
 import { StarfinderComponent } from './rpg_tools/starfinder/starfinder.component';
 import { StatTrackerComponent } from './rpg_tools/stat_tracker/stat_tracker.component';
+import { EncounterTrackerComponent } from './rpg_tools/encounter_tracker/encounter_tracker.component';
 
 const appRoutes: Routes = [
   {
@@ -32,6 +33,9 @@ const appRoutes: Routes = [
     path: 'stat_tracker', component: StatTrackerComponent
   },
   {
+    path: 'encounter_tracker', component: EncounterTrackerComponent
+  },
+  {
     path: '', redirectTo: 'welcome', pathMatch: 'full'
   },
   {
@@ -47,7 +51,8 @@ const appRoutes: Routes = [
     WelcomeComponent,
     XpCalculatorComponent,
     StarfinderComponent,
-    StatTrackerComponent
+    StatTrackerComponent,
+    EncounterTrackerComponent
   ],
   imports: [
     CommonModule,
