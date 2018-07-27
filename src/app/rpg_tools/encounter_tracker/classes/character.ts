@@ -1,10 +1,12 @@
 import { CharacterType } from "./character_type";
 import { MonsterXP } from "../../../shared/monsterXP";
+import { ChangeNumberComponent } from "../../../shared/change_number_modal/change_number";
 
 /**
  * This class represents a character.
  */
 export class Character {
+	//#region Properties
 	/**
 	 * The type of this character.
 	 */
@@ -55,6 +57,8 @@ export class Character {
 	 */
 	public IsDead: boolean;
 
+	//#endregion Properties
+
 	constructor(name: string) {
 		this.Name = name;
 		this.Health = 0;
@@ -66,5 +70,28 @@ export class Character {
 		this.HasStatus = false;
 		this.Status = "";
 		this.IsDead = false;
+	}
+
+	/**
+	 * Opens the number change modal for a specific property with an optional callback.
+	 * @param item The value to pass to the modal.
+	 * @param property The property to update when the modal returns successfully.
+	 * @param callBack The callback to run when hte modal returns successfully.
+	 */
+	openNumberChangeModal(item: number, property: string, callBack?: Function) {
+		event.stopPropagation();
+		const self = this;
+
+		ChangeNumberComponent.open(item, property).then(value => {
+			const originalValue = self[property];
+
+			if (originalValue !== value) {
+				self[property] = value;
+			}
+
+			if (callBack) {
+				callBack(self);
+			}
+		});
 	}
 }

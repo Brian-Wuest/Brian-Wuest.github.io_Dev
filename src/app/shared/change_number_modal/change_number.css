@@ -1,0 +1,14 @@
+.row {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.changeNumberField {
+    width: 100%;
+    text-align: right;
+}
+
+.modal-header,
+.modal-footer {
+    padding: .5em;
+}
