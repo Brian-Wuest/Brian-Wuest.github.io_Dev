@@ -1,6 +1,7 @@
 import { CharacterType } from "./character_type";
 import { MonsterXP } from "../../../shared/monsterXP";
 import { ChangeNumberComponent } from "../../../shared/change_number_modal/change_number";
+import { CharacterStatus } from "./character_status";
 
 /**
  * This class represents a character.
@@ -50,7 +51,7 @@ export class Character {
 	/**
 	 * The status of this character.
 	 */
-	public Status: String;
+	public Status: CharacterStatus;
 
 	/**
 	 * Determines if this character is dead or dying.
@@ -68,7 +69,7 @@ export class Character {
 		this.Category = CharacterType.Hero;
 		this.ChallengeRating = MonsterXP.Zero();
 		this.HasStatus = false;
-		this.Status = "";
+		this.Status = CharacterStatus.Normal;
 		this.IsDead = false;
 	}
 
@@ -78,7 +79,7 @@ export class Character {
 	 * @param property The property to update when the modal returns successfully.
 	 * @param callBack The callback to run when hte modal returns successfully.
 	 */
-	openNumberChangeModal(item: number, property: string, callBack?: Function) {
+	openNumberChangeModal(item: number, property: string, callBack?: Function, parentComponent?: any) {
 		event.stopPropagation();
 		const self = this;
 
@@ -90,8 +91,13 @@ export class Character {
 			}
 
 			if (callBack) {
-				callBack(self);
+				callBack(parentComponent);
 			}
 		});
+	}
+
+	updateStatus(status: CharacterStatus) {
+		event.stopPropagation();
+		this.Status = status;
 	}
 }

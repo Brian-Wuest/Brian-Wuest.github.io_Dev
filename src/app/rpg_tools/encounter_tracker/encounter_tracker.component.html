@@ -1,34 +1,105 @@
-<div class="list-group">
-    <!--     <button type="button" class="list-group-item list-group-item-action" onclick="alert('clicked outer button');">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-5">
-                    This is a test of a button in a button.
+<ng-template #pageHelpContent>
+    <p>Save characters to your computer using the download button.</p>
+    <p>Upload saved encounters (or heros) using the upload button.
+        <strong>
+            <u>Note:</u>
+        </strong> that this will remove the current encounter information.
+    </p>
+    <p>Use the add button to add new heros, npcs or enemies to the encounter.</p>
+</ng-template>
+<div class="row">
+    <h1 class="col-12 align-text-center">Encounter Tracker
+        <i class="fas fa-question fa-lg text-info" [ngbTooltip]="pageHelpContent" placement="bottom" style="font-size: x-large" tabindex="0"
+            triggers="hover:click:blur"></i>
+    </h1>
+    <div class="col-12">
+        <hr />
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 col-md-10 offset-md-1">
+        <div class="card">
+            <div class="card-header no-pad-right-left">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-4 text-center">
+                            Initiative Order
+                        </div>
+                        <div class="col-8">
+                            <div class="float-right">
+                                <input #fileUpload type="file" (click)="fileUpload.value = null" (change)="uploadCharacters(fileUpload.files, fileUpload)" style="display:none" accept="json/*.json">
+                                <button type="button" class="btn btn-primary btn-md" (click)="addNewCharacter();">
+                                    <i class="fas fa-plus fa-lg"></i>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-md marg-left-5" (click)="saveCharacters();">
+                                    <i class="fas fa-save fa-lg"></i>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-md marg-left-5" (click)="downloadCharacters();">
+                                    <i class="fas fa-download fa-lg"></i>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-md marg-left-5" (click)="fileUpload.click();">
+                                    <i class="fas fa-upload fa-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <button class="col-2 btn btn-default" onclick="event.stopPropagation(); alert('clicked inner button');">
-                    test button
-                </button>
+            </div>
+            <div class="card-body no-pad-right-left">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="list-group">
+                                <button type="button" *ngFor='let character of characters' class="list-group-item list-group-item-action" (click)="detailsButtonClicked(character);">
+                                    <div class="container-fluid">
+                                        <div class="row pad-top-10">
+                                            <div class="col-1">
+                                                <i *ngIf="character.Category == characterType.Hero" class="ra ra-knight-helmet ra-2x"></i>
+                                                <i *ngIf="character.Category == characterType.Enemy" class="ra ra-helmet ra-2x"></i>
+                                                <i *ngIf="character.Category == characterType.NPC" class="fas fa-user fa-2x"></i>
+                                            </div>
+                                            <div class="col-10 col-sm-6">
+                                                <span>{{character.Name}} (</span>
+                                                <span>{{character.ChallengeRating.challengeRating}})</span>
+                                            </div>
+                                        </div>
+                                        <div class="row pad-top-10">
+                                            <button type="button" class="btn btn-primary btn-md" (click)="character.openNumberChangeModal(character.ArmorClass, 'ArmorClass');">
+                                                <span class="fa-stack fa-1x">
+                                                    <i class="fa icon-shield fa-stack-2x text-info"></i>
+                                                    <span class="fa fa-stack-1x">{{character.ArmorClass}}</span>
+                                                </span>
+                                            </button>
+                                            <button type="button" class="btn btn-primary btn-md marg-left-5" (click)="character.openNumberChangeModal(character.Health, 'Health');">
+                                                <span class="fa-stack fa-1x">
+                                                    <i class="far fa-heart fa-stack-2x text-danger"></i>
+                                                    <span class="fa fa-stack-1x">{{character.Health}}</span>
+                                                </span>
+                                            </button>
+                                            <button type="button" class="btn btn-primary btn-md marg-left-5" (click)="character.openNumberChangeModal(character.Initiative, 'Initiative', sortCharacters, this);">
+                                                <i class="fas fa-walking fa-2x text-info"></i>
+                                                <span class="center-icon-text">&nbsp;{{character.Initiative}}</span>
+                                            </button>
+
+                                            <div ngbDropdown #statusDrop="ngbDropdown" class="d-inline-block marg-left-5">
+                                                <button class="btn btn-primary btn-md" id="dropdownStatus" (click)="characterDropDownClicked($event);" ngbDropdownToggle>Status: {{character.Status}}</button>
+                                                <div ngbDropdownMenu aria-labelledby="dropdownStatus">
+                                                    <button *ngFor="let status of characterStatuses" (click)="character.updateStatus(status); statusDrop.close();" class="dropdown-item">{{status}}</button>
+                                                </div>
+                                            </div>
+
+                                            <button type="button" class="btn btn-primary btn-md marg-left-5" (click)="$event.stopPropagation(); detailsButtonClicked(character);">
+                                                <i class="fas fa-edit fa-2x"></i>
+                                                <span class="center-icon-text">&nbsp;Edit</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </button> -->
-    <!-- <i class="ra ra-knight-helmet ra-2x"></i> -->
-    <!-- <i class="ra ra-helmet ra-2x"></i> -->
-    <button type="button" *ngFor='let character of characters' class="list-group-item list-group-item-action">
-        <button type="button" class="btn btn-primary btn-md" (click)="character.openNumberChangeModal(character.ArmorClass, 'ArmorClass');">
-            <span class="fa-stack fa-1x">
-                <i class="fa icon-shield fa-stack-2x text-info"></i>
-                <span class="fa fa-stack-1x">{{character.ArmorClass}}</span>
-            </span>
-        </button>
-        <button type="button" class="btn btn-primary btn-md" (click)="character.openNumberChangeModal(character.Health, 'Health');">
-            <span class="fa-stack fa-1x">
-                <i class="far fa-heart fa-stack-2x text-danger"></i>
-                <span class="fa fa-stack-1x">{{character.Health}}</span>
-            </span>
-        </button>
-        <button type="button" class="btn btn-primary btn-md" (click)="character.openNumberChangeModal(character.Initiative, 'Initiative');">
-            <i class="fas fa-walking fa-2x text-info"></i>
-            <span class="center-icon-text">&nbsp;{{character.Initiative}}</span>
-        </button>
-    </button>
+    </div>
 </div>

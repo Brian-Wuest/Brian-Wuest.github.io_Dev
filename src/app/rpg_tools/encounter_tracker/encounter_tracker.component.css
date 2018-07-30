@@ -23,3 +23,23 @@
 	font-weight: 900;
 	vertical-align: super;
 }
+
+.list-group-item {
+	padding-right: .5em;
+	padding-left: .5em;
+}
+
+.no-pad-right-left {
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.dropdown-menu {
+	max-height: 300px;
+	overflow-y: auto;
+}
+
+.text-center {
+    display: flex;
+    align-items: center;
+}

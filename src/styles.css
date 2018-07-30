@@ -84,11 +84,29 @@ label {
 	padding-top: 5px;
 }
 
+.pad-top-10 {
+	padding-top: 10px;
+}
+
+.pad-left-5 {
+	padding-left: 5px;
+}
+
+.marg-left-5 {
+	margin-left: 5px;
+}
+
+.no-pad-right-left {
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
 .btn-md {
 	padding: 0.5rem 0.75rem !important;
     font-size: 0.8703125rem !important;
     line-height: 1.5 !important;
-    border-radius: 0.2rem !important;
+	border-radius: 0.2rem !important;
+	height: 3.25em !important;
 }
 
 .text-offwhite {
