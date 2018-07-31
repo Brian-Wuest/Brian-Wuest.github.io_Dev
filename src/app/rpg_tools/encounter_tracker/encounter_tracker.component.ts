@@ -8,6 +8,7 @@ import { ChangeNumberComponent } from "../../shared/change_number_modal/change_n
 import { MonsterXP } from "../../shared/monsterXP";
 import { CharacterStatus } from "./classes/character_status";
 import { saveAs } from "file-saver/FileSaver";
+import { CharacterDetailsComponent } from "./character_details_modal/character_details_modal";
 
 @Component({
 	templateUrl: "./encounter_tracker.component.html",
@@ -28,9 +29,9 @@ export class EncounterTrackerComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-/* 		let character: Character = new Character("Goober McCree");
+		let character: Character = new Character("Goober McCree");
 		character.ArmorClass = 14;
-		character.Category = CharacterType.Hero;
+		character.Category = this.characterType.Hero;
 		character.Health = 10;
 		character.InitiativeBonus = 2;
 		character.ChallengeRating = MonsterXP.getMonsterXpForChallengeRating(
@@ -41,14 +42,14 @@ export class EncounterTrackerComponent implements OnInit {
 
 		character = new Character("Goober McCree Jr.");
 		character.ArmorClass = 18;
-		character.Category = CharacterType.Enemy;
+		character.Category = this.characterType.Enemy;
 		character.Health = 35;
 		character.InitiativeBonus = 6;
 		character.ChallengeRating = MonsterXP.getMonsterXpForChallengeRating(
 			"4"
 		);
 
-		this.characters.push(character); */
+		this.characters.push(character);
 		this.loadCharacters();
 	}
 
@@ -74,7 +75,12 @@ export class EncounterTrackerComponent implements OnInit {
 		});
 	}
 
-	addNewCharacter() {}
+	addNewCharacter() {
+		CharacterDetailsComponent.open(null).then((data: Character) => {
+			this.characters.push(data);
+			this.saveCharacters();
+		});
+	}
 
 	/**
 	 * Saves the characters to local storage.
@@ -104,20 +110,19 @@ export class EncounterTrackerComponent implements OnInit {
 	downloadCharacters() {
 		const data = JSON.stringify(this.characters);
 		const blob = new Blob([data], { type: "application/json" });
-		/* const url = window.URL.createObjectURL(blob);
-		window.open(url); */
 		saveAs(blob, "currentEncounter.json");
 	}
 
 	uploadCharacters(fileUpload: Array<File>, other) {
 		if (fileUpload) {
 			for (const file of fileUpload) {
-				this.fileReader.onloadend = (e) => {
+				this.fileReader.onloadend = e => {
 					try {
 						const result = JSON.parse(this.fileReader.result);
 
 						if (result) {
 							this.characters = result;
+							this.saveCharacters();
 						}
 					} catch {}
 				};
@@ -127,8 +132,19 @@ export class EncounterTrackerComponent implements OnInit {
 		}
 	}
 
+	resetEncounter(refreshHealth: boolean) {}
+
 	detailsButtonClicked(character: Character) {
-		console.log("details clicked");
+		CharacterDetailsComponent.open(character).then((data: Character) => {
+			for (let i = 0; i < this.characters.length; i++) {
+				if ((this.characters[i].identifier = data.identifier)) {
+					// Same character id, update this character.
+					this.characters[i] = data;
+					this.saveCharacters();
+					break;
+				}
+			}
+		});
 	}
 
 	characterDropDownClicked(event) {

@@ -1,0 +1,25 @@
+<div class="modal-header align-text-center">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-10 col-sm-11">
+                <h4 class="modal-title">Character Details</h4>
+            </div>
+            <div class="col-2 col-sm-1">
+                <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-body">
+    <form name="detailsForm" #detailsForm="ngForm">
+        <div class="form-group">
+            <label for="characterName">Name:</label>
+            <input id="characterName" class="form-control-sm" name="characterName" type="text" [(ngModel)]="currentCharacter.Name" required>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="closeModal()">OK</button>
+</div>

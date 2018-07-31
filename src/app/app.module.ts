@@ -17,6 +17,7 @@ import { StatTrackerComponent } from "./rpg_tools/stat_tracker/stat_tracker.comp
 import { EncounterTrackerComponent } from "./rpg_tools/encounter_tracker/encounter_tracker.component";
 import { ChangeNumberComponent } from "./shared/change_number_modal/change_number";
 import { StaticRefs } from "./shared/static_refs";
+import { CharacterDetailsComponent } from "./rpg_tools/encounter_tracker/character_details_modal/character_details_modal";
 
 const appRoutes: Routes = [
 	{
@@ -65,7 +66,8 @@ const appRoutes: Routes = [
 		StarfinderComponent,
 		StatTrackerComponent,
 		EncounterTrackerComponent,
-		ChangeNumberComponent
+		ChangeNumberComponent,
+		CharacterDetailsComponent
 	],
 	imports: [
 		CommonModule,
@@ -74,7 +76,7 @@ const appRoutes: Routes = [
 		RouterModule.forRoot(appRoutes, { useHash: true }),
 		NgbModule.forRoot()
 	],
-	entryComponents: [ChangeNumberComponent],
+	entryComponents: [ChangeNumberComponent, CharacterDetailsComponent],
 	providers: [Title, NgbModal],
 	bootstrap: [AppComponent]
 })

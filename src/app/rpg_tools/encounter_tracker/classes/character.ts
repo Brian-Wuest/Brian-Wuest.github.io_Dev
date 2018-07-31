@@ -2,6 +2,7 @@ import { CharacterType } from "./character_type";
 import { MonsterXP } from "../../../shared/monsterXP";
 import { ChangeNumberComponent } from "../../../shared/change_number_modal/change_number";
 import { CharacterStatus } from "./character_status";
+import { Globals } from "../../../../ts/globals";
 
 /**
  * This class represents a character.
@@ -44,33 +45,34 @@ export class Character {
 	public Initiative: number;
 
 	/**
-	 * Determines if there is a status to show.
-	 */
-	public HasStatus: boolean;
-
-	/**
 	 * The status of this character.
 	 */
 	public Status: CharacterStatus;
 
 	/**
-	 * Determines if this character is dead or dying.
+	 * Determines if this character is a new character.
 	 */
-	public IsDead: boolean;
+	public IsNew: boolean;
+
+	/**
+	 * The unique identifier for this character.
+	 */
+	public identifier: string;
 
 	//#endregion Properties
 
 	constructor(name: string) {
+		const globals: Globals = new Globals();
 		this.Name = name;
-		this.Health = 0;
-		this.ArmorClass = 0;
+		this.Health = 1;
+		this.ArmorClass = 10;
 		this.InitiativeBonus = 0;
 		this.Initiative = 0;
 		this.Category = CharacterType.Hero;
 		this.ChallengeRating = MonsterXP.Zero();
-		this.HasStatus = false;
 		this.Status = CharacterStatus.Normal;
-		this.IsDead = false;
+		this.IsNew = true;
+		this.identifier = globals.generateGuid();
 	}
 
 	/**

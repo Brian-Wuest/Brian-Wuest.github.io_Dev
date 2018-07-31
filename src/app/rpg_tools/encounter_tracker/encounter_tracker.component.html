@@ -22,13 +22,21 @@
             <div class="card-header no-pad-right-left">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-4 text-center">
+                        <div class="col-4 offset-sm-4 justify-content-center text-center">
                             Initiative Order
                         </div>
-                        <div class="col-8">
+                        <div class="col-8 col-sm-4">
                             <div class="float-right">
-                                <input #fileUpload type="file" (click)="fileUpload.value = null" (change)="uploadCharacters(fileUpload.files, fileUpload)" style="display:none" accept="json/*.json">
-                                <button type="button" class="btn btn-primary btn-md" (click)="addNewCharacter();">
+                                <div ngbDropdown class="d-inline-block">
+                                    <button class="btn btn-primary" id="dropdownReset" ngbDropdownToggle>Reset</button>
+                                    <div ngbDropdownMenu aria-labelledby="dropdownReset">
+                                        <button class="dropdown-item" (click)="resetEncounter(false);">Remove Enemies, Keep Current Health</button>
+                                        <button class="dropdown-item" (click)="resetEncounter(true);">Remove Enemies, Fill Health</button>
+                                    </div>
+                                </div>
+                                <input #fileUpload type="file" (click)="fileUpload.value = null" (change)="uploadCharacters(fileUpload.files, fileUpload)"
+                                    style="display:none" accept="json/*.json">
+                                <button type="button" class="btn btn-primary btn-md marg-left-5" (click)="addNewCharacter();">
                                     <i class="fas fa-plus fa-lg"></i>
                                 </button>
                                 <button type="button" class="btn btn-primary btn-md marg-left-5" (click)="saveCharacters();">
@@ -52,18 +60,18 @@
                             <div class="list-group">
                                 <button type="button" *ngFor='let character of characters' class="list-group-item list-group-item-action" (click)="detailsButtonClicked(character);">
                                     <div class="container-fluid">
-                                        <div class="row pad-top-10">
-                                            <div class="col-1">
-                                                <i *ngIf="character.Category == characterType.Hero" class="ra ra-knight-helmet ra-2x"></i>
-                                                <i *ngIf="character.Category == characterType.Enemy" class="ra ra-helmet ra-2x"></i>
-                                                <i *ngIf="character.Category == characterType.NPC" class="fas fa-user fa-2x"></i>
+                                        <div class="row pad-top-10 justify-content-center">
+                                            <div class="float-left">
+                                                <i *ngIf="character.Category === characterType.Hero" class="ra ra-knight-helmet ra-2x"></i>
+                                                <i *ngIf="character.Category === characterType.Enemy" class="ra ra-helmet ra-2x"></i>
+                                                <i *ngIf="character.Category === characterType.NPC" class="fas fa-user fa-2x"></i>
                                             </div>
-                                            <div class="col-10 col-sm-6">
-                                                <span>{{character.Name}} (</span>
+                                            <span class="align-vert-super">
+                                                <span class="pad-left-5">{{character.Name}} (</span>
                                                 <span>{{character.ChallengeRating.challengeRating}})</span>
-                                            </div>
+                                            </span>
                                         </div>
-                                        <div class="row pad-top-10">
+                                        <div class="row pad-top-10 justify-content-center">
                                             <button type="button" class="btn btn-primary btn-md" (click)="character.openNumberChangeModal(character.ArmorClass, 'ArmorClass');">
                                                 <span class="fa-stack fa-1x">
                                                     <i class="fa icon-shield fa-stack-2x text-info"></i>
@@ -90,7 +98,11 @@
 
                                             <button type="button" class="btn btn-primary btn-md marg-left-5" (click)="$event.stopPropagation(); detailsButtonClicked(character);">
                                                 <i class="fas fa-edit fa-2x"></i>
-                                                <span class="center-icon-text">&nbsp;Edit</span>
+                                                <span class="align-vert-super">&nbsp;Edit</span>
+                                            </button>
+
+                                            <button type="button" class="btn btn-primary btn-md marg-left-5">
+                                                <i class="far fa-trash-alt fa-lg"></i>
                                             </button>
                                         </div>
                                     </div>
