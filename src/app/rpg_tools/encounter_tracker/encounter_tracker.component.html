@@ -3,7 +3,7 @@
     <p>Upload saved encounters (or heros) using the upload button.
         <strong>
             <u>Note:</u>
-        </strong> that this will remove the current encounter information.
+        </strong> This will remove the current encounter information.
     </p>
     <p>Use the add button to add new heros, npcs or enemies to the encounter.</p>
 </ng-template>
@@ -18,7 +18,7 @@
 </div>
 <div class="row">
     <div class="col-12 col-md-10 offset-md-1">
-        <div class="card">
+        <div class="card border-secondary">
             <div class="card-header no-pad-right-left">
                 <div class="container-fluid">
                     <div class="row">
@@ -31,7 +31,7 @@
                                     <button class="btn btn-primary" id="dropdownReset" ngbDropdownToggle>Reset</button>
                                     <div ngbDropdownMenu aria-labelledby="dropdownReset">
                                         <button class="dropdown-item" (click)="resetEncounter(false);">Remove Enemies, Keep Current Health</button>
-                                        <button class="dropdown-item" (click)="resetEncounter(true);">Remove Enemies, Fill Health</button>
+                                        <button class="dropdown-item" (click)="resetEncounter(true);">Remove Enemies, Reset Health</button>
                                     </div>
                                 </div>
                                 <input #fileUpload type="file" (click)="fileUpload.value = null" (change)="uploadCharacters(fileUpload.files, fileUpload)"
@@ -101,7 +101,11 @@
                                                 <span class="align-vert-super">&nbsp;Edit</span>
                                             </button>
 
-                                            <button type="button" class="btn btn-primary btn-md marg-left-5">
+                                            <button type="button" class="btn btn-primary btn-md marg-left-5" (click)="copyCharacter(character);">
+                                                <i class="far fa-copy fa-lg"></i>
+                                            </button>
+
+                                            <button type="button" class="btn btn-primary btn-md marg-left-5" (click)="deleteCharacter(character);">
                                                 <i class="far fa-trash-alt fa-lg"></i>
                                             </button>
                                         </div>

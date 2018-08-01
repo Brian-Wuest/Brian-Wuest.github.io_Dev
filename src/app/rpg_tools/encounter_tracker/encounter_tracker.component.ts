@@ -33,6 +33,7 @@ export class EncounterTrackerComponent implements OnInit {
 		character.ArmorClass = 14;
 		character.Category = this.characterType.Hero;
 		character.Health = 10;
+		character.InitialHealth = 10;
 		character.InitiativeBonus = 2;
 		character.ChallengeRating = MonsterXP.getMonsterXpForChallengeRating(
 			"1"
@@ -44,13 +45,15 @@ export class EncounterTrackerComponent implements OnInit {
 		character.ArmorClass = 18;
 		character.Category = this.characterType.Enemy;
 		character.Health = 35;
+		character.InitialHealth = 35;
 		character.InitiativeBonus = 6;
 		character.ChallengeRating = MonsterXP.getMonsterXpForChallengeRating(
 			"4"
 		);
 
 		this.characters.push(character);
-		this.loadCharacters();
+		// TODO: Uncomment this when ready!
+		// this.loadCharacters();
 	}
 
 	sortCharacters(selfThing) {
@@ -132,12 +135,26 @@ export class EncounterTrackerComponent implements OnInit {
 		}
 	}
 
-	resetEncounter(refreshHealth: boolean) {}
+	resetEncounter(refreshHealth: boolean) {
+		for (let i = 0; i < this.characters.length; i++) {
+			if (this.characters[i].Category === CharacterType.Enemy) {
+				this.characters.splice(i, 1);
+				i--;
+				continue;
+			} else if (refreshHealth) {
+				this.characters[i].Health = this.characters[i].InitialHealth;
+			}
+
+			this.characters[i].Initiative = 0;
+		}
+
+		this.saveCharacters();
+	}
 
 	detailsButtonClicked(character: Character) {
 		CharacterDetailsComponent.open(character).then((data: Character) => {
 			for (let i = 0; i < this.characters.length; i++) {
-				if ((this.characters[i].identifier = data.identifier)) {
+				if ((this.characters[i].identifier === data.identifier)) {
 					// Same character id, update this character.
 					this.characters[i] = data;
 					this.saveCharacters();
@@ -145,6 +162,37 @@ export class EncounterTrackerComponent implements OnInit {
 				}
 			}
 		});
+	}
+
+	deleteCharacter(character: Character) {
+		event.stopPropagation();
+
+		for (let i = 0; i < this.characters.length; i++) {
+			if (this.characters[i].identifier === character.identifier) {
+				this.characters.splice(i, 1);
+				break;
+			}
+		}
+
+		this.saveCharacters();
+	}
+
+	copyCharacter(character: Character) {
+		event.stopPropagation();
+
+		const newCharacter: Character = new Character(character.Name);
+		newCharacter.ArmorClass = character.ArmorClass;
+		newCharacter.Category = character.Category;
+		newCharacter.ChallengeRating = character.ChallengeRating.Clone();
+		newCharacter.Health = character.InitialHealth;
+		newCharacter.identifier = this.globals.generateGuid();
+		newCharacter.InitialHealth = character.InitialHealth;
+		newCharacter.Initiative = character.Initiative;
+		newCharacter.InitiativeBonus = character.InitiativeBonus;
+		newCharacter.Status = CharacterStatus.Normal;
+
+		this.characters.push(newCharacter);
+		this.saveCharacters();
 	}
 
 	characterDropDownClicked(event) {

@@ -30,7 +30,9 @@
     "popper.js": "1.14.3",
     "rxjs": "6.2.2",
     "rxjs-compat": "6.2.2",
-    "zone.js": "0.8.26"
+    "zone.js": "0.8.26",
+    "underscore": "1.9.1",
+    "@types/underscore": "1.8.8"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.7.1",

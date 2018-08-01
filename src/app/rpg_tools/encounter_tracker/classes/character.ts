@@ -17,7 +17,7 @@ export class Character {
 	/**
 	 * The name of this character.
 	 */
-	public Name: String;
+	public Name: string;
 
 	/**
 	 * The health of this character.
@@ -58,6 +58,11 @@ export class Character {
 	 * The unique identifier for this character.
 	 */
 	public identifier: string;
+
+	/**
+	 * The initial health for this character.
+	 */
+	public InitialHealth: number;
 
 	//#endregion Properties
 

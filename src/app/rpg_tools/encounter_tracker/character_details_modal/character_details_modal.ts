@@ -8,6 +8,7 @@ import {
 import { StaticRefs } from "../../../shared/static_refs";
 import { Character } from "../classes/character";
 import { CharacterType } from "../classes/character_type";
+import * as _ from "underscore";
 
 @Component({
 	templateUrl: "./character_details_modal.html",
@@ -38,7 +39,12 @@ export class CharacterDetailsComponent implements OnInit {
 		);
 
 		if (character) {
-			modalRef.componentInstance.currentCharacter = character;
+			const cloneCharacter: Character = new Character("clone");
+
+			modalRef.componentInstance.currentCharacter = Object.assign(
+				cloneCharacter,
+				character
+			);
 		} else {
 			modalRef.componentInstance.currentCharacter = new Character(
 				"New Character"
