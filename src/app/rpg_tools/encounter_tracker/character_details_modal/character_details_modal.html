@@ -32,11 +32,10 @@
             <div class="form-group col">
                 <div class="container-fluid">
                     <div class="row">
-                        <label *ngIf="currentCharacter.IsNew" for="characterHealth">Initial Health:</label>
-                        <label *ngIf="!currentCharacter.IsNew" for="characterHealth">Health:</label>
+                        <label for="characterHealth">Initial Health:</label>
                     </div>
                     <div class="row">
-                        <input id="characterHealth" class="form-control form-control-sm" name="characterHealth" type="number" [(ngModel)]="currentCharacter.Health"
+                        <input id="characterHealth" class="form-control form-control-sm" name="characterHealth" type="number" [(ngModel)]="currentCharacter.InitialHealth"
                             required>
                     </div>
                 </div>
