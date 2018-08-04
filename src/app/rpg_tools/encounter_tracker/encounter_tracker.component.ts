@@ -31,33 +31,7 @@ export class EncounterTrackerComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		let character: Character = new Character("Goober McCree");
-		character.ArmorClass = 14;
-		character.Category = this.characterType.Hero;
-		character.Health = 10;
-		character.InitialHealth = 10;
-		character.InitiativeBonus = 2;
-		character.IsNew = false;
-		character.ChallengeRating = MonsterXP.getMonsterXpForChallengeRating(
-			"1"
-		);
-
-		this.characters.push(character);
-
-		character = new Character("Goober McCree Jr.");
-		character.ArmorClass = 18;
-		character.Category = this.characterType.Enemy;
-		character.Health = 35;
-		character.InitialHealth = 35;
-		character.InitiativeBonus = 6;
-		character.IsNew = false;
-		character.ChallengeRating = MonsterXP.getMonsterXpForChallengeRating(
-			"4"
-		);
-
-		this.characters.push(character);
-		// TODO: Uncomment this when ready!
-		// this.loadCharacters();
+		this.loadCharacters();
 	}
 
 	sortCharacters(selfThing) {
