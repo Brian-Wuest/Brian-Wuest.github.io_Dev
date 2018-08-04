@@ -21,6 +21,8 @@ export class EncounterTrackerComponent implements OnInit {
 	characterStatus = CharacterStatus;
 	characterStatuses = Object.keys(this.characterStatus);
 	fileReader: FileReader = new FileReader();
+	totalExperience = 0;
+	heroExperience = 0;
 
 	constructor(private titleService: Title) {
 		this.globals = new Globals();
@@ -35,6 +37,7 @@ export class EncounterTrackerComponent implements OnInit {
 		character.Health = 10;
 		character.InitialHealth = 10;
 		character.InitiativeBonus = 2;
+		character.IsNew = false;
 		character.ChallengeRating = MonsterXP.getMonsterXpForChallengeRating(
 			"1"
 		);
@@ -47,6 +50,7 @@ export class EncounterTrackerComponent implements OnInit {
 		character.Health = 35;
 		character.InitialHealth = 35;
 		character.InitiativeBonus = 6;
+		character.IsNew = false;
 		character.ChallengeRating = MonsterXP.getMonsterXpForChallengeRating(
 			"4"
 		);
@@ -81,7 +85,9 @@ export class EncounterTrackerComponent implements OnInit {
 	addNewCharacter() {
 		CharacterDetailsComponent.open(null).then((data: Character) => {
 			this.characters.push(data);
+			this.calculateHeroExperience();
 			this.saveCharacters();
+			this.sortCharacters(this);
 		});
 	}
 
@@ -93,6 +99,8 @@ export class EncounterTrackerComponent implements OnInit {
 			localStorage.encounterTrackerCharacters = JSON.stringify(
 				this.characters
 			);
+
+			localStorage.encounterExperience = this.totalExperience;
 		}
 	}
 
@@ -106,12 +114,22 @@ export class EncounterTrackerComponent implements OnInit {
 				this.characters = JSON.parse(
 					localStorage.encounterTrackerCharacters
 				);
+
+				this.sortCharacters(this);
+			}
+
+			if (localStorage.encounterExperience) {
+				this.totalExperience = localStorage.encounterExperience;
+				this.calculateHeroExperience();
 			}
 		}
 	}
 
 	downloadCharacters() {
-		const data = JSON.stringify(this.characters);
+		const data = JSON.stringify({
+			characters: this.characters,
+			experience: this.totalExperience
+		});
 		const blob = new Blob([data], { type: "application/json" });
 		saveAs(blob, "currentEncounter.json");
 	}
@@ -124,8 +142,11 @@ export class EncounterTrackerComponent implements OnInit {
 						const result = JSON.parse(this.fileReader.result);
 
 						if (result) {
-							this.characters = result;
+							this.characters = result.characters;
+							this.totalExperience = result.totalExperience;
 							this.saveCharacters();
+							this.calculateHeroExperience();
+							this.sortCharacters(this);
 						}
 					} catch {}
 				};
@@ -148,16 +169,20 @@ export class EncounterTrackerComponent implements OnInit {
 			this.characters[i].Initiative = 0;
 		}
 
+		this.totalExperience = 0;
+		this.heroExperience = 0;
 		this.saveCharacters();
 	}
 
 	detailsButtonClicked(character: Character) {
 		CharacterDetailsComponent.open(character).then((data: Character) => {
 			for (let i = 0; i < this.characters.length; i++) {
-				if ((this.characters[i].identifier === data.identifier)) {
+				if (this.characters[i].identifier === data.identifier) {
 					// Same character id, update this character.
 					this.characters[i] = data;
+					this.calculateHeroExperience();
 					this.saveCharacters();
+					this.sortCharacters(this);
 					break;
 				}
 			}
@@ -174,7 +199,37 @@ export class EncounterTrackerComponent implements OnInit {
 			}
 		}
 
+		this.calculateHeroExperience();
 		this.saveCharacters();
+	}
+
+	awardExperience(character: Character) {
+		event.stopPropagation();
+
+		if (character.Category === CharacterType.Enemy) {
+			this.totalExperience += character.ChallengeRating.experience;
+			this.deleteCharacter(character);
+		}
+	}
+
+	calculateHeroExperience() {
+		if (this.totalExperience !== 0) {
+			let heroCount = 0;
+			for (let i = 0; i < this.characters.length; i++) {
+				if (this.characters[i].Category === CharacterType.Hero) {
+					heroCount++;
+				}
+			}
+
+			this.heroExperience = Math.round(this.totalExperience / heroCount);
+		}
+	}
+
+	knockDown(character: Character) {
+		event.stopPropagation();
+		character.Health = 0;
+		character.Initiative = 0;
+		this.sortCharacters(this);
 	}
 
 	copyCharacter(character: Character) {
@@ -192,6 +247,7 @@ export class EncounterTrackerComponent implements OnInit {
 		newCharacter.Status = CharacterStatus.Normal;
 
 		this.characters.push(newCharacter);
+		this.calculateHeroExperience();
 		this.saveCharacters();
 	}
 

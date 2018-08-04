@@ -14,9 +14,107 @@
 </div>
 <div class="modal-body">
     <form name="detailsForm" #detailsForm="ngForm">
-        <div class="form-group">
-            <label for="characterName">Name:</label>
-            <input id="characterName" class="form-control-sm" name="characterName" type="text" [(ngModel)]="currentCharacter.Name" required>
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="container-fluid">
+                    <div class="row">
+                        <label for="characterName">Name:</label>
+                    </div>
+                    <div class="row">
+                        <input id="characterName" class="form-control form-control-sm" name="characterName" type="text" [(ngModel)]="currentCharacter.Name"
+                            required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="container-fluid">
+                    <div class="row">
+                        <label *ngIf="currentCharacter.IsNew" for="characterHealth">Initial Health:</label>
+                        <label *ngIf="!currentCharacter.IsNew" for="characterHealth">Health:</label>
+                    </div>
+                    <div class="row">
+                        <input id="characterHealth" class="form-control form-control-sm" name="characterHealth" type="number" [(ngModel)]="currentCharacter.Health"
+                            required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col">
+                <div class="container-fluid">
+                    <div class="row">
+                        <label for="characterArmorClass">Armor Class:</label>
+                    </div>
+                    <div class="row">
+                        <input id="characterArmorClass" class="form-control form-control-sm" name="characterArmorClass" type="number" [(ngModel)]="currentCharacter.ArmorClass"
+                            required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="container-fluid">
+                    <div class="row">
+                        <label for="characterInitiativeBonus">Initiative Bonus:</label>
+                    </div>
+                    <div class="row">
+                        <input id="characterInitiativeBonus" class="form-control form-control-sm" name="characterInitiativeBonus" type="number" [(ngModel)]="currentCharacter.InitiativeBonus"
+                            required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col">
+                <div class="container-fluid">
+                    <div class="row">
+                        <label for="characterInitiative">Initiative:</label>
+                    </div>
+                    <div class="row">
+                        <input id="characterInitiative" class="form-control form-control-sm" name="characterInitiative" type="number" [(ngModel)]="currentCharacter.Initiative"
+                            required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col">
+                <div class="container-fluid">
+                    <div class="row">
+                        <label for="characterChallengeRating">CR\Level</label>
+                    </div>
+                    <div class="row">
+                        <div ngbDropdown #characterDrop="ngbDropdown" class="d-inline-block">
+                            <button class="btn btn-primary btn-md dropdown-button" id="characterChallengeRating" (click)="characterDropDownClicked($event);"
+                                ngbDropdownToggle>{{currentCharacter.ChallengeRating.challengeRating}}</button>
+                            <div ngbDropdownMenu aria-labelledby="characterChallengeRating">
+                                <button *ngFor="let challenge of getMonsterXPList()" (click)="currentCharacter.updateChallengeRating(challenge); characterDrop.close();"
+                                    class="dropdown-item">{{challenge.challengeRating}}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col">
+                <div class="container-fluid">
+                    <div class="row">
+                        <label for="characterHealth">Category:</label>
+                    </div>
+                    <div class="row">
+                        <div ngbDropdown #categoryDrop="ngbDropdown" class="d-inline-block">
+                            <button class="btn btn-primary btn-md dropdown-button" id="dropdownCategory" ngbDropdownToggle>{{currentCharacter.Category}}</button>
+                            <div ngbDropdownMenu aria-labelledby="dropdownCategory">
+                                <button *ngFor="let category of characterTypes" (click)="currentCharacter.updateCategory(category);" class="dropdown-item">{{category}}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </form>
 </div>

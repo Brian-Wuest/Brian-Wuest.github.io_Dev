@@ -105,13 +105,32 @@
                                                 <i class="far fa-copy fa-lg"></i>
                                             </button>
 
-                                            <button type="button" class="btn btn-primary btn-md marg-left-5" (click)="deleteCharacter(character);">
-                                                <i class="far fa-trash-alt fa-lg"></i>
-                                            </button>
+                                            <div ngbDropdown class="d-inline-block marg-left-5" #characterDown="ngbDropdown">
+                                                <button class="btn btn-primary btn-md" id="dropdownRemove" ngbDropdownToggle (click)="characterDropDownClicked($event);">
+                                                    <i class="fas fa-skull fa-lg"></i>
+                                                </button>
+                                                <div ngbDropdownMenu aria-labelledby="dropdownRemove">
+                                                    <button class="dropdown-item" (click)="knockDown(character); characterDown.close();">Set Health\Initiative To Zero</button>
+                                                    <button class="dropdown-item" (click)="awardExperience(character); characterDown.close();">Remove, Award XP To Heroes</button>
+                                                    <button class="dropdown-item" (click)="deleteCharacter(character); characterDown.close();">Remove, No XP</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </button>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer no-pad-right-left">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-2 offset-sm-4 justify-content-center text-center">
+                            Total XP: {{totalExperience}} 
+                        </div>
+                        <div class="col-2 justify-content-center text-center">
+                                XP Per Character: {{heroExperience}}
                         </div>
                     </div>
                 </div>

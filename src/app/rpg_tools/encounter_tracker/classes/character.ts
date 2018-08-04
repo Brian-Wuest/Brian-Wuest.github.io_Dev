@@ -107,4 +107,12 @@ export class Character {
 		event.stopPropagation();
 		this.Status = status;
 	}
+
+	updateCategory(category: CharacterType) {
+		this.Category = category;
+	}
+
+	updateChallengeRating(challengeRating: MonsterXP) {
+		this.ChallengeRating = challengeRating.Clone();
+	}
 }

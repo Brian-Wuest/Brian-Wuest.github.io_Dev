@@ -9,6 +9,7 @@ import { StaticRefs } from "../../../shared/static_refs";
 import { Character } from "../classes/character";
 import { CharacterType } from "../classes/character_type";
 import * as _ from "underscore";
+import { MonsterXP } from "../../../shared/monsterXP";
 
 @Component({
 	templateUrl: "./character_details_modal.html",
@@ -19,7 +20,8 @@ export class CharacterDetailsComponent implements OnInit {
 	activeModal: NgbActiveModal;
 	currentCharacter: Character;
 	modalService: NgbModal;
-	characterType: CharacterType;
+	characterType = CharacterType;
+	characterTypes = Object.keys(this.characterType);
 
 	constructor(modalService?: NgbModal, activeModal?: NgbActiveModal) {
 		this.globals = new Globals();
@@ -57,10 +59,23 @@ export class CharacterDetailsComponent implements OnInit {
 	ngOnInit(): void {}
 
 	closeModal() {
+		if (this.currentCharacter.IsNew) {
+			this.currentCharacter.InitialHealth = this.currentCharacter.Health;
+			this.currentCharacter.IsNew = false;
+		}
+
 		this.activeModal.close(this.currentCharacter);
 	}
 
 	dismiss() {
 		this.activeModal.dismiss();
+	}
+
+	getMonsterXPList() {
+		return MonsterXP.dnd5thMonsterExperience;
+	}
+
+	characterDropDownClicked(event) {
+		event.stopPropagation();
 	}
 }

@@ -7,7 +7,7 @@
     "start": "ng serve",
     "build": "ng build",
     "lint": "ng lint",
-    "prod": "ng build -aot -prod --output-path=../Brian-Wuest.github.io --delete-output-path=false"
+    "prod": "ng build --prod --aot --output-path=../Brian-Wuest.github.io --delete-output-path=false"
   },
   "private": true,
   "dependencies": {
