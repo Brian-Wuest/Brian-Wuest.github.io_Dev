@@ -14,9 +14,10 @@ export class StatTrackerComponent implements OnInit {
 	selectedCharacter: Character;
 	selectedStat: Stat;
 
-	constructor() {
+	constructor(private titleService: Title) {
 		this.globals = new Globals();
 		this.characters = new Array<Character>();
+		this.titleService.setTitle("Stat Tracker");
 	}
 
 	ngOnInit(): void {
