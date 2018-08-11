@@ -118,6 +118,11 @@ export class EncounterTrackerComponent implements OnInit {
 						if (result) {
 							this.characters = result.characters;
 							this.totalExperience = result.totalExperience;
+
+							if (!this.totalExperience) {
+								this.totalExperience = 0;
+							}
+
 							this.saveCharacters();
 							this.calculateHeroExperience();
 							this.sortCharacters(this);
@@ -187,7 +192,7 @@ export class EncounterTrackerComponent implements OnInit {
 	}
 
 	calculateHeroExperience() {
-		if (this.totalExperience !== 0) {
+		if (this.totalExperience > 0) {
 			let heroCount = 0;
 			for (let i = 0; i < this.characters.length; i++) {
 				if (this.characters[i].Category === CharacterType.Hero) {
@@ -196,6 +201,8 @@ export class EncounterTrackerComponent implements OnInit {
 			}
 
 			this.heroExperience = Math.round(this.totalExperience / heroCount);
+		} else {
+			this.heroExperience = 0;
 		}
 	}
 
