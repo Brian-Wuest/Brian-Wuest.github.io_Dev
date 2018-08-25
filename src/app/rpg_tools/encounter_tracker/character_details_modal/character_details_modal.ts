@@ -1,14 +1,14 @@
-import { Component, OnInit } from "@angular/core";
-import { NgbActiveModal, NgbModal, NgbModalOptions } from "../../../../../node_modules/@ng-bootstrap/ng-bootstrap";
-import { Globals } from "../../../../ts/globals";
-import { MonsterXP } from "../../../shared/monsterXP";
-import { StaticRefs } from "../../../shared/static_refs";
-import { Character } from "../classes/character";
-import { CharacterType } from "../classes/character_type";
+import { Component, OnInit } from '@angular/core';
+import { NgbActiveModal, NgbModal, NgbModalOptions } from '../../../../../node_modules/@ng-bootstrap/ng-bootstrap';
+import { Globals } from '../../../../ts/globals';
+import { MonsterXP } from '../../../shared/monsterXP';
+import { StaticRefs } from '../../../shared/static_refs';
+import { Character } from '../classes/character';
+import { CharacterType } from '../classes/character_type';
 
 @Component({
-	templateUrl: "./character_details_modal.html",
-	styleUrls: ["./character_details_modal.css"]
+	templateUrl: './character_details_modal.html',
+	styleUrls: ['./character_details_modal.css'],
 })
 export class CharacterDetailsComponent implements OnInit {
 	globals: Globals;
@@ -30,22 +30,14 @@ export class CharacterDetailsComponent implements OnInit {
 	 * @param options The modal options.
 	 */
 	static open(character?: Character, options?: NgbModalOptions) {
-		const modalRef = StaticRefs.modalRef.open(
-			CharacterDetailsComponent,
-			options
-		);
+		const modalRef = StaticRefs.modalRef.open(CharacterDetailsComponent, options);
 
 		if (character) {
-			const cloneCharacter: Character = new Character("clone");
+			const cloneCharacter: Character = new Character('clone');
 
-			modalRef.componentInstance.currentCharacter = Object.assign(
-				cloneCharacter,
-				character
-			);
+			modalRef.componentInstance.currentCharacter = Object.assign(cloneCharacter, character);
 		} else {
-			modalRef.componentInstance.currentCharacter = new Character(
-				"New Character"
-			);
+			modalRef.componentInstance.currentCharacter = new Character('New Character');
 		}
 
 		return modalRef.result;

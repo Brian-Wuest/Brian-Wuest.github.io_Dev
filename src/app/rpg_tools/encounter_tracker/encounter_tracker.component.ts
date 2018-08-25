@@ -1,15 +1,15 @@
-import { Component, OnInit } from "@angular/core";
-import { Title } from "@angular/platform-browser";
-import { saveAs } from "file-saver/FileSaver";
-import { Globals } from "../../../ts/globals";
-import { CharacterDetailsComponent } from "./character_details_modal/character_details_modal";
-import { Character } from "./classes/character";
-import { CharacterStatus } from "./classes/character_status";
-import { CharacterType } from "./classes/character_type";
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { saveAs } from 'file-saver/FileSaver';
+import { Globals } from '../../../ts/globals';
+import { CharacterDetailsComponent } from './character_details_modal/character_details_modal';
+import { Character } from './classes/character';
+import { CharacterStatus } from './classes/character_status';
+import { CharacterType } from './classes/character_type';
 
 @Component({
-	templateUrl: "./encounter_tracker.component.html",
-	styleUrls: ["./encounter_tracker.component.css"]
+	templateUrl: './encounter_tracker.component.html',
+	styleUrls: ['./encounter_tracker.component.css'],
 })
 export class EncounterTrackerComponent implements OnInit {
 	globals: Globals;
@@ -23,7 +23,7 @@ export class EncounterTrackerComponent implements OnInit {
 
 	constructor(private titleService: Title) {
 		this.globals = new Globals();
-		this.titleService.setTitle("Encounter Tracker");
+		this.titleService.setTitle('Encounter Tracker');
 		this.characters = new Array<Character>();
 	}
 
@@ -32,10 +32,7 @@ export class EncounterTrackerComponent implements OnInit {
 	}
 
 	sortCharacters(selfThing) {
-		selfThing.characters = selfThing.characters.sort(function(
-			a: Character,
-			b: Character
-		) {
+		selfThing.characters = selfThing.characters.sort(function(a: Character, b: Character) {
 			if (a.Initiative > b.Initiative) {
 				return -1;
 			} else if (a.Initiative < b.Initiative) {
@@ -67,9 +64,7 @@ export class EncounterTrackerComponent implements OnInit {
 	 */
 	saveCharacters() {
 		if (this.globals.getSupportsHtml5Storage()) {
-			localStorage.encounterTrackerCharacters = JSON.stringify(
-				this.characters
-			);
+			localStorage.encounterTrackerCharacters = JSON.stringify(this.characters);
 
 			localStorage.encounterExperience = this.totalExperience;
 		}
@@ -82,9 +77,7 @@ export class EncounterTrackerComponent implements OnInit {
 		// If storage is availabe, check to see if there are any saved characters and if any are found, load them up.
 		if (this.globals.getSupportsHtml5Storage()) {
 			if (localStorage.encounterTrackerCharacters) {
-				this.characters = JSON.parse(
-					localStorage.encounterTrackerCharacters
-				);
+				this.characters = JSON.parse(localStorage.encounterTrackerCharacters);
 
 				this.sortCharacters(this);
 			}
@@ -99,10 +92,10 @@ export class EncounterTrackerComponent implements OnInit {
 	downloadCharacters() {
 		const data = JSON.stringify({
 			characters: this.characters,
-			experience: this.totalExperience
+			experience: this.totalExperience,
 		});
-		const blob = new Blob([data], { type: "application/json" });
-		saveAs(blob, "currentEncounter.json");
+		const blob = new Blob([data], { type: 'application/json' });
+		saveAs(blob, 'currentEncounter.json');
 	}
 
 	uploadCharacters(fileUpload: Array<File>, other) {
