@@ -1,15 +1,10 @@
-import { Component, OnInit, Inject } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { NgbActiveModal, NgbModal, NgbModalOptions } from "../../../../../node_modules/@ng-bootstrap/ng-bootstrap";
 import { Globals } from "../../../../ts/globals";
-import {
-	NgbModal,
-	NgbActiveModal,
-	NgbModalOptions
-} from "../../../../../node_modules/@ng-bootstrap/ng-bootstrap";
+import { MonsterXP } from "../../../shared/monsterXP";
 import { StaticRefs } from "../../../shared/static_refs";
 import { Character } from "../classes/character";
 import { CharacterType } from "../classes/character_type";
-import * as _ from "underscore";
-import { MonsterXP } from "../../../shared/monsterXP";
 
 @Component({
 	templateUrl: "./character_details_modal.html",

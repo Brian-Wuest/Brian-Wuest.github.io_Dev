@@ -1,8 +1,8 @@
-import { CharacterType } from "./character_type";
-import { MonsterXP } from "../../../shared/monsterXP";
-import { ChangeNumberComponent } from "../../../shared/change_number_modal/change_number";
-import { CharacterStatus } from "./character_status";
 import { Globals } from "../../../../ts/globals";
+import { ChangeNumberComponent } from "../../../shared/change_number_modal/change_number";
+import { MonsterXP } from "../../../shared/monsterXP";
+import { CharacterStatus } from "./character_status";
+import { CharacterType } from "./character_type";
 
 /**
  * This class represents a character.

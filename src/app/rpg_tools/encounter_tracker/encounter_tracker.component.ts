@@ -1,14 +1,11 @@
 import { Component, OnInit } from "@angular/core";
-import { Globals } from "../../../ts/globals";
 import { Title } from "@angular/platform-browser";
-import { NgbModal, NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
-import { CharacterType } from "./classes/character_type";
-import { Character } from "./classes/character";
-import { ChangeNumberComponent } from "../../shared/change_number_modal/change_number";
-import { MonsterXP } from "../../shared/monsterXP";
-import { CharacterStatus } from "./classes/character_status";
 import { saveAs } from "file-saver/FileSaver";
+import { Globals } from "../../../ts/globals";
 import { CharacterDetailsComponent } from "./character_details_modal/character_details_modal";
+import { Character } from "./classes/character";
+import { CharacterStatus } from "./classes/character_status";
+import { CharacterType } from "./classes/character_type";
 
 @Component({
 	templateUrl: "./encounter_tracker.component.html",
