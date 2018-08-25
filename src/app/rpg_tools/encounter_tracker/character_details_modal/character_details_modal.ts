@@ -60,7 +60,7 @@ export class CharacterDetailsComponent implements OnInit {
 
 	closeModal() {
 		if (this.currentCharacter.IsNew) {
-			this.currentCharacter.InitialHealth = this.currentCharacter.Health;
+			this.currentCharacter.Health = this.currentCharacter.InitialHealth;
 			this.currentCharacter.IsNew = false;
 		}
 
