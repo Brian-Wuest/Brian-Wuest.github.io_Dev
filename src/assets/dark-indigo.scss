@@ -2579,7 +2579,6 @@ body {
 		&.ui-tree-horizontal {
 			padding: 0.85em 0;
 			.ui-treenode {
-				background: url('../layout/images/tth-connector.png') repeat-x scroll center center transparent;
 				.ui-treenode-content {
 					padding: 0.429em 0.857em;
 					background-color: $color_ebony_clay_approx;
@@ -2600,9 +2599,6 @@ body {
 						color: $white;
 					}
 				}
-			}
-			.ui-treenode-connector-line {
-				background: url('../layout/images/tth-connector.png') repeat-y scroll 0 0 transparent;
 			}
 		}
 	}

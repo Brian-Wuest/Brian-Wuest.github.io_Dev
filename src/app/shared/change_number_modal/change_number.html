@@ -1,64 +1,66 @@
-<div class="modal-header align-text-center">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-10 col-sm-11">
-                <h4 class="modal-title">Update value for: {{propertyName}}</h4>
-            </div>
-            <div class="col-2 col-sm-1">
-                <button type="button" class="close" aria-label="Close" (click)="dismiss()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal-body container-fluid">
-    <div class="row">
-        <div class="col-1">
-            <button type="button" class="btn btn-secondary btn-md" (click)="decementValue(1)">
-                <span>
-                    <i class="fas fa-minus"></i> 1&nbsp;&nbsp;</span>
-            </button>
-        </div>
-        <div class="col-1 offset-8 offset-sm-9">
-            <button type="button" class="btn btn-secondary btn-md" (click)="incrementValue(1)">
-                <span>
-                    <i class="fas fa-plus"></i> 1&nbsp;&nbsp;</span>
-            </button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-1">
-            <button type="button" class="btn btn-secondary btn-md" (click)="decementValue(5)">
-                <span>
-                    <i class="fas fa-minus"></i> 5&nbsp;&nbsp;</span>
-            </button>
-        </div>
-        <div class="col-6 offset-2">
-            <input type="number" [(ngModel)]="inputValue" class="form-control-sm changeNumberField">
-        </div>
-        <div class="col-1 offset-sm-1">
-            <button type="button" class="btn btn-secondary btn-md" (click)="incrementValue(5)">
-                <span>
-                    <i class="fas fa-plus"></i> 5&nbsp;&nbsp;</span>
-            </button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-1">
-            <button type="button" class="btn btn-secondary btn-md" (click)="decementValue(10)">
-                <span>
-                    <i class="fas fa-minus"></i> 10</span>
-            </button>
-        </div>
-        <div class="col-1 offset-8 offset-sm-9">
-            <button type="button" class="btn btn-secondary btn-md" (click)="incrementValue(10)">
-                <span>
-                    <i class="fas fa-plus"></i> 10</span>
-            </button>
-        </div>
-    </div>
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-primary" (click)="closeModal()">OK</button>
-</div>
+<p-dialog #change_number [(visible)]="display">
+	<div class="modal-header align-text-center">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-10 col-sm-11">
+					<h4 class="modal-title">Update value for: {{propertyName}}</h4>
+				</div>
+				<div class="col-2 col-sm-1">
+					<button type="button" class="close" aria-label="Close" (click)="dismiss()">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-body container-fluid">
+		<div class="row">
+			<div class="col-1">
+				<button type="button" class="btn btn-secondary btn-md" (click)="decementValue(1)">
+					<span>
+						<i class="fas fa-minus"></i> 1&nbsp;&nbsp;</span>
+				</button>
+			</div>
+			<div class="col-1 offset-8 offset-sm-9">
+				<button type="button" class="btn btn-secondary btn-md" (click)="incrementValue(1)">
+					<span>
+						<i class="fas fa-plus"></i> 1&nbsp;&nbsp;</span>
+				</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-1">
+				<button type="button" class="btn btn-secondary btn-md" (click)="decementValue(5)">
+					<span>
+						<i class="fas fa-minus"></i> 5&nbsp;&nbsp;</span>
+				</button>
+			</div>
+			<div class="col-6 offset-2">
+				<input type="number" [(ngModel)]="output" class="form-control-sm changeNumberField">
+			</div>
+			<div class="col-1 offset-sm-1">
+				<button type="button" class="btn btn-secondary btn-md" (click)="incrementValue(5)">
+					<span>
+						<i class="fas fa-plus"></i> 5&nbsp;&nbsp;</span>
+				</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-1">
+				<button type="button" class="btn btn-secondary btn-md" (click)="decementValue(10)">
+					<span>
+						<i class="fas fa-minus"></i> 10</span>
+				</button>
+			</div>
+			<div class="col-1 offset-8 offset-sm-9">
+				<button type="button" class="btn btn-secondary btn-md" (click)="incrementValue(10)">
+					<span>
+						<i class="fas fa-plus"></i> 10</span>
+				</button>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary" (click)="closeModal()">OK</button>
+	</div>
+</p-dialog>

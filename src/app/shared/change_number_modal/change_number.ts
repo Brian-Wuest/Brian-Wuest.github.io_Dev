@@ -1,64 +1,73 @@
-import { Component, OnInit, Inject } from "@angular/core";
-import { Globals } from "../../../ts/globals";
-import {
-	NgbModal,
-	NgbActiveModal,
-	NgbModalOptions
-} from "../../../../node_modules/@ng-bootstrap/ng-bootstrap";
-import { StaticRefs } from "../static_refs";
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+import { Dropdown } from 'primeng/dropdown';
+import { Globals } from '../../../ts/globals';
+
+export class ChangeNumberResult {
+	valueUpdated: boolean;
+	originalValue: number;
+	updatedValue: number;
+	propertyName: string;
+}
 
 @Component({
-	templateUrl: "./change_number.html",
-	styleUrls: ["./change_number.css"]
+	selector: 'app-change-number',
+	templateUrl: './change_number.html',
+	styleUrls: ['./change_number.css']
 })
-export class ChangeNumberComponent implements OnInit {
+export class ChangeNumberComponent implements OnInit, OnDestroy {
+	@ViewChild('change_number')
+	changeNumber: Dropdown;
 	globals: Globals;
-	activeModal: NgbActiveModal;
+	output: number;
+	@Input()
 	inputValue: number;
-	modalService: NgbModal;
+	@Input()
 	propertyName: string;
-	constructor(modalService?: NgbModal, activeModal?: NgbActiveModal) {
+	@Input()
+	display = false;
+	@Output()
+	displayChange = new EventEmitter();
+
+	constructor() {
 		this.globals = new Globals();
-		this.activeModal = activeModal;
-		this.modalService = modalService;
 	}
 
-	static open(
-		originalValue: number,
-		propertyName: string,
-		options?: NgbModalOptions
-	) {
-		const modalRef = StaticRefs.modalRef.open(
-			ChangeNumberComponent,
-			options
-		);
-		modalRef.componentInstance.inputValue = originalValue;
-		modalRef.componentInstance.propertyName = StaticRefs.separateStringIntoWords(
-			propertyName
-		);
-
-		return modalRef.result;
+	ngOnInit(): void {
+		this.output = this.inputValue;
 	}
 
-	ngOnInit(): void {}
+	ngOnDestroy(): void {
+		this.displayChange.unsubscribe();
+	}
 
 	closeModal() {
-		this.activeModal.close(this.inputValue);
+		this.displayChange.emit(this.createResult(this.output));
+		this.display = false;
 	}
 
 	dismiss() {
-		this.activeModal.dismiss();
+		this.displayChange.emit(this.createResult(null));
+		this.display = false;
 	}
 
 	incrementValue(increment: number) {
 		if (increment) {
-			this.inputValue = this.inputValue + increment;
+			this.output = this.output + increment;
 		}
 	}
 
 	decementValue(decrement: number) {
 		if (decrement) {
-			this.inputValue = this.inputValue - decrement;
+			this.output = this.output - decrement;
 		}
+	}
+
+	createResult(value: number) {
+		return {
+			originalValue: this.inputValue,
+			propertyName: this.propertyName,
+			updatedValue: value,
+			valueUpdated: value ? true : false
+		} as ChangeNumberResult;
 	}
 }
