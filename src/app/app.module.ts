@@ -15,6 +15,9 @@ import { StatTrackerComponent } from './rpg_tools/stat_tracker/stat_tracker.comp
 import { XpCalculatorComponent } from './rpg_tools/xp_calculator/xp_calculator.component'; */
 import { ChangeNumberComponent } from './shared/change_number_modal/change_number';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { MenubarModule } from 'primeng/menubar';
+import { DialogModule } from 'primeng/dialog';
+import { CardModule } from 'primeng/card';
 
 const appRoutes: Routes = [
 	{
@@ -25,7 +28,7 @@ const appRoutes: Routes = [
 		path: 'welcome',
 		component: WelcomeComponent
 	},
-/* 	{
+	/* 	{
 		path: 'experience_calculator',
 		component: XpCalculatorComponent
 	},
@@ -59,14 +62,22 @@ const appRoutes: Routes = [
 		NavComponent,
 		AboutComponent,
 		WelcomeComponent,
-/* 		XpCalculatorComponent,
+		/* 		XpCalculatorComponent,
 		StarfinderComponent,
 		StatTrackerComponent,
 		EncounterTrackerComponent,
 		CharacterDetailsComponent, */
-		ChangeNumberComponent,
+		ChangeNumberComponent
 	],
-	imports: [CommonModule, BrowserModule, FormsModule, RouterModule.forRoot(appRoutes, { useHash: true })],
+	imports: [
+		CommonModule,
+		BrowserModule,
+		FormsModule,
+		MenubarModule,
+		DialogModule,
+		CardModule,
+		RouterModule.forRoot(appRoutes, { useHash: true })
+	],
 	entryComponents: [ChangeNumberComponent], // CharacterDetailsComponent],
 	providers: [Title],
 	bootstrap: [AppComponent]
