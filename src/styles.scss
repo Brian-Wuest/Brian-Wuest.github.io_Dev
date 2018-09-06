@@ -3,7 +3,7 @@
 @import './font-libraries/font_icons/all.min.css';
 @import './font-libraries/font_icons/rpg-awesome.min.css';
 @import './font-libraries/font_icons/fontello.css';
-@import './assets/dark-indigo.scss';
+@import './dark-indigo.scss';
 
 html {
 	font-family: sans-serif;
@@ -29,12 +29,21 @@ a {
 	}
 }
 
-.navbar-image {
-	height: 40px;
-	width: 40px;
-	max-width: 40px;
-	max-height: 40px;
+.menu-bar-image {
+	position: absolute;
+	left: 20px;
+
+	.navbar-image {
+		height: 32px;
+		width: 32px;
+		max-width: 32px;
+		max-height: 32px;
+	}
 }
+
+ul.ui-menubar-root-list {
+	padding-left:52px;
+  }
 
 .dropdownPadding {
 	padding-left: 18px;
@@ -73,7 +82,7 @@ label {
 	}
 }
 
-.navbar {
+.ui-menubar {
 	margin-bottom: 20px;
 }
 

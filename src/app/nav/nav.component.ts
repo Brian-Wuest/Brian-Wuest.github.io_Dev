@@ -20,7 +20,7 @@ export class NavComponent implements OnInit {
 			{
 				label: 'RPG Tools',
 				items: [
-					{ label: 'Experience calculator', routerLink: 'experience_calculator' },
+					{ label: 'Experience Calculator', routerLink: 'experience_calculator' },
 					{ label: 'Starfinder Point Buy', routerLink: 'starfinder_pointbuy' },
 					{ label: 'Encounter Tracker', routerLink: 'encounter_tracker' }
 				]
