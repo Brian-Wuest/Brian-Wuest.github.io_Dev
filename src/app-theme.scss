@@ -3835,6 +3835,10 @@ body {
 		font-family: 'Source Sans Pro', 'Arial', 'sans-serif';
 		font-size: 14px;
 	}
+
+	hr {
+		border-color: $color_gull_gray_approx;
+	}
 }
 @media (max-width: 640px) {
 	body .ui-buttonset .ui-button {

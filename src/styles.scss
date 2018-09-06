@@ -3,7 +3,7 @@
 @import './font-libraries/font_icons/all.min.css';
 @import './font-libraries/font_icons/rpg-awesome.min.css';
 @import './font-libraries/font_icons/fontello.css';
-@import './dark-indigo.scss';
+@import './app-theme.scss';
 
 html {
 	font-family: sans-serif;
@@ -155,8 +155,4 @@ body .ui-menubar .ui-menuitem-link {
 		color: #5c6bc0;
 		background-color: transparent;
 	}
-}
-
-hr {
-	border-color: $color_gull_gray_approx;
 }
