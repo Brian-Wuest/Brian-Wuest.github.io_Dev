@@ -1,8 +1,10 @@
 // Dependency modules.
 import { CommonModule } from '@angular/common';
+
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule, Title } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 // Custom app-specific modules.
@@ -18,6 +20,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { MenubarModule } from 'primeng/menubar';
 import { DialogModule } from 'primeng/dialog';
 import { CardModule } from 'primeng/card';
+import { ListboxModule } from 'primeng/listbox';
+import { MenuModule } from 'primeng/menu';
 
 const appRoutes: Routes = [
 	{
@@ -76,6 +80,9 @@ const appRoutes: Routes = [
 		MenubarModule,
 		DialogModule,
 		CardModule,
+		ListboxModule,
+		MenuModule,
+		BrowserAnimationsModule,
 		RouterModule.forRoot(appRoutes, { useHash: true })
 	],
 	entryComponents: [ChangeNumberComponent], // CharacterDetailsComponent],

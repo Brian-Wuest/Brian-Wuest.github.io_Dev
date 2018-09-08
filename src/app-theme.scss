@@ -136,6 +136,7 @@ body {
 		filter: alpha(opacity=70);
 	}
 	a {
+		cursor: pointer;
 		color: $color_sapphire_approx;
 		text-decoration: none;
 		&:hover {
@@ -3139,8 +3140,8 @@ body {
 	.ui-menubar {
 		padding-left: 20px;
 		padding-right: 20px;
-		padding-top: 0px;
-		padding-bottom: 0px;
+		padding-top: 5px;
+		padding-bottom: 5px;
 		background-color: $color_cloud_burst_approx;
 		z-index: 101;
 		-webkit-box-sizing: border-box;
@@ -3150,8 +3151,13 @@ body {
 		-webkit-box-shadow: 0 2px 4px 0px $black_30;
 		-moz-box-shadow: 0 1px 2px 4px $black_30;
 
+		.ui-menubar-root-list>.ui-menuitem>.ui-menuitem-link {
+			padding: 12px;
+		}
+
 		.ui-menuitem-link {
-			padding: 0.429em 0.857em;
+			height: 42px;
+			padding: 12px;
 			color: $color_iron_approx;
 			font-weight: normal;
 			-moz-border-radius: 0;
@@ -3159,13 +3165,20 @@ body {
 			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 			border-radius: 0;
 			&:hover {
-				background-color: $color_indigo_approx;
-				color: $white;
+				border-bottom-color: $color_indigo_approx;
+				color: $color_indigo_approx;
+				background-color: transparent;
 			}
 			&:focus {
 				background-color: transparent;
 				color: $color_gull_gray_approx;
 				border-bottom: 2px solid transparent;
+			}
+
+			&.ui-state-active {
+				border-bottom-color: $color_indigo_approx;
+				color: $color_indigo_approx;
+				background-color: transparent;
 			}
 		}
 		.ui-submenu-list {
@@ -3838,6 +3851,24 @@ body {
 
 	hr {
 		border-color: $color_gull_gray_approx;
+	}
+
+	.ui-g-1, .ui-g-2, .ui-g-3, .ui-g-4, .ui-g-5, .ui-g-6, .ui-g-7, .ui-g-8, .ui-g-9, .ui-g-10, .ui-g-11, .ui-g-12 {
+		padding: .25em;
+	}
+
+	.ui-listbox-item {
+		a {
+			color: $color_gull_gray_approx;
+			text-decoration: underline;
+			&:hover {
+				color: $color_gull_gray_approx;
+			}
+		}
+		span {
+			color: $color_gull_gray_approx;
+		}
+
 	}
 }
 @media (max-width: 640px) {
