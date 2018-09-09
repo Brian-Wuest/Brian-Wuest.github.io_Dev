@@ -61,11 +61,14 @@ body {
 		background-color: $color_ebony_clay_approx;
 		border: 1px solid $color_bunker_approx;
 	}
-	.ui-widget-header {
+	.ui-widget-header,
+	.ui-card-header {
 		background: $color_elephant_approx;
 		color: $color_gull_gray_approx;
 		border: 1px solid $color_bunker_approx;
 		font-weight: 700;
+		padding: 0.8em 0.857em;
+		border-bottom: 1px solid $color_bunker_approx;
 	}
 	.ui-state-active {
 		background-color: $color_indigo_approx;
@@ -1009,7 +1012,7 @@ body {
 			}
 		}
 		.ui-listbox-header {
-			padding: 0.429em 0.857em;
+			padding: 0.8em 0.857em;
 			border: 0 none;
 			border-bottom: 1px solid $color_bunker_approx;
 			margin: 0;
