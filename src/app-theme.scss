@@ -148,7 +148,7 @@ body {
 		color: $color_indigo_approx;
 	}
 	.ui-inputtext {
-		color: $color_iron_approx;
+		color: $color_gull_gray_approx;
 		font-size: 14px;
 		background: $color_mirage_approx;
 		padding: 0.429em;
@@ -182,6 +182,10 @@ body {
 		}
 	}
 	.ui-button {
+		padding-left: 6px;
+		padding-right: 6px;
+		padding-top: 1px;
+		padding-bottom: 1px;
 		vertical-align: middle;
 		color: $white;
 		background-color: $color_indigo_approx;
@@ -194,7 +198,7 @@ body {
 		transition: background-color 0.3s;
 		&:enabled {
 			&:hover {
-				background-color: $color_indigo_approx;
+				background-color: $color_sapphire_approx;
 			}
 			&:active {
 				background-color: $color_sapphire_approx;

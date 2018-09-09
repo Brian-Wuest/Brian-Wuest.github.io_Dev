@@ -23,7 +23,7 @@
 						<tbody>
 							<tr *ngFor="let monster of currentMonsters">
 								<td class="right-left-padding-10 ">
-									<p-button class="btn btn-primary btn-md" (onClick)="removeMonster(monster)">Remove</p-button>
+									<p-button (onClick)="removeMonster(monster)" label="Remove"></p-button>
 								</td>
 								<td class="right-left-padding-10">
 									<p-dropdown [options]="monsterXpList" [autoWidth]="false" [name]="monster.MonsterId" [ngModel]="monster.XpInfo" optionLabel="challengeRating"
@@ -40,7 +40,7 @@
 				</form>
 				<div>
 					<div class="">
-						<p-button class="btn btn-primary " style="margin-top: 10px; " (onClick)="addMonster() ">Add Monster</p-button>
+						<p-button style="margin-top: 10px; " (onClick)="addMonster()" label="Add Monster"></p-button>
 					</div>
 				</div>
 			</div>
