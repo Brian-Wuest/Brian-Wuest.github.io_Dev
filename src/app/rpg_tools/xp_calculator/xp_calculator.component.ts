@@ -4,7 +4,8 @@ import { Globals } from "../../../ts/globals";
 import { Title } from "@angular/platform-browser";
 
 @Component({
-	templateUrl: "./xp_calculator.component.html"
+	templateUrl: "./xp_calculator.component.html",
+	styleUrls: ["xp_calculator.component.scss"]
 })
 export class XpCalculatorComponent implements OnInit {
 	currentMonsters: Array<MonsterInfo>;
@@ -13,6 +14,7 @@ export class XpCalculatorComponent implements OnInit {
 	playerCount: number;
 	playerXp: number;
 	totalXp: number;
+	monsterXpList: Array<MonsterXP>;
 
 	constructor(private _titleService: Title) {
 		this.globals = new Globals();
@@ -22,6 +24,7 @@ export class XpCalculatorComponent implements OnInit {
 		this.playerXp = 0;
 		this.totalXp = 0;
 		this._titleService.setTitle("Experience Calculator");
+		this.monsterXpList = MonsterXP.dnd5thMonsterExperience;
 	}
 
 	ngOnInit(): void {
@@ -53,9 +56,9 @@ export class XpCalculatorComponent implements OnInit {
 		});
 	}
 
-	updatePlayersXP(formId: string, event?: MonsterXP, monster?: MonsterInfo) {
-		if (event && monster) {
-			monster.XpInfo = event;
+	updatePlayersXP(formId: string, event?: any, monster?: MonsterInfo) {
+		if (event && event.value && monster) {
+			monster.XpInfo = event.value;
 		}
 
 		// Validate the changed form before continuing.
@@ -80,10 +83,6 @@ export class XpCalculatorComponent implements OnInit {
 		}
 
 		this.playerXp = this.totalXp / this.playerCount;
-	}
-
-	getMonsterXPList(): Array<MonsterXP> {
-		return MonsterXP.dnd5thMonsterExperience;
 	}
 }
 

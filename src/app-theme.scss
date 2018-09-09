@@ -4,8 +4,8 @@
 //original selectors
 //body .ui-state-disabled, body .ui-widget:disabled
 %extend_1 {
-	opacity: 0.35;
-	filter: Alpha(Opacity=35);
+	opacity: 0.55;
+	filter: Alpha(Opacity=55);
 	background-image: none;
 	cursor: default !important;
 }
@@ -776,9 +776,15 @@ body {
 		-moz-transition: box-shadow 0.3s, border-color 0.3s;
 		-o-transition: box-shadow 0.3s, border-color 0.3s;
 		-webkit-transition: box-shadow 0.3s, border-color 0.3s;
-		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
 		transition: box-shadow 0.3s, border-color 0.3s;
 		border: 1px solid $color_bunker_approx;
+		width: 100%;
+
+		&.ui-helper-clearfix::before,
+		&.ui-helper-clearfix::after {
+			content: '';
+			display: none !important;
+		}
 		.ui-dropdown-label {
 			&:focus {
 				border: 0 none;
@@ -1079,6 +1085,10 @@ body {
 		}
 	}
 	.ui-spinner {
+		width: 100%;
+		.ui-spinner-input {
+			width: 100%;
+		}
 		input {
 			padding-right: 1.8em;
 		}
@@ -3151,7 +3161,7 @@ body {
 		-webkit-box-shadow: 0 2px 4px 0px $black_30;
 		-moz-box-shadow: 0 1px 2px 4px $black_30;
 
-		.ui-menubar-root-list>.ui-menuitem>.ui-menuitem-link {
+		.ui-menubar-root-list > .ui-menuitem > .ui-menuitem-link {
 			padding: 12px;
 		}
 
@@ -3853,8 +3863,19 @@ body {
 		border-color: $color_gull_gray_approx;
 	}
 
-	.ui-g-1, .ui-g-2, .ui-g-3, .ui-g-4, .ui-g-5, .ui-g-6, .ui-g-7, .ui-g-8, .ui-g-9, .ui-g-10, .ui-g-11, .ui-g-12 {
-		padding: .25em;
+	.ui-g-1,
+	.ui-g-2,
+	.ui-g-3,
+	.ui-g-4,
+	.ui-g-5,
+	.ui-g-6,
+	.ui-g-7,
+	.ui-g-8,
+	.ui-g-9,
+	.ui-g-10,
+	.ui-g-11,
+	.ui-g-12 {
+		padding: 0.25em;
 	}
 
 	.ui-listbox-item {
@@ -3868,7 +3889,18 @@ body {
 		span {
 			color: $color_gull_gray_approx;
 		}
+	}
 
+	input[readonly] {
+			@extend %extend_1;
+	}
+
+	.c-label {
+		padding: 0.5em;
+	}
+
+	.ui-inputtext {
+		padding: 0.429em;
 	}
 }
 @media (max-width: 640px) {

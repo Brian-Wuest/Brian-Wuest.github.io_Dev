@@ -26,7 +26,7 @@ export class WelcomeComponent {
 			},
 			{
 				label: 'Encounter Tracker',
-				value: { link: 'encounter_tracker', text: 'Track initiative, health, armor class and award xp for players.' }
+				value: { link: 'encounter_tracker', text: 'Track initiative, health, armor class for players and monsters and award xp.' }
 			}
 		];
 	}

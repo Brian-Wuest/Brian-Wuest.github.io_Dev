@@ -1,0 +1,71 @@
+<div class="ui-g">
+	<h1 class="ui-g-12 align-text-center">Experience Calculator</h1>
+	<div class="ui-g-12">
+		<hr />
+	</div>
+</div>
+<div class="ui-g">
+	<div class="ui-g-12 ui-lg-5 ui-lg-offset-1">
+		<p-card>
+			<p-header>
+				Number of Monsters and Challenge Rating
+			</p-header>
+			<div>
+				<form name="monstersForm" class="border border-dark rounded bg-secondary" id="monstersForm">
+					<table style="width: 100%">
+						<thead>
+							<tr>
+								<th style="width: 25%;"></th>
+								<th style="width: 33%;" class="align-text-center">Challenge Rating</th>
+								<th style="width: 33%;" class="align-text-center">Count</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let monster of currentMonsters">
+								<td class="right-left-padding-10 ">
+									<p-button class="btn btn-primary btn-md" (onClick)="removeMonster(monster)">Remove</p-button>
+								</td>
+								<td class="right-left-padding-10">
+									<p-dropdown [options]="monsterXpList" [autoWidth]="false" [name]="monster.MonsterId" [ngModel]="monster.XpInfo" optionLabel="challengeRating"
+									 (onChange)="updatePlayersXP('monstersForm', $event, monster)">
+									</p-dropdown>
+								</td>
+								<td class="right-left-padding-10">
+									<p-spinner [name]="monster.MonsterId + 'monsterCount'" [min]="0" [max]="100" [(ngModel)]="monster.MonsterCount"
+									 (onChange)="updatePlayersXP('monstersForm')"></p-spinner>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+				<div>
+					<div class="">
+						<p-button class="btn btn-primary " style="margin-top: 10px; " (onClick)="addMonster() ">Add Monster</p-button>
+					</div>
+				</div>
+			</div>
+		</p-card>
+	</div>
+
+	<div class="ui-g-12 ui-lg-5">
+		<p-card>
+			<p-header>
+				<!--This is for the number of players and total experience.-->
+				Player Count and Calculated Experience
+			</p-header>
+			<form name="playersForm" id="playersForm" class="ui-g">
+				<div class="ui-g-6 ui-lg-4">
+					<label class="ui-g-12 no-wrap c-label">Player Count: </label>
+					<label class="ui-g-12 no-wrap c-label">Per-Player Experience: </label>
+					<label class="ui-g-12 no-wrap c-label">Total Experience: </label>
+				</div>
+				<div class="ui-g-6">
+					<p-spinner name="playerCount" class="ui-g-12" [min]="0" [max]="100" (onChange)="updatePlayersXP('playersForm')"
+					 [(ngModel)]="playerCount"></p-spinner>
+					<input class="ui-g-12" readonly [value]="playerXp | number: '1.0-0'" pInputText />
+					<input class="ui-g-12" readonly [value]="totalXp | number: '1.0-0'" pInputText />
+				</div>
+			</form>
+		</p-card>
+	</div>
+</div>

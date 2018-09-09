@@ -13,8 +13,8 @@ import { NavComponent } from './nav/nav.component';
 /* import { CharacterDetailsComponent } from './rpg_tools/encounter_tracker/character_details_modal/character_details_modal';
 import { EncounterTrackerComponent } from './rpg_tools/encounter_tracker/encounter_tracker.component';
 import { StarfinderComponent } from './rpg_tools/starfinder/starfinder.component';
-import { StatTrackerComponent } from './rpg_tools/stat_tracker/stat_tracker.component';
-import { XpCalculatorComponent } from './rpg_tools/xp_calculator/xp_calculator.component'; */
+import { StatTrackerComponent } from './rpg_tools/stat_tracker/stat_tracker.component';*/
+import { XpCalculatorComponent } from './rpg_tools/xp_calculator/xp_calculator.component';
 import { ChangeNumberComponent } from './shared/change_number_modal/change_number';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { MenubarModule } from 'primeng/menubar';
@@ -22,6 +22,10 @@ import { DialogModule } from 'primeng/dialog';
 import { CardModule } from 'primeng/card';
 import { ListboxModule } from 'primeng/listbox';
 import { MenuModule } from 'primeng/menu';
+import { ButtonModule } from 'primeng/button';
+import { SpinnerModule } from 'primeng/spinner';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputTextModule } from 'primeng/inputtext';
 
 const appRoutes: Routes = [
 	{
@@ -32,11 +36,11 @@ const appRoutes: Routes = [
 		path: 'welcome',
 		component: WelcomeComponent
 	},
-	/* 	{
+	{
 		path: 'experience_calculator',
 		component: XpCalculatorComponent
 	},
-	{
+	/*{
 		path: 'starfinder_pointbuy',
 		component: StarfinderComponent
 	},
@@ -66,8 +70,8 @@ const appRoutes: Routes = [
 		NavComponent,
 		AboutComponent,
 		WelcomeComponent,
-		/* 		XpCalculatorComponent,
-		StarfinderComponent,
+		XpCalculatorComponent,
+		/* StarfinderComponent,
 		StatTrackerComponent,
 		EncounterTrackerComponent,
 		CharacterDetailsComponent, */
@@ -83,6 +87,10 @@ const appRoutes: Routes = [
 		ListboxModule,
 		MenuModule,
 		BrowserAnimationsModule,
+		ButtonModule,
+		SpinnerModule,
+		DropdownModule,
+		InputTextModule,
 		RouterModule.forRoot(appRoutes, { useHash: true })
 	],
 	entryComponents: [ChangeNumberComponent], // CharacterDetailsComponent],
