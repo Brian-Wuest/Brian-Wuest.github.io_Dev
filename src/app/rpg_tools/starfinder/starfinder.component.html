@@ -1,0 +1,102 @@
+<div class="ui-g">
+	<h1 class="col-12 align-text-center">Starfinder Character Attribute Point Buy</h1>
+	<div class="col-12">
+		<hr />
+	</div>
+</div>
+<div class="ui-g">
+	<div class="ui-sm-12 ui-md-4 ui-lg-3 ui-md-offset-1">
+		<p-card class="ui-g-12">
+			<p-header class="align-text-center">
+				<div>Race and Theme</div>
+			</p-header>
+
+			<form name="raceForm" id="raceForm">
+				<div class="ui-g pad-top-5">
+					<label class="ui-g-12">Race: </label>
+					<div class="ui-g-12">
+						<p-dropdown name="raceSelector" [options]="races" [autoWidth]="false" [(ngModel)]="currentRace" [autoDisplayFirst]="false"
+						 optionLabel="name" (onChange)="updateStats('raceForm', $event)">
+						</p-dropdown>
+					</div>
+				</div>
+				<div class="ui-g pad-top-5">
+					<label class="ui-g-12">Theme: </label>
+					<div class="ui-g-12">
+						<p-dropdown name="themeSelector" [options]="themes" [autoWidth]="false" [(ngModel)]="currentTheme" [autoDisplayFirst]="false"
+						 optionLabel="name" (onChange)="updateStats('raceForm', $event)">
+						</p-dropdown>
+					</div>
+				</div>
+				<div class="ui-g pad-top-5" *ngIf="getIsHuman()">
+					<label class="ui-g-12 no-wrap">Human Attribute: </label>
+					<div class="ui-g-12">
+						<p-dropdown name="humanSelector" [options]="characterAttributes" [autoWidth]="false" [(ngModel)]="humanModifier" [autoDisplayFirst]="false"
+						 optionLabel="name" (onChange)="updateStats('raceForm', $event)">
+						</p-dropdown>
+					</div>
+				</div>
+				<div class="ui-g pad-top-5" *ngIf="getIsThemeLess()">
+					<label class="ui-g-12 no-wrap">Themeless Attribute: </label>
+					<div class="ui-g-12">
+						<p-dropdown name="themelessSelector" [options]="characterAttributes" [autoWidth]="false" [(ngModel)]="themelessModifier"
+						 [autoDisplayFirst]="false" optionLabel="name" (onChange)="updateStats('raceForm', $event)">
+						</p-dropdown>
+					</div>
+				</div>
+			</form>
+		</p-card>
+	</div>
+
+	<div class="ui-sm-12 ui-md-5 ui-md-offset-1">
+		<p-card class="ui-g-12">
+			<p-header class="align-text-center">
+				<div>Player Stats</div>
+			</p-header>
+
+			<form id="statsForm" name="statsForm">
+				<div class="ui-g">
+					<div class="ui-g-12">
+						<label style="padding-top:0px">Available Points: {{availablePoints}}</label>
+					</div>
+				</div>
+				<div class="ui-g">
+					<table class="ui-g-12">
+						<thead>
+							<th class="ui-g-2 no-pad-right-left"><span class="font-weight-bold no-wrap align-text-center">Name</span></th>
+							<th class="ui-g-2 no-pad-right-left"><span class="font-weight-bold no-wrap align-text-center">Base</span></th>
+							<th class="ui-g-2 no-pad-right-left"><span class="font-weight-bold no-wrap align-text-center">Points</span></th>
+							<th class="ui-g-2 no-pad-right-left"><span class="font-weight-bold no-wrap align-text-center">Race</span></th>
+							<th class="ui-g-2 no-pad-right-left"><span class="font-weight-bold no-wrap align-text-center">Theme</span></th>
+							<th class="ui-g-2 no-pad-right-left"><span class="font-weight-bold no-wrap align-text-center">Result</span></th>
+						</thead>
+
+						<tbody>
+							<tr class="pad-top-5" *ngFor="let attribute of characterAttributes">
+								<td class="ui-g-2">
+									<input class="ui-g-12 align-text-center" pInputText readonly [value]="attribute.name" />
+								</td>
+								<td class="ui-g-2">
+									<input class="ui-g-12 align-text-center" pInputText readonly value="10" />
+								</td>
+								<td class="ui-g-2">
+									<p-spinner [name]="attribute.name" class="ui-g-12 align-text-center" [min]="0" [max]="getMaximumPoints(attribute)" (onChange)="updateStats('statsForm', $event)"
+									 [(ngModel)]="attribute.points"></p-spinner>
+								</td>
+								<td class="ui-g-2">
+									<input class="ui-g-12 align-text-center" pInputText readonly [value]="getRacialStat(attribute)" />
+								</td>
+								<td class="ui-g-2">
+									<input class="ui-g-12 align-text-center" pInputText readonly [value]="getThemeStat(attribute)" />
+								</td>
+								<td class="ui-g-2">
+									<input class="ui-g-12 align-text-center" pInputText readonly [value]="getComputedStat(attribute)" />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</form>
+		</p-card>
+	</div>
+</div>
