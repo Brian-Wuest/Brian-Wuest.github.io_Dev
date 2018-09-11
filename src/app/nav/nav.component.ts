@@ -22,7 +22,7 @@ export class NavComponent implements OnInit {
 				items: [
 					{ label: 'Experience Calculator', routerLink: 'experience_calculator' },
 					{ label: 'Starfinder Point Buy', routerLink: 'starfinder_pointbuy' },
-					{ label: 'Encounter Tracker', routerLink: 'encounter_tracker' }
+					/* { label: 'Encounter Tracker', routerLink: 'encounter_tracker' } */
 				]
 			},
 			{

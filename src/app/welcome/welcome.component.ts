@@ -24,10 +24,10 @@ export class WelcomeComponent {
 				label: 'Starfinder Point Buy',
 				value: { link: 'starfinder_pointbuy', text: 'Play with basic chracter stat creation for star finder.' }
 			},
-			{
+			/* {
 				label: 'Encounter Tracker',
 				value: { link: 'encounter_tracker', text: 'Track initiative, health, armor class for players and monsters and award xp.' }
-			}
+			} */
 		];
 	}
 
