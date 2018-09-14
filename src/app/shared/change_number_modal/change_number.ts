@@ -7,12 +7,13 @@ export class ChangeNumberResult {
 	originalValue: number;
 	updatedValue: number;
 	propertyName: string;
+	dialogDisplayed: boolean;
 }
 
 @Component({
 	selector: 'app-change-number',
 	templateUrl: './change_number.html',
-	styleUrls: ['./change_number.css']
+	styleUrls: ['./change_number.scss']
 })
 export class ChangeNumberComponent implements OnInit, OnDestroy {
 	@ViewChild('change_number')
@@ -23,10 +24,11 @@ export class ChangeNumberComponent implements OnInit, OnDestroy {
 	inputValue: number;
 	@Input()
 	propertyName: string;
+
 	@Input()
 	display = false;
 	@Output()
-	displayChange = new EventEmitter();
+	onDisplayChange = new EventEmitter<ChangeNumberResult>();
 
 	constructor() {
 		this.globals = new Globals();
@@ -37,17 +39,17 @@ export class ChangeNumberComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnDestroy(): void {
-		this.displayChange.unsubscribe();
+		this.onDisplayChange.unsubscribe();
 	}
 
 	closeModal() {
-		this.displayChange.emit(this.createResult(this.output));
 		this.display = false;
+		this.onDisplayChange.emit(this.createResult(this.output));
 	}
 
 	dismiss() {
-		this.displayChange.emit(this.createResult(null));
 		this.display = false;
+		this.onDisplayChange.emit(this.createResult(null));
 	}
 
 	incrementValue(increment: number) {
@@ -67,7 +69,12 @@ export class ChangeNumberComponent implements OnInit, OnDestroy {
 			originalValue: this.inputValue,
 			propertyName: this.propertyName,
 			updatedValue: value,
-			valueUpdated: value ? true : false
+			valueUpdated: value ? true : false,
+			dialogDisplayed: this.display
 		} as ChangeNumberResult;
+	}
+
+	getHeader() {
+		return 'Set value for: ' + this.propertyName;
 	}
 }
