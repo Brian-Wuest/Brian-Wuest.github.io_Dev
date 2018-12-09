@@ -3902,6 +3902,19 @@ body {
 			padding: 0px;
 		}
 	}
+
+	body .ui-menubar .ui-menuitem-link {
+		height: 42px;
+		border-bottom: 2px solid transparent;
+		-moz-transition: border-bottom-color 0.3s, background-color 0.3s;
+		transition: border-bottom-color 0.3s, background-color 0.3s;
+		color: #9fadb7;
+		display: block;
+	}
+
+	.text-offwhite {
+		color: #e9ecef !important;
+	}
 }
 @media (max-width: 640px) {
 	body .ui-buttonset .ui-button {
