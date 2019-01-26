@@ -28,7 +28,7 @@ body {
 	}
 
 	.ui-card {
-		padding: .5em;
+		padding: 0.5em;
 		margin-top: 15px;
 		background-color: $color_ebony_clay_approx;
 		-moz-border-radius: 2px;
@@ -62,10 +62,10 @@ body {
 		border: 1px solid $color_bunker_approx;
 	}
 	.ui-card-body {
-		padding-top: .5em;
-		padding-bottom: .5em;
-		padding-left: .25em;
-		padding-right: .25em;
+		padding-top: 0.5em;
+		padding-bottom: 0.5em;
+		padding-left: 0.25em;
+		padding-right: 0.25em;
 	}
 	.ui-widget-header,
 	.ui-card-header {
@@ -192,6 +192,39 @@ body {
 		-o-transition: background-color 0.2s;
 		-webkit-transition: background-color 0.2s;
 		transition: background-color 0.2s;
+
+		&.ui-button-text-only .ui-button-text {
+			padding: 0.429em 1em;
+		}
+
+		&.ui-button-text-icon-left .ui-button-text {
+			padding: 0.429em 1em 0.429em 2em;
+		}
+
+		&.ui-button-text-icon-right .ui-button-text {
+			padding: 0.429em 2em 0.429em 1em;
+		}
+
+		&.ui-button-icon-only {
+			width: 2.357em;
+		}
+
+		&.ui-button-icon-only .ui-button-text {
+			padding: 0.429em;
+		}
+
+		&.ui-button-raised {
+			-webkit-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);
+			-moz-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);
+			box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);
+		}
+
+		&.ui-button-rounded {
+			-moz-border-radius: 15px;
+			-webkit-border-radius: 15px;
+			border-radius: 15px;
+		}
+
 		&:enabled {
 			&:hover {
 				background-color: $color_sapphire_approx;
@@ -3903,7 +3936,7 @@ body {
 		}
 	}
 
-	body .ui-menubar .ui-menuitem-link {
+	.ui-menubar .ui-menuitem-link {
 		height: 42px;
 		border-bottom: 2px solid transparent;
 		-moz-transition: border-bottom-color 0.3s, background-color 0.3s;

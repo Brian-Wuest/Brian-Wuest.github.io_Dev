@@ -14,14 +14,15 @@ export class NavComponent implements OnInit {
 	ngOnInit(): void {
 		this.items = [
 			{
-				label: "Home",
-				routerLink: "Welcome"
+				label: 'Home',
+				routerLink: 'Welcome'
 			},
 			{
 				label: 'RPG Tools',
 				items: [
 					{ label: 'Experience Calculator', routerLink: 'experience_calculator' },
 					{ label: 'Starfinder Point Buy', routerLink: 'starfinder_pointbuy' },
+					{ label: 'D&D Point Buy', routerLink: 'dnd_pointbuy' }
 					/* { label: 'Encounter Tracker', routerLink: 'encounter_tracker' } */
 				]
 			},

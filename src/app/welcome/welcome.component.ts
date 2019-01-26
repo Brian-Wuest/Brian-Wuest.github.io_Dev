@@ -23,7 +23,11 @@ export class WelcomeComponent {
 			},
 			{
 				label: 'Starfinder Point Buy',
-				value: { link: 'starfinder_pointbuy', text: 'Play with basic chracter stat creation for star finder.' }
+				value: { link: 'starfinder_pointbuy', text: 'Play with a basic character stat creator for Star Finder.' }
+			},
+			{
+				label: 'Dungeons and Dragons Character Point Buy',
+				value: { link: 'dnd_pointbuy', text: 'Play with a basic character stat creator for Dungeons and Dragons.'}
 			}
 			/* {
 				label: 'Encounter Tracker',

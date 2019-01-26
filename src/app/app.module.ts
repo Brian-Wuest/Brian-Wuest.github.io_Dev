@@ -25,6 +25,7 @@ import { StatTrackerComponent } from './rpg_tools/stat_tracker/stat_tracker.comp
 import { XpCalculatorComponent } from './rpg_tools/xp_calculator/xp_calculator.component';
 import { ChangeNumberComponent } from './shared/change_number_modal/change_number';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { DndPointBuyComponent } from './rpg_tools/d&d_point_buy/dndpointbuy.component';
 
 
 const appRoutes: Routes = [
@@ -43,6 +44,10 @@ const appRoutes: Routes = [
 	{
 		path: 'starfinder_pointbuy',
 		component: StarfinderComponent
+	},
+	{
+		path: 'dnd_pointbuy',
+		component: DndPointBuyComponent
 	},
 	/*{
 		path: 'stat_tracker',
@@ -75,7 +80,8 @@ const appRoutes: Routes = [
 		/* StatTrackerComponent,
 		EncounterTrackerComponent,
 		CharacterDetailsComponent, */
-		ChangeNumberComponent
+		ChangeNumberComponent,
+		DndPointBuyComponent
 	],
 	imports: [
 		CommonModule,
