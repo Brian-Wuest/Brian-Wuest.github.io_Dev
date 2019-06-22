@@ -23,8 +23,8 @@ export class DndPointBuyComponent implements OnInit {
 	selectableAttributeOne: CharacterAttribute;
 	selectableAttributeTwo: CharacterAttribute;
 
-	@ViewChild('selectableAttribute1') dropdownAttribute1: Dropdown;
-	@ViewChild('selectableAttribute2') dropdownAttribute2: Dropdown;
+	@ViewChild('selectableAttribute1', {static: true}) dropdownAttribute1: Dropdown;
+	@ViewChild('selectableAttribute2', {static: true}) dropdownAttribute2: Dropdown;
 
 	STR = 'STR';
 	DEX = 'DEX';

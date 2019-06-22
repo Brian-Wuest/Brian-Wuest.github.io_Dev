@@ -16,7 +16,7 @@ export class ChangeNumberResult {
 	styleUrls: ['./change_number.scss']
 })
 export class ChangeNumberComponent implements OnInit, OnDestroy {
-	@ViewChild('change_number')
+	@ViewChild('change_number', {static: true})
 	changeNumber: Dropdown;
 	globals: Globals;
 	output: number;
