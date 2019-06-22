@@ -3190,30 +3190,24 @@ body {
 			-moz-border-radius: 0;
 			-webkit-border-radius: 0;
 			border-radius: 0;
-			&:hover {
-				border-bottom-width: 1px;
-				border-bottom-style: solid;
-				border-bottom-color: $color_indigo_approx;
-				color: $color_indigo_approx;
-				background-color: transparent;
-			}
-			&:focus {
-				background-color: transparent;
-				color: $color_gull_gray_approx;
-				border-bottom: 2px solid transparent;
-			}
 
 			&.ui-state-active {
+				color: $color_indigo_approx;
+				background-color: transparent;
 				border-bottom-width: 1px;
 				border-bottom-style: solid;
 				border-bottom-color: $color_indigo_approx;
-				color: $color_indigo_approx;
-				background-color: transparent;
+			}
+
+			&:hover {
+				color: $color_iron_approx;
+				background-color: $color_indigo_approx;
 			}
 		}
 		.ui-submenu-list {
 			padding: 0;
 			border: 0 none;
+			background-color: $color_cloud_burst_approx;
 			.ui-menuitem {
 				margin: 0;
 			}
@@ -3224,11 +3218,6 @@ body {
 				vertical-align: middle;
 				margin-right: 0.429em;
 				margin-left: 0.429em;
-			}
-			&.ui-menuitem-active > .ui-menuitem-link {
-				border-bottom-color: $color_indigo_approx;
-				color: $color_indigo_approx;
-				background-color: transparent;
 			}
 		}
 	}
