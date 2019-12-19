@@ -1,18 +1,38 @@
-
-@import './font-libraries/font_icons/all.min.css';
-@import './font-libraries/font_icons/rpg-awesome.min.css';
-@import './font-libraries/font_icons/fontello.css';
-@import './assets/theme-dark.css';
-@import './assets/layout-dark.css';
+@import "./font-libraries/font_icons/all.min.css";
+@import "./font-libraries/font_icons/rpg-awesome.min.css";
+@import "./font-libraries/font_icons/fontello.css";
+@import "./assets/theme-dark.css";
+@import "./assets/layout-dark.css";
 
 .ui-spinner.ui-widget.ui-corner-all {
 	width: 100%;
 }
 
-p-spinner{
+p-spinner {
 	padding: 0px !important;
 }
 
 .ui-spinner-input {
 	width: 100%;
+}
+
+body {
+	.ui-dropdown {
+		min-width: 100%;
+		min-height: 33px;
+		max-height: 33px;
+		&::before {
+			display: inline;
+		}
+
+		.ui-dropdown-label {
+			padding-bottom: 0px;
+			padding-top: 6px;
+			min-height: 31px;
+		}
+	}
+
+	.ui-card-header {
+		text-align: center;
+	}
 }

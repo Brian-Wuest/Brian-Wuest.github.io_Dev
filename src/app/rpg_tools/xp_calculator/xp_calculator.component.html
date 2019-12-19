@@ -26,7 +26,7 @@
 									<p-button (onClick)="removeMonster(monster)" label="Remove"></p-button>
 								</td>
 								<td class="right-left-padding-10">
-									<p-dropdown [options]="monsterXpList" [autoWidth]="false" [name]="monster.MonsterId" [ngModel]="monster.XpInfo" optionLabel="challengeRating"
+									<p-dropdown [options]="monsterXpList" [autoWidth]="true" [name]="monster.MonsterId" [ngModel]="monster.XpInfo" optionLabel="challengeRating"
 									 (onChange)="updatePlayersXP('monstersForm', $event, monster)">
 									</p-dropdown>
 								</td>
