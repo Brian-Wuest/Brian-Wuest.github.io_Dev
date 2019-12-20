@@ -35,4 +35,24 @@ body {
 	.ui-card-header {
 		text-align: center;
 	}
+	
+  p {
+    margin-block-end: .1em;
+    margin-block-start: .1em;
+  }
+
+  h5 {
+    margin-block-start: 1.2em;
+    margin-block-end: 1.2em;
+  }
+
+  .ui-panel-content {
+    a {
+      color: #9593ff;
+
+      &:hover {
+        color: #716ff0;
+      }
+    }
+  }
 }
