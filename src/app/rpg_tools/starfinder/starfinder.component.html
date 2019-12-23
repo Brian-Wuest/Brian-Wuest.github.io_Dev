@@ -15,7 +15,7 @@
 				<div class="ui-g pad-top-5">
 					<label class="ui-g-12">Race: </label>
 					<div class="ui-g-12">
-						<p-dropdown name="raceSelector" [options]="races" [autoWidth]="false" [(ngModel)]="currentRace" [autoDisplayFirst]="false"
+						<p-dropdown name="raceSelector" [options]="races" [(ngModel)]="currentRace" [autoDisplayFirst]="false"
 						 optionLabel="name" (onChange)="updateStats('raceForm', $event)">
 						</p-dropdown>
 					</div>
@@ -23,7 +23,7 @@
 				<div class="ui-g pad-top-5">
 					<label class="ui-g-12">Theme: </label>
 					<div class="ui-g-12">
-						<p-dropdown name="themeSelector" [options]="themes" [autoWidth]="false" [(ngModel)]="currentTheme" [autoDisplayFirst]="false"
+						<p-dropdown name="themeSelector" [options]="themes" [(ngModel)]="currentTheme" [autoDisplayFirst]="false"
 						 optionLabel="name" (onChange)="updateStats('raceForm', $event)">
 						</p-dropdown>
 					</div>
@@ -31,7 +31,7 @@
 				<div class="ui-g pad-top-5" *ngIf="getIsHuman()">
 					<label class="ui-g-12 no-wrap">Human Attribute: </label>
 					<div class="ui-g-12">
-						<p-dropdown name="humanSelector" [options]="characterAttributes" [autoWidth]="false" [(ngModel)]="humanModifier" [autoDisplayFirst]="false"
+						<p-dropdown name="humanSelector" [options]="characterAttributes" [(ngModel)]="humanModifier" [autoDisplayFirst]="false"
 						 optionLabel="name" (onChange)="updateStats('raceForm', $event)">
 						</p-dropdown>
 					</div>
@@ -39,7 +39,7 @@
 				<div class="ui-g pad-top-5" *ngIf="getIsThemeLess()">
 					<label class="ui-g-12 no-wrap">Themeless Attribute: </label>
 					<div class="ui-g-12">
-						<p-dropdown name="themelessSelector" [options]="characterAttributes" [autoWidth]="false" [(ngModel)]="themelessModifier"
+						<p-dropdown name="themelessSelector" [options]="characterAttributes" [(ngModel)]="themelessModifier"
 						 [autoDisplayFirst]="false" optionLabel="name" (onChange)="updateStats('raceForm', $event)">
 						</p-dropdown>
 					</div>

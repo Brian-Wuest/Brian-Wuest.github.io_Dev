@@ -34,7 +34,6 @@
 						<p-dropdown
 							name="raceSelector"
 							[options]="races"
-							[autoWidth]="false"
 							[(ngModel)]="currentRace"
 							[autoDisplayFirst]="false"
 							optionLabel="name"
@@ -55,7 +54,6 @@
 							name="attribute1Selector"
 							#selectableAttribute1
 							[options]="characterAttributes1"
-							[autoWidth]="false"
 							[(ngModel)]="selectableAttributeOne"
 							[autoDisplayFirst]="false"
 							optionLabel="name"
@@ -70,7 +68,6 @@
 							name="attribute2Selector"
 							#selectableAttribute2
 							[options]="characterAttributes2"
-							[autoWidth]="false"
 							[(ngModel)]="selectableAttributeTwo"
 							[autoDisplayFirst]="false"
 							optionLabel="name"
@@ -145,7 +142,6 @@
 											updateStats('statsForm', $event)
 										"
 										[(ngModel)]="attribute.points"
-										[type]="number"
 									></p-spinner>
 								</td>
 								<td class="ui-g-3">
