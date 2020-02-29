@@ -36,14 +36,14 @@
 							"vendorChunk": false,
 							"buildOptimizer": true,
 							"commonChunk": true,
-							"deleteOutputPath": false,
-							"es5BrowserSupport": false,
+							"deleteOutputPath": true,
 							"fileReplacements": [
 								{
 									"replace": "src/environments/environment.ts",
 									"with": "src/environments/environment.prod.ts"
 								}
-							]
+							],
+							"outputPath": "./dist"
 						},
 						"dev": {
 							"sourceMap": true,
@@ -101,7 +101,7 @@
 	"schematics": {
 		"@schematics/angular:component": {
 			"prefix": "app",
-			"styleext": "scss"
+			"style": "scss"
 		},
 		"@schematics/angular:directive": {
 			"prefix": "app"

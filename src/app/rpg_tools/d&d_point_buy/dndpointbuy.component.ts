@@ -5,7 +5,7 @@ import { Race } from '../../shared/race';
 import { AttributeModifier } from '../../shared/attributeModifier';
 import { CharacterAttribute } from './characterAttribute';
 import { Dropdown } from 'primeng/dropdown';
-import { SelectItem } from 'primeng/components/common/selectitem';
+import { SelectItem } from 'primeng/api/selectitem';
 
 @Component({
 	templateUrl: './dndpointbuy.component.html',
