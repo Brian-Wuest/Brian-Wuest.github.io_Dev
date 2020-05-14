@@ -8055,7 +8055,7 @@ body.hidden-overflow {
   background-image: -moz-linear-gradient(right, #f2c260, #ebcb8b);
   background-image: -ms-linear-gradient(right, #f2c260, #ebcb8b);
   background-image: -o-linear-gradient(right, #f2c260, #ebcb8b);
-  background-image: linear-gradient(right, #f2c260, #ebcb8b);
+  background-image: linear-gradient(to left, #f2c260, #ebcb8b);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f2c260", endColorstr="#ebcb8b", gradientType="1");
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -8173,7 +8173,7 @@ body.hidden-overflow {
   background-image: -moz-linear-gradient(left, #4c566a, #2e3440);
   background-image: -ms-linear-gradient(left, #4c566a, #2e3440);
   background-image: -o-linear-gradient(left, #4c566a, #2e3440);
-  background-image: linear-gradient(left, #4c566a, #2e3440);
+  background-image: linear-gradient(to right, #4c566a, #2e3440);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4c566a", endColorstr="#2e3440", gradientType="1");
 }
 .layout-dashboard .card-graph.graph-2 .graph-content {

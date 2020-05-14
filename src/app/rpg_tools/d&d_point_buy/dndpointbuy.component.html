@@ -1,170 +1,118 @@
 <div class="ui-g">
-	<h1 class="ui-g-12 align-text-center">
-		D&D 5th Edition Character Attribute Point Buy
-	</h1>
-	<div class="ui-g-12"><hr /></div>
+  <h1 class="ui-g-12 align-text-center">
+    D&D 5th Edition Character Attribute Point Buy
+  </h1>
+  <div class="ui-g-12"><hr /></div>
 </div>
 <div class="ui-g">
-	<div class="ui-sm-12 ui-md-8 ui-md-offset-2">
-		<p-card class="ui-g-12">
-			<p-header class="align-text-center">
-				<span class="ui-card-title">Player Stats</span>
-			</p-header>
-			<form name="raceForm" id="raceForm" autocomplete="off">
-				<div class="ui-g pad-top-5">
-					<label class="ui-g-3 align-text-center">Race </label>
-					<label
-						class="ui-g-3 align-text-center"
-						style="padding-top:0px"
-						>Available Points</label
-					>
-					<label
-						class="ui-g-3 no-wrap align-text-center"
-						*ngIf="showSelectableStatDropdowns()"
-						>Attribute 1
-					</label>
-					<label
-						class="ui-g-3 no-wrap align-text-center"
-						*ngIf="showSelectableStatDropdowns()"
-						>Attribute 2
-					</label>
-				</div>
-				<div class="ui-g pad-top-5">
-					<div class="ui-g-3">
-						<p-dropdown
-							name="raceSelector"
-							[options]="races"
-							[(ngModel)]="currentRace"
-							[autoDisplayFirst]="false"
-							optionLabel="name"
-							(onChange)="updateStats('raceForm', $event)"
-						>
-						</p-dropdown>
-					</div>
-					<div class="ui-g-3">
-						<input
-							class="ui-g-12 align-text-center"
-							pInputText
-							readonly
-							[value]="availablePoints"
-						/>
-					</div>
-					<div class="ui-g-3" *ngIf="showSelectableStatDropdowns()">
-						<p-dropdown
-							name="attribute1Selector"
-							#selectableAttribute1
-							[options]="characterAttributes1"
-							[(ngModel)]="selectableAttributeOne"
-							[autoDisplayFirst]="false"
-							optionLabel="name"
-							(onChange)="
-								updateAvailableSpecialAttributes(1, $event)
-							"
-						>
-						</p-dropdown>
-					</div>
-					<div class="ui-g-3" *ngIf="showSelectableStatDropdowns()">
-						<p-dropdown
-							name="attribute2Selector"
-							#selectableAttribute2
-							[options]="characterAttributes2"
-							[(ngModel)]="selectableAttributeTwo"
-							[autoDisplayFirst]="false"
-							optionLabel="name"
-							(onChange)="
-								updateAvailableSpecialAttributes(2, $event)
-							"
-						>
-						</p-dropdown>
-					</div>
-				</div>
-			</form>
-			<div class="ui-g"><hr class="ui-g-12 no-pad-top-bottom" /></div>
-			<form id="statsForm" name="statsForm" autocomplete="off">
-				<div class="ui-g">
-					<table class="ui-g-12">
-						<thead>
-							<th class="ui-g-3 no-pad-right-left">
-								<span
-									class="font-weight-bold no-wrap align-text-center"
-									>Name</span
-								>
-							</th>
-							<th class="ui-g-3 no-pad-right-left">
-								<span
-									class="font-weight-bold no-wrap align-text-center"
-								>
-									Points
-									<button
-										pButton
-										class="ui-button-rounded ui-button-info small-icon-button"
-										type="button"
-										icon="fas fa-sync"
-										iconPos="left"
-										(click)="resetPoints()"
-									></button
-								></span>
-							</th>
-							<th class="ui-g-3 no-pad-right-left">
-								<span
-									class="font-weight-bold no-wrap align-text-center"
-									>Race</span
-								>
-							</th>
-							<th class="ui-g-3 no-pad-right-left">
-								<span
-									class="font-weight-bold no-wrap align-text-center"
-									>Result</span
-								>
-							</th>
-						</thead>
+  <div class="ui-sm-12 ui-md-8 ui-md-offset-2">
+    <p-card class="ui-g-12">
+      <p-header class="align-text-center">
+        <span class="ui-card-title">Player Stats</span>
+      </p-header>
+      <form name="raceForm" id="raceForm" autocomplete="off">
+        <div class="ui-g pad-top-5">
+          <label class="ui-g-3 align-text-center">Race </label>
+          <label class="ui-g-3 align-text-center" style="padding-top: 0px;">Available Points</label>
+          <label class="ui-g-3 no-wrap align-text-center" *ngIf="showSelectableStatDropdowns()">Attribute 1 </label>
+          <label class="ui-g-3 no-wrap align-text-center" *ngIf="showSelectableStatDropdowns()">Attribute 2 </label>
+        </div>
+        <div class="ui-g pad-top-5">
+          <div class="ui-g-3">
+            <p-dropdown
+              name="raceSelector"
+              [options]="races"
+              [(ngModel)]="currentRace"
+              [autoDisplayFirst]="false"
+              optionLabel="name"
+              (onChange)="updateStats('raceForm', $event)"
+            >
+            </p-dropdown>
+          </div>
+          <div class="ui-g-3">
+            <input class="ui-g-12 align-text-center" pInputText readonly [value]="availablePoints" />
+          </div>
+          <div class="ui-g-3" *ngIf="showSelectableStatDropdowns()">
+            <p-dropdown
+              name="attribute1Selector"
+              #selectableAttribute1
+              [options]="characterAttributes1"
+              [(ngModel)]="selectableAttributeOne"
+              [autoDisplayFirst]="false"
+              optionLabel="name"
+              (onChange)="updateAvailableSpecialAttributes(1, $event)"
+            >
+            </p-dropdown>
+          </div>
+          <div class="ui-g-3" *ngIf="showSelectableStatDropdowns()">
+            <p-dropdown
+              name="attribute2Selector"
+              #selectableAttribute2
+              [options]="characterAttributes2"
+              [(ngModel)]="selectableAttributeTwo"
+              [autoDisplayFirst]="false"
+              optionLabel="name"
+              (onChange)="updateAvailableSpecialAttributes(2, $event)"
+            >
+            </p-dropdown>
+          </div>
+        </div>
+      </form>
+      <div class="ui-g"><hr class="ui-g-12 no-pad-top-bottom" /></div>
+      <form id="statsForm" name="statsForm" autocomplete="off">
+        <div class="ui-g">
+          <table class="ui-g-12">
+            <thead>
+              <th class="ui-g-3 no-pad-right-left">
+                <span class="font-weight-bold no-wrap align-text-center">Name</span>
+              </th>
+              <th class="ui-g-3 no-pad-right-left">
+                <span class="font-weight-bold no-wrap align-text-center">
+                  Points
+                  <button
+                    pButton
+                    class="ui-button-rounded ui-button-info small-icon-button"
+                    type="button"
+                    icon="fas fa-sync"
+                    iconPos="left"
+                    (click)="resetPoints()"
+                  ></button
+                ></span>
+              </th>
+              <th class="ui-g-3 no-pad-right-left">
+                <span class="font-weight-bold no-wrap align-text-center">Race</span>
+              </th>
+              <th class="ui-g-3 no-pad-right-left">
+                <span class="font-weight-bold no-wrap align-text-center">Result</span>
+              </th>
+            </thead>
 
-						<tbody>
-							<tr
-								class="pad-top-5"
-								*ngFor="let attribute of characterAttributes"
-							>
-								<td class="ui-g-3">
-									<input
-										class="ui-g-12 align-text-center"
-										pInputText
-										readonly
-										[value]="attribute.name"
-									/>
-								</td>
-								<td class="ui-g-3">
-									<p-spinner
-										[name]="attribute.name"
-										class="ui-g-12 align-text-center"
-										[min]="0"
-										[max]="getMaximumPoints(attribute)"
-										(onChange)="
-											updateStats('statsForm', $event)
-										"
-										[(ngModel)]="attribute.points"
-									></p-spinner>
-								</td>
-								<td class="ui-g-3">
-									<input
-										class="ui-g-12 align-text-center"
-										pInputText
-										readonly
-										[value]="getRacialStat(attribute)"
-									/>
-								</td>
-								<td class="ui-g-3">
-									<input
-										class="ui-g-12 align-text-center"
-										pInputText
-										readonly
-										[value]="getComputedStat(attribute)"
-									/>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</form>
-		</p-card>
-	</div>
+            <tbody>
+              <tr class="pad-top-5" *ngFor="let attribute of characterAttributes">
+                <td class="ui-g-3">
+                  <input class="ui-g-12 align-text-center" pInputText readonly [value]="attribute.name" />
+                </td>
+                <td class="ui-g-3">
+                  <p-spinner
+                    [name]="attribute.name"
+                    class="ui-g-12 align-text-center"
+                    [min]="0"
+                    [max]="getMaximumPoints(attribute)"
+                    (onChange)="updateStats('statsForm', $event)"
+                    [(ngModel)]="attribute.points"
+                  ></p-spinner>
+                </td>
+                <td class="ui-g-3">
+                  <input class="ui-g-12 align-text-center" pInputText readonly [value]="getRacialStat(attribute)" />
+                </td>
+                <td class="ui-g-3">
+                  <input class="ui-g-12 align-text-center" pInputText readonly [value]="getComputedStat(attribute)" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </form>
+    </p-card>
+  </div>
 </div>

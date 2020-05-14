@@ -1,25 +1,26 @@
 <div class="ui-g">
-	<div class="ui-g-8 ui-g-offset-2 ui-g-md-4 ui-g-offset-md-1">
-		<p-card>
-			<p-header>
-				<span class="ui-card-title"><i class="fas fa-toolbox "></i> RPG Tools</span>
-			</p-header>
-			<div>
-				The RPG Tools area is for quick tools to use in Dungeon and Dragons or similar RPGs. Mostly needed for Dungeon/Game Masters.
-			</div>
-			<div>
-				<br/>
-				<p-listbox [options]="rpgToolLinks" [(ngModel)]="selectedLink" [style]="{'width': 'auto'}" (onChange)="clickedItem($event);">
-					<p-header>
-						Click an item below to jump to that page.
-					</p-header>
-					<ng-template let-tool let-i="index " pTemplate="item ">
-						<div class="ui-helper-clearfix ">
-							<span style="text-decoration: underline">{{tool.label}}</span><span>: {{tool.value.text}}</span>
-						</div>
-					</ng-template>
-				</p-listbox>
-			</div>
-		</p-card>
-	</div>
+  <div class="ui-g-8 ui-g-offset-2 ui-g-md-4 ui-g-offset-md-1">
+    <p-card>
+      <p-header>
+        <span class="ui-card-title"><i class="fas fa-toolbox"></i> RPG Tools</span>
+      </p-header>
+      <div>
+        The RPG Tools area is for quick tools to use in Dungeon and Dragons or similar RPGs. Mostly needed for Dungeon/Game Masters.
+      </div>
+      <div>
+        <br />
+        <p-listbox [options]="rpgToolLinks" [(ngModel)]="selectedLink" [style]="{ width: 'auto' }" (onChange)="clickedItem($event)">
+          <p-header>
+            Click an item below to jump to that page.
+          </p-header>
+          <ng-template let-tool let-i="index " pTemplate="item ">
+            <div class="ui-helper-clearfix">
+              <span style="text-decoration: underline;">{{ tool.label }}</span
+              ><span>: {{ tool.value.text }}</span>
+            </div>
+          </ng-template>
+        </p-listbox>
+      </div>
+    </p-card>
+  </div>
 </div>
