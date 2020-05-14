@@ -23,7 +23,6 @@
     "@angular/platform-browser-dynamic": "9.1.6",
     "@angular/router": "9.1.6",
     "@types/file-saver": "2.0.1",
-    "core-js": "3.6.5",
     "file-saver": "2.0.2",
     "font-awesome": "4.7.0",
     "primeicons": "2.0.0",
@@ -46,7 +45,6 @@
     "webpack-bundle-analyzer": "3.7.0",
     "node-sass": "4.14.1",
     "fibers": "5.0.0",
-    "html-webpack-plugin": "4.3.0",
-    "minimist": "1.2.5"
+    "html-webpack-plugin": "4.3.0"
   }
 }
