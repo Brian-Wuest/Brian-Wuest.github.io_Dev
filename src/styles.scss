@@ -4,19 +4,19 @@
 @import './assets/theme-dark.css';
 @import './assets/layout-dark.css';
 
-.ui-spinner.ui-widget.ui-corner-all {
-  width: 100%;
-}
-
-p-spinner {
-  padding: 0px !important;
-}
-
-.ui-spinner-input {
-  width: 100%;
-}
-
 body {
+  .ui-spinner.ui-widget.ui-corner-all {
+    width: 100%;
+  }
+
+  p-spinner {
+    padding: 0px !important;
+  }
+
+  .ui-spinner-input {
+    width: 100%;
+  }
+
   .ui-dropdown {
     min-width: 100%;
     min-height: 33px;
@@ -29,6 +29,18 @@ body {
       padding-bottom: 0px;
       padding-top: 6px;
       min-height: 31px;
+    }
+  }
+
+  .ui-inputnumber,
+  .ui-calendar {
+    min-width: 100%;
+    min-height: 33px;
+  }
+
+  .ui-calendar-w-btn {
+    .ui-inputtext {
+      width: 90%;
     }
   }
 
@@ -58,5 +70,12 @@ body {
 
   .align-text-center {
     text-align: center;
+  }
+
+  .ui-inputgroup-addon {
+    .ui-dropdown {
+      border-width: 0px;
+      min-height: 31px;
+    }
   }
 }

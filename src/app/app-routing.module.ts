@@ -23,6 +23,10 @@ const routes: Routes = [
     loadChildren: () => import('./rpg_tools/d&d_point_buy/dndpointbuy.module').then((m) => m.DndPointBuyModule),
   },
   {
+    path: 'date_helpers',
+    loadChildren: () => import('./date_helpers/date_helpers.module').then((m) => m.DateHelpersModule),
+  },
+  {
     path: '',
     redirectTo: 'welcome',
     pathMatch: 'full',

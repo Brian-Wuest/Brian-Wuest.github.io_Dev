@@ -7,7 +7,7 @@
     "comment-format": [true, "check-space"],
     "curly": true,
     "eofline": true,
-    "forin": true,
+    "forin": false,
     "import-blacklist": [true],
     "import-spacing": true,
     "indent": [true, "spaces"],

@@ -4,7 +4,7 @@ import { MenuItem } from 'primeng/api/menuitem';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'nav-menu',
-  templateUrl: './nav.component.html'
+  templateUrl: './nav.component.html',
 })
 export class NavComponent implements OnInit {
   items: MenuItem[];
@@ -25,6 +25,10 @@ export class NavComponent implements OnInit {
           { label: 'D&D Point Buy', routerLink: 'dnd_pointbuy' },
           /* { label: 'Encounter Tracker', routerLink: 'encounter_tracker' } */
         ],
+      },
+      {
+        label: 'Date/Time Calculations',
+        routerLink: 'date_helpers',
       },
       {
         label: 'Help',
