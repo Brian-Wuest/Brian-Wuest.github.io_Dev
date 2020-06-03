@@ -45,9 +45,9 @@ export class DateHelpersComponent {
     this.selectedPartTwoConverter = DatePart.Millisecond;
     this.dateDifferenceStart = new Date();
     this.dateDifferenceEnd = new Date();
-	this.dateDifferenceType = DatePart.Day;
+    this.dateDifferenceType = DatePart.Day;
 
-	this.calculateDifference();
+    this.calculateDifference();
   }
 
   calculationChanged() {
@@ -60,6 +60,11 @@ export class DateHelpersComponent {
   }
 
   calculateDifference() {
+    if (this.dateDifferenceEnd === null || this.dateDifferenceStart === null) {
+      this.dateDifferenceResult = 0;
+      return;
+    }
+
     switch (this.dateDifferenceType) {
       case DatePart.Millisecond: {
         this.dateDifferenceResult = differenceInMilliseconds(this.dateDifferenceEnd, this.dateDifferenceStart);
@@ -89,6 +94,6 @@ export class DateHelpersComponent {
   }
 
   getSuffix(): string {
-    return " " + this.dateDifferenceType + "(s)";
+    return ' ' + this.dateDifferenceType + '(s)';
   }
 }

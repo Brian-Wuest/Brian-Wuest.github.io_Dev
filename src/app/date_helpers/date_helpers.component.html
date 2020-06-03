@@ -50,10 +50,11 @@
             [(ngModel)]="dateDifferenceStart"
             showTime="true"
             showButtonBar="true"
-            [inputStyle]="{ width: '90%' }"
             showIcon="true"
 			(onBlur)="calculateDifference()"
 			(onSelect)="calculateDifference()"
+			(onClearClick)="calculateDifference()"
+			(onTodayClick)="calculateDifference()"
           ></p-calendar>
         </div>
 
@@ -64,10 +65,11 @@
             [(ngModel)]="dateDifferenceEnd"
             showTime="true"
             showButtonBar="true"
-            [inputStyle]="{ width: '90%' }"
             showIcon="true"
 			(onBlur)="calculateDifference()"
 			(onSelect)="calculateDifference()"
+			(onClearClick)="calculateDifference()"
+			(onTodayClick)="calculateDifference()"
           ></p-calendar>
         </div>
 
@@ -87,7 +89,7 @@
           <p-dropdown
             name="differenceType"
             [options]="datePartOptions"
-            (onChange)="calculateDifference()"
+			(onChange)="calculateDifference()"
             [(ngModel)]="dateDifferenceType"
           ></p-dropdown>
         </div>

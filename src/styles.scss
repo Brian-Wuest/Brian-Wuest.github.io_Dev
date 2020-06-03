@@ -32,15 +32,25 @@ body {
     }
   }
 
+  .ui-fluid {
+	.ui-inputtext {
+		width: 100%;
+	}
+  }
+
   .ui-inputnumber,
   .ui-calendar {
-    min-width: 100%;
-    min-height: 33px;
+    width: 100%;
+	min-height: 33px;
+
+	.ui-datepicker {
+		width: 100%;
+	}
   }
 
   .ui-calendar-w-btn {
-    .ui-inputtext {
-      width: 90%;
+    input.ui-inputtext {
+      width: calc(100% - 2.357em);
     }
   }
 
