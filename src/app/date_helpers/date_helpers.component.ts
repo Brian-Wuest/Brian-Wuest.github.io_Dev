@@ -16,7 +16,7 @@ import { DatePart } from './models/date_part';
 })
 export class DateHelpersComponent {
   dateParts = DatePart;
-  datePartOptions: Array<SelectItem>;
+  datePartOptions: Array < SelectItem > ;
   selectedPartOneConverter: DatePart;
   selectedPartTwoConverter: DatePart;
   convertValue: number;
@@ -35,10 +35,8 @@ export class DateHelpersComponent {
     this.convertResult = 0;
 
     for (const part in DatePart) {
-      this.datePartOptions.push({
-        label: part,
-        value: part,
-      } as SelectItem);
+      const item = { label: part, value: part } as SelectItem;
+      this.datePartOptions.push(item);
     }
 
     this.selectedPartOneConverter = DatePart.Millisecond;

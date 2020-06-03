@@ -21,6 +21,7 @@ body {
     min-width: 100%;
     min-height: 33px;
     max-height: 33px;
+
     &::before {
       display: inline;
     }
@@ -33,19 +34,19 @@ body {
   }
 
   .ui-fluid {
-	.ui-inputtext {
-		width: 100%;
-	}
+    .ui-inputtext {
+      width: 100%;
+    }
   }
 
   .ui-inputnumber,
   .ui-calendar {
     width: 100%;
-	min-height: 33px;
+    min-height: 33px;
 
-	.ui-datepicker {
-		width: 100%;
-	}
+    .ui-datepicker {
+      width: 100%;
+    }
   }
 
   .ui-calendar-w-btn {

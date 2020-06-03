@@ -2,11 +2,10 @@ import { ConvertModel } from './convert.model';
 import { DatePart } from './date_part';
 
 export class ConvertFunctions {
-  availableFunctions: Array<ConvertModel>;
+  availableFunctions: Array < ConvertModel > ;
 
   constructor() {
-    this.availableFunctions = [
-      {
+    this.availableFunctions = [{
         firstPart: DatePart.Millisecond,
         secondPart: DatePart.Second,
         conversion: (secondNumber: number) => {
