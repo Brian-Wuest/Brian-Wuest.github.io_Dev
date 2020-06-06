@@ -16,15 +16,14 @@
     "editor.defaultFormatter": "HookyQR.beautify",
   },
   "[typescript]": {
-    "editor.defaultFormatter": "HookyQR.beautify"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "beautify.language": {
     "js": {
       "type": [
         "javascript",
         "json",
-        "jsonc",
-        "typescript"
+        "jsonc"
       ],
       "filename": [
         ".jshintrc",

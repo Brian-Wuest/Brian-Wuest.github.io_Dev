@@ -89,4 +89,10 @@ body {
       min-height: 31px;
     }
   }
+
+  .ui-tabview {
+    .ui-tabview-panel {
+      border-width: 1px;
+    }
+  }
 }

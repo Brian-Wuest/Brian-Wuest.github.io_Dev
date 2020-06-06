@@ -32,24 +32,22 @@
               "vendorChunk": false,
               "buildOptimizer": true,
               "commonChunk": true,
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.prod.ts"
+              }],
               "outputPath": "./dist"
             },
             "dev": {
               "sourceMap": true,
               "extractCss": true,
-			  "namedChunks": false,
+              "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": true,
               "commonChunk": true,
-			  "deleteOutputPath": false,
-			  "outputHashing": "all"
+              "deleteOutputPath": false,
+              "outputHashing": "all"
             }
           }
         },
@@ -80,7 +78,7 @@
       }
     },
     "app-e2e": {
-      "root": "",
+      "root": "e2e",
       "sourceRoot": "e2e",
       "projectType": "application"
     }
