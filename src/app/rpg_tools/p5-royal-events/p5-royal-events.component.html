@@ -8,7 +8,7 @@
   <div class="ui-g-10 ui-md-offset-1">
     <p-tabView>
       <p-tabPanel *ngFor="let month of months; let i = index" [header]="month.name" [selected]="i == 0">
-        <p-table [value]="month.events" [columns]="columns" [autoLayout]="true">
+        <p-table [value]="month.events" [columns]="columns" [autoLayout]="true" [rowHover]="true">
           <ng-template pTemplate="header" let-columns>
             <tr>
               <th *ngFor="let col of columns" [style.maxWidth]='col.width'>
@@ -18,7 +18,7 @@
           </ng-template>
 
           <ng-template pTemplate="body" let-event let-columns="columns">
-            <tr>
+            <tr class="ui-selectable-row">
               <td *ngFor="let col of columns" [ngSwitch]="col.field" [style.maxWidth]='col.width'>
                 <ul *ngSwitchCase="'dayTimeInfo'">
                   <li *ngFor="let info of event[col.field]">
