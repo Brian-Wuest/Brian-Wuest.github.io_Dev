@@ -59,7 +59,8 @@ export class P5RoyalEventsComponent implements OnInit {
     // April
     this.months.push({
       name: 'April',
-      miscMonthInfo: 'The month the game starts',
+      miscMonthInfo: 'Tons of cutscenes this month, try to keep up with schedule.',
+      exitStats: ['Knowledge: 1, Guts: 2, Proficiency: 2, Kindness: 2, Charm: 2', 'Hierophant: 3, Lovers: 1, Chariot: 3, Death: 1'],
       events: [
         {
           day: 12,
@@ -192,193 +193,250 @@ export class P5RoyalEventsComponent implements OnInit {
     // May
     this.months.push({
       name: 'May',
-      miscMonthInfo: '',
+      miscMonthInfo: 'You must keep on track for the Chariot and Temperance confidants.',
+      exitStats: [
+        'Knowledge: 3, Guts: 3, Proficiency: 3, Kindness: 2, Charm: 2',
+        'Hierophant: 3, Lovers: 4, Chariot: 5, Death: 5, Temperance: 1, Moon: 2, Sun: 1, Faith: 1, Consultant: 2',
+      ],
       events: [
         {
           day: 1,
-          dayTimeInfo: [],
-          eveningInfo: [],
+          dayTimeInfo: [
+            'Check TV for home shopping (Optional, Muscle set recommended)',
+            'Get Aojiru (Proficiency +1)',
+            'Death 2, requires Guts rank 2!',
+            '2, 0, 0',
+            '2, 0, 0',
+            '2, 0, 2',
+          ],
+          eveningInfo: ['Yongen Bathhouse (Charm +3)'],
           miscInfo: '',
         },
         {
           day: 2,
-          dayTimeInfo: [],
-          eveningInfo: [],
+          dayTimeInfo: ['Story segment'],
+          eveningInfo: ['Solve crossword (Knowledge +1). Study (Knowledge rank 2)'],
           miscInfo: '',
         },
         {
           day: 3,
-          dayTimeInfo: [],
-          eveningInfo: [],
+          dayTimeInfo: ['Story segment'],
+          eveningInfo: ['Watch Wraith (Kindness +2)'],
           miscInfo: '',
         },
         {
           day: 4,
-          dayTimeInfo: [],
-          eveningInfo: [],
-          miscInfo: '',
+          dayTimeInfo: ['Story segment'],
+          eveningInfo: ['Craft infiltration tools (Proficiency +2)'],
+          miscInfo: "Have at least 4 lockpicks for the locked chests in Madarame's palace",
         },
         {
           day: 5,
-          dayTimeInfo: [],
-          eveningInfo: [],
+          dayTimeInfo: ['Story segment'],
+          eveningInfo: ['Feed plant (Kindness +2)', 'Save your game and watch Wrait (Kindness +2)'],
           miscInfo: '',
         },
         {
           day: 6,
-          dayTimeInfo: [],
-          eveningInfo: [],
-          miscInfo: '',
+          dayTimeInfo: [
+            'Buy all books at Shibuya bookstore',
+            'Replace Wraith and borrow Bubbly Hills 90210',
+            'Lovers 2 (requires Kindness Rank 2',
+            '3, 3, 2',
+            '2, 3, 2',
+            '2, 3',
+            '3, 3',
+            '2, 2, 2',
+          ],
+          eveningInfo: ['Talk to the man making speach at central square', 'Apply and work at beef boal (Proficiency +2, Prereq for SUN)'],
+          miscInfo: 'Class Event: (Knowledge +1), make sure to re-load to try to dodge the chaulk to get Charm +2',
         },
         {
           day: 7,
-          dayTimeInfo: [],
-          eveningInfo: [],
-          miscInfo: '',
+          dayTimeInfo: ['Mementos tutorial.'],
+          eveningInfo: ['Study at Leblanc (Knowledge +2)'],
+          miscInfo: 'Class answer: Fatal woman (Knowledge +1)',
         },
         {
           day: 8,
-          dayTimeInfo: [],
-          eveningInfo: [],
+          dayTimeInfo: ['Home shopping (Optional, Plant Nutrient set recommended)', 'Story segment'],
+          eveningInfo: ['Get Aojiru (Guts +1)', 'Work at beef bowl, SUN Prereq'],
           miscInfo: '',
         },
         {
           day: 9,
-          dayTimeInfo: [],
-          eveningInfo: [],
-          miscInfo: '',
+          dayTimeInfo: ['Death 3 (Guts +1):', '0, 0', '0, 0', '2, 0, 2', '2, 0, 0'],
+          eveningInfo: ["Accept Panther's invitation for a study hangout (Knowledge +3)"],
+          miscInfo: 'Receive Mementos mission from Mishima',
         },
         {
           day: 10,
-          dayTimeInfo: [],
-          eveningInfo: [],
-          miscInfo: '',
+          dayTimeInfo: [
+            'Lovers 3 (Inokashira Park unlocked):',
+            '0, 0',
+            '0, 0, 0',
+            '0, 0, 0',
+            '0, 0, 0',
+            '2, 2, 3',
+            '0, 0, 0',
+            '0, 0',
+            '2, 3',
+            '0, 2',
+            '2, 0, 0',
+          ],
+          eveningInfo: ['Solve crossword (Knowledge +1)', "Accept Skull's invitation to study (Knowledge +3)"],
+          miscInfo: 'Class answer: The Heian period (Knowledge +1)',
         },
         {
           day: 11,
-          dayTimeInfo: [],
-          eveningInfo: [],
-          miscInfo: '',
+          dayTimeInfo: ['Minamoto no Yoshitsune', 'Minamoto no Toritomo, Yoritomo wonn, the weak'],
+          eveningInfo: ['Unavailable'],
+          miscInfo: 'Finals week begings!',
         },
         {
           day: 12,
-          dayTimeInfo: [],
-          eveningInfo: [],
+          dayTimeInfo: ['Cognition', 'Both'],
+          eveningInfo: ['Unavailable'],
           miscInfo: '',
         },
         {
           day: 13,
-          dayTimeInfo: [],
-          eveningInfo: [],
+          dayTimeInfo: ["The Devil's Dictionary", 'Femma Fatale'],
+          eveningInfo: ['Unavailable'],
           miscInfo: '',
         },
         {
           day: 14,
-          dayTimeInfo: [],
-          eveningInfo: [],
+          dayTimeInfo: ['Last day of midterms'],
+          eveningInfo: ['Watch Bubbly Hills (Charm +2)'],
           miscInfo: '',
         },
         {
           day: 15,
-          dayTimeInfo: [],
-          eveningInfo: [],
+          dayTimeInfo: ['Home shopping (optional, no recommendations)', 'Story segment'],
+          eveningInfo: ['Study at Leblanc (Knowledge +2)'],
           miscInfo: '',
         },
         {
           day: 16,
-          dayTimeInfo: [],
-          eveningInfo: [],
-          miscInfo: '',
+          dayTimeInfo: ['Madarame Palace introduction'],
+          eveningInfo: ['Unavailable'],
+          miscInfo: 'Class answer: The Placebo effect (Knowledge +1)',
         },
         {
           day: 17,
-          dayTimeInfo: [],
-          eveningInfo: [],
+          dayTimeInfo: ['Story segment'],
+          eveningInfo: ['Save game. Craft infiltration tools, reload until you make extra (Proficiency rank 3)'],
           miscInfo: '',
         },
         {
           day: 18,
-          dayTimeInfo: [],
-          eveningInfo: [],
+          dayTimeInfo: ['Death 4 (Guts +1):', '0, 2', '3, 2, 2', '2, 0, 0'],
+          eveningInfo: ['Solve crossword (Knowledge +1).', 'Talk to Yoshida at Central Square (SUN Prereq)'],
           miscInfo: '',
         },
         {
           day: 19,
-          dayTimeInfo: [],
-          eveningInfo: [],
-          miscInfo: '',
+          dayTimeInfo: ['Study at the diner, order the sandwich set (Guts +1, Knowledge +2)'],
+          eveningInfo: ['Answer TV quiz, “Make noise to cause neurosis” (Knowledge +1)', 'Bathhouse (Charm +2, Guts +1)'],
+          miscInfo: 'Class answer: Katsushika Hokusai* (Knowledge +1)',
         },
         {
           day: 20,
-          dayTimeInfo: [],
-          eveningInfo: [],
-          miscInfo: '',
+          dayTimeInfo: ['Buy medicine and equipment as you see fit.', 'Madarame Palace infiltration route part 1 (until the roadblock at the central garden)'],
+          eveningInfo: ['Study (Knowledge +2)'],
+          miscInfo: 'Test results (Charm +2), Make sure to get the Treasure Demon today, weak to nuclear attacks',
         },
         {
           day: 21,
-          dayTimeInfo: [],
-          eveningInfo: [],
-          miscInfo: '',
+          dayTimeInfo: ['Madarame Palace part 2'],
+          eveningInfo: ['Feed plant (Kindness +2)', ' Watch Bubbly Hills (Charm +2)'],
+          miscInfo: 'Train reading: Alluring Dancer (Charm +3), Class answer: 1:1.414 (Knowledge +1)',
         },
         {
           day: 22,
-          dayTimeInfo: [],
-          eveningInfo: [],
+          dayTimeInfo: ['Home shopping (optional, no recommendations)', 'Aojiru (Kindness +1)', 'Chariot 4:', '0, 2, 0', '3, 2, 3'],
+          eveningInfo: ['Bathhouse (Charm +3)'],
           miscInfo: '',
         },
         {
           day: 23,
-          dayTimeInfo: [],
-          eveningInfo: [],
-          miscInfo: '',
+          dayTimeInfo: ["Secure infiltration route at Madarame's Palace"],
+          eveningInfo: ['Save. Craft infiltration tools, reload until you get the bonus (Proficiency +3)'],
+          miscInfo: 'Together, senses, senses coming together (Knowledge +1)',
         },
         {
           day: 24,
-          dayTimeInfo: [],
-          eveningInfo: [],
-          miscInfo: '',
+          dayTimeInfo: ['Buy equipment and medicine as needed', 'Return Alluring Dancer, take Gallant Rogue', 'Send Calling Card!'],
+          eveningInfo: ['Study (Knowledge +2)'],
+          miscInfo: 'Train reading: Buchiko',
         },
         {
           day: 25,
-          dayTimeInfo: [],
-          eveningInfo: [],
+          dayTimeInfo: ['Madarame Palace cleared'],
+          eveningInfo: ['Study (Knowledge rank 3)'],
           miscInfo: '',
         },
         {
           day: 26,
-          dayTimeInfo: [],
-          eveningInfo: [],
-          miscInfo: '',
+          dayTimeInfo: [
+            'Receive Mementos mission. Travel to Yongen-Jaya. Talk to the mother and child in the alleyway near Sojiro’s house, then the old man listening to the radio by the bathhouse near the end of the alley to receive target name',
+            'Chariot: 5',
+            '2, 3',
+            '2, 2, 0',
+            '2, 3',
+            '2, 0, 0',
+          ],
+          eveningInfo: ['TV Quiz show “Queen of evidence” (Knowledge +1)', 'Solve crossword (Knowledge +1)', 'Talk to Yoshida (Sun 1)'],
+          miscInfo: 'Class answer: Arther Conan Doyle (Knowledge +1)',
         },
         {
           day: 27,
-          dayTimeInfo: [],
-          eveningInfo: [],
+          dayTimeInfo: ['Death 5 (Guts +1)', '0, 0', '0, 0', '3, 2, 0', '2, 0, 0'],
+          eveningInfo: ['Story segment'],
           miscInfo: '',
         },
         {
           day: 28,
-          dayTimeInfo: [],
-          eveningInfo: [],
+          dayTimeInfo: [
+            'Talk to Kawakami on the second floor in front of the faculty office (Temperance prerequisite)',
+            'Lovers 4:',
+            '3, 0, 2',
+            '2, 3, 0',
+            '3, 2, 0',
+            '3, 2',
+            '0, 0, 3',
+            '2, 0, 2',
+          ],
+          eveningInfo: [
+            'Make sure you have a chariot and a lovers persona.',
+            'Attempt Big Bang Challenge (Guts Rank 3, Knowledge +1, Charm +1, Proficiency + 1',
+            "Accept Skull's invitation",
+          ],
           miscInfo: '',
         },
         {
           day: 29,
-          dayTimeInfo: [],
-          eveningInfo: [],
+          dayTimeInfo: [
+            'Harajuku date with Chariot, Lovers, Moon',
+            '3, 0, 1 (For Moon)',
+            '3, 2, 3 (For Lovers and Chariot)',
+            'Home shopping (optional, amulet set recommended)',
+          ],
+          eveningInfo: ['Aojiru (Knowledge + 1)', 'Call Kawakami (Requires Guts rank 3, Temperance 1)'],
           miscInfo: '',
         },
         {
           day: 30,
-          dayTimeInfo: [],
-          eveningInfo: [],
+          dayTimeInfo: ['Story segment'],
+          eveningInfo: ['Study at diner, order steak (Knowledge +1, Kindness +1)'],
           miscInfo: '',
         },
         {
           day: 31,
-          dayTimeInfo: [],
-          eveningInfo: [],
-          miscInfo: '',
+          dayTimeInfo: ['Buy equipment and medicine as you see fit', 'Enter Mementos (Note: Walk out with at least 80K yen'],
+          eveningInfo: ['Solve crossword (Knowledge +1)', 'Study (Knowledge +2)'],
+          miscInfo: 'Class answer: John Silver (Knowledge +1)',
         },
       ] as Array<MonthEvent>,
     } as MonthEvents);
@@ -389,6 +447,7 @@ export class P5RoyalEventsComponent implements OnInit {
     this.months.push({
       name: 'June',
       miscMonthInfo: '',
+      exitStats: [],
       events: [
         {
           day: 1,
@@ -585,6 +644,7 @@ export class P5RoyalEventsComponent implements OnInit {
     this.months.push({
       name: 'July',
       miscMonthInfo: '',
+      exitStats: [],
       events: [
         {
           day: 1,
@@ -781,6 +841,7 @@ export class P5RoyalEventsComponent implements OnInit {
     this.months.push({
       name: 'August',
       miscMonthInfo: '',
+      exitStats: [],
       events: [
         {
           day: 1,
@@ -977,6 +1038,7 @@ export class P5RoyalEventsComponent implements OnInit {
     this.months.push({
       name: 'September',
       miscMonthInfo: '',
+      exitStats: [],
       events: [
         {
           day: 1,
@@ -1173,6 +1235,7 @@ export class P5RoyalEventsComponent implements OnInit {
     this.months.push({
       name: 'October',
       miscMonthInfo: '',
+      exitStats: [],
       events: [
         {
           day: 1,
@@ -1369,6 +1432,7 @@ export class P5RoyalEventsComponent implements OnInit {
     this.months.push({
       name: 'November',
       miscMonthInfo: '',
+      exitStats: [],
       events: [
         {
           day: 1,
@@ -1565,6 +1629,7 @@ export class P5RoyalEventsComponent implements OnInit {
     this.months.push({
       name: 'December',
       miscMonthInfo: '',
+      exitStats: [],
       events: [
         {
           day: 1,
@@ -1761,6 +1826,7 @@ export class P5RoyalEventsComponent implements OnInit {
     this.months.push({
       name: 'January',
       miscMonthInfo: '',
+      exitStats: [],
       events: [
         {
           day: 1,
@@ -1957,6 +2023,7 @@ export class P5RoyalEventsComponent implements OnInit {
     this.months.push({
       name: 'February',
       miscMonthInfo: '',
+      exitStats: [],
       events: [
         {
           day: 1,
@@ -2153,6 +2220,7 @@ export class P5RoyalEventsComponent implements OnInit {
     this.months.push({
       name: 'March',
       miscMonthInfo: '',
+      exitStats: [],
       events: [
         {
           day: 1,

@@ -13,7 +13,7 @@
       "comments": false,
       "strings": true
     },
-    "editor.defaultFormatter": "HookyQR.beautify",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
