@@ -48,6 +48,11 @@
                       </li>
                     </ul>
 
+                    <div *ngSwitchCase="'miscInfo'">
+                      <p *ngFor="let info of event[col.field]">
+                        {{ info }}
+                      </p>
+                    </div>
                     <label *ngSwitchDefault>{{ event[col.field] }}</label>
                   </td>
                 </tr>
