@@ -629,12 +629,6 @@ export class P5RoyalEventsComponent implements OnInit {
           eveningInfo: [],
           miscInfo: '',
         },
-        {
-          day: 31,
-          dayTimeInfo: [],
-          eveningInfo: [],
-          miscInfo: '',
-        },
       ] as Array<MonthEvent>,
     } as MonthEvents);
   }
@@ -1220,12 +1214,6 @@ export class P5RoyalEventsComponent implements OnInit {
           eveningInfo: [],
           miscInfo: '',
         },
-        {
-          day: 31,
-          dayTimeInfo: [],
-          eveningInfo: [],
-          miscInfo: '',
-        },
       ] as Array<MonthEvent>,
     } as MonthEvents);
   }
@@ -1610,12 +1598,6 @@ export class P5RoyalEventsComponent implements OnInit {
         },
         {
           day: 30,
-          dayTimeInfo: [],
-          eveningInfo: [],
-          miscInfo: '',
-        },
-        {
-          day: 31,
           dayTimeInfo: [],
           eveningInfo: [],
           miscInfo: '',
@@ -2189,24 +2171,6 @@ export class P5RoyalEventsComponent implements OnInit {
         },
         {
           day: 28,
-          dayTimeInfo: [],
-          eveningInfo: [],
-          miscInfo: '',
-        },
-        {
-          day: 29,
-          dayTimeInfo: [],
-          eveningInfo: [],
-          miscInfo: '',
-        },
-        {
-          day: 30,
-          dayTimeInfo: [],
-          eveningInfo: [],
-          miscInfo: '',
-        },
-        {
-          day: 31,
           dayTimeInfo: [],
           eveningInfo: [],
           miscInfo: '',
