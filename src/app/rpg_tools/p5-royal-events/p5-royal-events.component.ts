@@ -1224,8 +1224,8 @@ export class P5RoyalEventsComponent implements OnInit {
         },
         {
           day: 31,
-          dayTimeInfo: [''],
-          eveningInfo: [''],
+          dayTimeInfo: ['Story segment'],
+          eveningInfo: ['Watch Dr. Mouse (Kindness Max)'],
           miscInfo: [''],
         },
       ] as Array<MonthEvent>,
