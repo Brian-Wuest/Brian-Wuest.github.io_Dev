@@ -709,7 +709,10 @@ export class P5RoyalEventsComponent implements OnInit {
     this.months.push({
       name: 'July',
       miscMonthInfo: '',
-      exitStats: [],
+      exitStats: [
+        'Knowledge 4, Guts 4, Proficiency 4, Kindness 3, Charm 4',
+        'Priestess 5, Emperor 3, Hierophant 4, Lovers 8, Chariot 8, Justice 3, Fortune 3, Hanged 3, Death 7, Temperance MAX, Devil 1, Star 3, Moon 4, Sun 3, Faith 4, Consultant 5',
+      ],
       events: [
         {
           day: 1,
