@@ -135,7 +135,7 @@ export class P5RoyalEventsComponent implements OnInit {
           day: 23,
           dayTimeInfo: ['Study at the library (Guts +1, Knowledge +1)'],
           eveningInfo: ['Make coffee (Charm +1)'],
-          miscInfo: 'Class answer: All of them (Knowledge +1)',
+          miscInfo: ['Class answer: All of them (Knowledge +1)'],
         },
         {
           day: 24,
