@@ -40,14 +40,32 @@
       <div class="ui-g">
         <div class="ui-g-5">
           <label for="startValue">Start Date/Time</label>
-          <p-calendar name="startValue" [(ngModel)]="dateDifferenceStart" showTime="true" showButtonBar="true" showIcon="true" (onBlur)="calculateDifference()"
-            (onSelect)="calculateDifference()" (onClearClick)="calculateDifference()" (onTodayClick)="calculateDifference()"></p-calendar>
+          <p-calendar
+            name="startValue"
+            [(ngModel)]="dateDifferenceStart"
+            showTime="true"
+            showButtonBar="true"
+            showIcon="true"
+            (onBlur)="calculateDifference()"
+            (onSelect)="calculateDifference()"
+            (onClearClick)="calculateDifference()"
+            (onTodayClick)="calculateDifference()"
+          ></p-calendar>
         </div>
 
         <div class="ui-g-5">
           <label for="startValue">End Date/Time</label>
-          <p-calendar name="endValue" [(ngModel)]="dateDifferenceEnd" showTime="true" showButtonBar="true" showIcon="true" (onBlur)="calculateDifference()"
-            (onSelect)="calculateDifference()" (onClearClick)="calculateDifference()" (onTodayClick)="calculateDifference()"></p-calendar>
+          <p-calendar
+            name="endValue"
+            [(ngModel)]="dateDifferenceEnd"
+            showTime="true"
+            showButtonBar="true"
+            showIcon="true"
+            (onBlur)="calculateDifference()"
+            (onSelect)="calculateDifference()"
+            (onClearClick)="calculateDifference()"
+            (onTodayClick)="calculateDifference()"
+          ></p-calendar>
         </div>
 
         <div class="ui-g-5">
@@ -58,6 +76,38 @@
         <div class="ui-g-5">
           <label for="differenceType">Difference Type</label>
           <p-dropdown name="differenceType" [options]="datePartOptions" (onChange)="calculateDifference()" [(ngModel)]="dateDifferenceType"></p-dropdown>
+        </div>
+      </div>
+    </p-card>
+  </div>
+
+  <div class="ui-g-5 ui-g-offset-1">
+    <p-card>
+      <p-header class="align-text-center">
+        <span class="ui-card-title">Format Date/Time</span>
+      </p-header>
+      <div class="ui-g">
+        <div class="ui-g-5">
+          <label for="dateToFormat">Date/Time To Format</label>
+          <p-calendar
+            name="dateToFormat"
+            [(ngModel)]="dateToFormat"
+            showTime="true"
+            showButtonBar="true"
+            showIcon="true"
+            (onBlur)="updateFormat()"
+            (onSelect)="updateFormat()"
+            (onClearClick)="updateFormat()"
+            (onTodayClick)="updateFormat()"
+          ></p-calendar>
+        </div>
+        <div class="ui-g-5">
+          <label for="formatOptions">The Number of </label>
+          <p-dropdown name="formatOptions" [options]="formatOptions" [(ngModel)]="formatOption" (onChange)="updateFormat()"></p-dropdown>
+        </div>
+        <div class="ui-g-3">
+          <label for="formatResult">Is</label>
+          <input type="text" pInputText name="formatResult" disabled [(ngModel)]="formatResult" />
         </div>
       </div>
     </p-card>

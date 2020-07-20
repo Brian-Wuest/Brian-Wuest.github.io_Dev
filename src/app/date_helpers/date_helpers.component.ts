@@ -9,6 +9,7 @@ import differenceInSeconds from 'date-fns/differenceInSeconds';
 import { SelectItem } from 'primeng/api/selectitem';
 import { ConvertFunctions } from './models/convert_functions';
 import { DatePart } from './models/date_part';
+import formatDate from 'date-fns/format';
 
 @Component({
   templateUrl: './date_helpers.component.html',
@@ -16,7 +17,7 @@ import { DatePart } from './models/date_part';
 })
 export class DateHelpersComponent {
   dateParts = DatePart;
-  datePartOptions: Array < SelectItem > ;
+  datePartOptions: Array<SelectItem>;
   selectedPartOneConverter: DatePart;
   selectedPartTwoConverter: DatePart;
   convertValue: number;
@@ -26,6 +27,11 @@ export class DateHelpersComponent {
   dateDifferenceEnd: Date;
   dateDifferenceResult: number;
   dateDifferenceType: DatePart;
+
+  dateToFormat: Date;
+  formatOptions: Array<{ label: string; value: string }>;
+  formatOption: string;
+  formatResult: string;
 
   constructor(private _titleService: Title, private router: Router) {
     this._titleService.setTitle('Date Helpers');
@@ -46,6 +52,28 @@ export class DateHelpersComponent {
     this.dateDifferenceType = DatePart.Day;
 
     this.calculateDifference();
+
+    this.formatOptions = new Array<{ label: string; value: string }>();
+    this.formatOptions.push(
+      {
+        label: 'US 12-Hour',
+        value: 'MM/dd/yyyy hh:mm a',
+      },
+      {
+        label: 'US 24-Hour',
+        value: 'MM/dd/yyyy HH:mm',
+      },
+      {
+        label: 'CAN 12-Hour',
+        value: 'dd/MM/yyyy hh:mm a',
+      },
+      {
+        label: 'CAN 24-Hour',
+        value: 'dd/MM/yyyy HH:mm',
+      }
+    );
+
+    this.formatOption = this.formatOptions[0].value;
   }
 
   calculationChanged() {
@@ -88,6 +116,12 @@ export class DateHelpersComponent {
         this.dateDifferenceResult = differenceInDays(this.dateDifferenceEnd, this.dateDifferenceStart);
         break;
       }
+    }
+  }
+
+  updateFormat() {
+    if (this.formatOption && this.dateToFormat) {
+      this.formatResult = formatDate(this.dateToFormat, this.formatOption);
     }
   }
 
