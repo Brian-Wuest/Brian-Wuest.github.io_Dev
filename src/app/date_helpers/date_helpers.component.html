@@ -102,11 +102,11 @@
           ></p-calendar>
         </div>
         <div class="ui-g-5">
-          <label for="formatOptions">The Number of </label>
+          <label for="formatOptions">Format Options </label>
           <p-dropdown name="formatOptions" [options]="formatOptions" [(ngModel)]="formatOption" (onChange)="updateFormat()"></p-dropdown>
         </div>
-        <div class="ui-g-3">
-          <label for="formatResult">Is</label>
+        <div class="ui-g-5">
+          <label for="formatResult">Format Result</label>
           <input type="text" pInputText name="formatResult" disabled [(ngModel)]="formatResult" />
         </div>
       </div>
