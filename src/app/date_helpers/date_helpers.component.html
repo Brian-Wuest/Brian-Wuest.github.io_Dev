@@ -106,8 +106,12 @@
           <p-dropdown name="formatOptions" [options]="formatOptions" [(ngModel)]="formatOption" (onChange)="updateFormat()"></p-dropdown>
         </div>
         <div class="ui-g-5">
-          <label for="formatResult">Format Result</label>
-          <input type="text" pInputText name="formatResult" disabled [(ngModel)]="formatResult" />
+          <div class="ui-fluid">
+            <div class="p-field">
+              <label for="formatResult">Format Result</label>
+              <input type="text" id="formatResult" pInputText name="formatResult" disabled [(ngModel)]="formatResult" />
+            </div>
+          </div>
         </div>
       </div>
     </p-card>
