@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MonthEvent } from './models/event';
 import { MonthEvents } from './models/MonthEvents';
 
@@ -6,6 +6,7 @@ import { MonthEvents } from './models/MonthEvents';
   selector: 'app-p5-royal-events',
   templateUrl: './p5-royal-events.component.html',
   styleUrls: ['./p5-royal-events.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class P5RoyalEventsComponent implements OnInit {
   months: Array<MonthEvents>;

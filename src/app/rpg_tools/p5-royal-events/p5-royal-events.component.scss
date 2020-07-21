@@ -1,1 +1,19 @@
+body .ui-table .ui-table-tbody > tr > td {
+  padding: 0px 0px 0px 0px;
 
+  label {
+    display: block;
+    text-align: center;
+  }
+
+  ul,
+  p {
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    padding-inline-start: 30px;
+  }
+
+  p {
+    padding-left: 10px;
+  }
+}
