@@ -258,7 +258,7 @@ export class P5RoyalEventsComponent implements OnInit {
           day: 7,
           dayTimeInfo: ['Mementos tutorial.'],
           eveningInfo: ['Study at Leblanc (Knowledge +2)'],
-          miscInfo: 'Class answer: Fatal woman (Knowledge +1)',
+          miscInfo: ['Class answer: Fatal woman (Knowledge +1)'],
         },
         {
           day: 8,
