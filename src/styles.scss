@@ -1,75 +1,77 @@
 @import './font-libraries/font_icons/all.min.css';
 @import './font-libraries/font_icons/rpg-awesome.min.css';
 @import './font-libraries/font_icons/fontello.css';
-@import './assets/theme-dark.scss';
-@import './assets/layout-dark.scss';
+/* @import './assets/theme-dark.scss';
+@import './assets/layout-dark.scss'; */
 
-body {
-  .ui-spinner.ui-widget.ui-corner-all {
-    width: 100%;
-  }
+html {
+  height: 100%;
+  body {
+    height: 100%;
+    background-color: var(--surface-a);
+    color: var(--text-color);
 
-  p-spinner {
-    padding: 0px !important;
-  }
-
-  .ui-spinner-input {
-    width: 100%;
-  }
-
-  .ui-dropdown {
-    min-width: 100%;
-    min-height: 33px;
-    max-height: 33px;
-
-    &::before {
-      display: inline;
-    }
-
-    .ui-dropdown-label {
-      padding-bottom: 0px;
-      padding-top: 6px;
-      min-height: 31px;
-    }
-  }
-
-  .ui-fluid {
-    .ui-inputtext {
+    .ui-spinner.ui-widget.ui-corner-all {
       width: 100%;
     }
-  }
 
-  .ui-inputnumber,
-  .ui-calendar {
-    width: 100%;
-    min-height: 33px;
-
-    .ui-datepicker {
+    .ui-spinner-input {
       width: 100%;
     }
-  }
 
-  .ui-calendar-w-btn {
-    input.ui-inputtext {
-      width: calc(100% - 2.357em);
+    .p-dropdown {
+      min-width: 100%;
+
+      &::before {
+        display: inline;
+      }
+
+      .p-dropdown-label {
+        min-height: 31px;
+      }
     }
-  }
 
-  .ui-card-header {
-    text-align: center;
-  }
+    .p-inputnumber {
+      width: 100%;
+    }
 
-  p {
-    margin-block-end: 0.1em;
-    margin-block-start: 0.1em;
-  }
+    .p-fluid {
+      .ui-inputtext {
+        width: 100%;
+      }
+    }
 
-  h5 {
-    margin-block-start: 1.2em;
-    margin-block-end: 1.2em;
-  }
+    .ui-inputnumber,
+    .ui-calendar {
+      width: 100%;
+      min-height: 33px;
 
-  .ui-panel-content {
+      .ui-datepicker {
+        width: 100%;
+      }
+    }
+
+    .ui-calendar-w-btn {
+      input.ui-inputtext {
+        width: calc(100% - 2.357em);
+      }
+    }
+
+    .ui-card-header {
+      text-align: center;
+    }
+
+    p {
+      margin-block-end: 0.1em;
+      margin-block-start: 0.1em;
+    }
+
+    h5 {
+      margin-block-start: 1.2em;
+      margin-block-end: 1.2em;
+    }
+
+    /*   .ui-panel-content {
     a {
       color: #9593ff;
 
@@ -77,22 +79,23 @@ body {
         color: #716ff0;
       }
     }
-  }
+  } */
 
-  .align-text-center {
-    text-align: center;
-  }
-
-  .ui-inputgroup-addon {
-    .ui-dropdown {
-      border-width: 0px;
-      min-height: 31px;
+    .align-text-center {
+      text-align: center;
     }
-  }
 
-  .ui-tabview {
-    .ui-tabview-panel {
-      border-width: 1px;
+    .ui-inputgroup-addon {
+      .ui-dropdown {
+        border-width: 0px;
+        min-height: 31px;
+      }
+    }
+
+    .ui-tabview {
+      .ui-tabview-panel {
+        border-width: 1px;
+      }
     }
   }
 }

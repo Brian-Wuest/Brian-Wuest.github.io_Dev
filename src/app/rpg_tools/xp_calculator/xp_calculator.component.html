@@ -1,23 +1,23 @@
-<div class="ui-g">
-  <h1 class="ui-g-12 align-text-center">Experience Calculator</h1>
-  <div class="ui-g-12">
+<div class="p-grid">
+  <h1 class="p-col-12 align-text-center">Experience Calculator</h1>
+  <div class="p-col-12">
     <hr />
   </div>
 </div>
-<div class="ui-g">
-  <div class="ui-g-12 ui-lg-5 ui-lg-offset-1">
-    <p-card>
+<div class="p-grid">
+  <div class="p-col-6">
+    <p-panel>
       <p-header>
         <span class="ui-card-title">Number of Monsters and Challenge Rating</span>
       </p-header>
       <div>
         <form name="monstersForm" class="border border-dark rounded bg-secondary" id="monstersForm">
-          <table style="width: 100%;">
+          <table style="width: 100%">
             <thead>
               <tr>
-                <th style="width: 25%;"></th>
-                <th style="width: 33%;" class="align-text-center">Challenge Rating</th>
-                <th style="width: 33%;" class="align-text-center">Count</th>
+                <th style="width: 25%"></th>
+                <th style="width: 33%" class="align-text-center">Challenge Rating</th>
+                <th style="width: 33%" class="align-text-center">Count</th>
               </tr>
             </thead>
             <tbody>
@@ -36,52 +36,69 @@
                   </p-dropdown>
                 </td>
                 <td class="right-left-padding-10">
-                  <p-spinner
+                  <p-inputNumber
                     [name]="monster.MonsterId + 'monsterCount'"
+                    mode="decimal"
+                    [minFractionDigits]="0"
+                    [maxFractionDigits]="2"
+                    [showButtons]="true"
                     [min]="0"
                     [max]="100"
                     [(ngModel)]="monster.MonsterCount"
-                    (onChange)="updatePlayersXP('monstersForm')"
-                  ></p-spinner>
+                    (onInput)="updatePlayersXP('playersForm')"
+                    (onBlur)="updatePlayersXP('playersForm')"
+                  ></p-inputNumber>
                 </td>
               </tr>
             </tbody>
           </table>
         </form>
         <div>
-          <div style="margin-top: 10px;">
+          <div style="margin-top: 10px">
             <p-button type="button" (onClick)="addMonster()" label="Add Monster"></p-button>
           </div>
         </div>
       </div>
-    </p-card>
+    </p-panel>
   </div>
 
-  <div class="ui-g-12 ui-lg-5">
-    <p-card>
+  <div class="p-col-6">
+    <p-panel>
       <p-header>
         <!--This is for the number of players and total experience.-->
         <span class="ui-card-title">Player Count and Calculated Experience</span>
       </p-header>
-      <form name="playersForm" id="playersForm" class="ui-g">
-        <div class="ui-g-6">
-          <label class="ui-g-12 no-wrap c-label">Player Count: </label>
-          <label class="ui-g-12 no-wrap c-label">Per-Player Experience: </label>
-          <label class="ui-g-12 no-wrap c-label">Total Experience: </label>
-        </div>
-        <div class="ui-g-6">
-          <p-spinner
-            name="playerCount"
-            class="ui-g-12"
-            [min]="0"
-            [max]="100"
-            (onChange)="updatePlayersXP('playersForm')"
-            [(ngModel)]="playerCount"
-          ></p-spinner>
-          <input class="ui-g-12" readonly [value]="playerXp | number: '1.0-0'" pInputText />
-          <input class="ui-g-12" readonly [value]="totalXp | number: '1.0-0'" pInputText />
+      <form name="playersForm" id="playersForm" class="p-grid">
+        <div class="p-col-12">
+          <div class="p-grid">
+            <div class="p-col-6"><label class="p-col-12 no-wrap c-label">Player Count: </label></div>
+            <div class="p-col-6">
+              <p-inputNumber
+                name="playerCount"
+                mode="decimal"
+                [minFractionDigits]="0"
+                [maxFractionDigits]="2"
+                [showButtons]="true"
+                [min]="0"
+                [max]="100"
+                (onInput)="updatePlayersXP('playersForm')"
+                (onBlur)="updatePlayersXP('playersForm')"
+                [(ngModel)]="playerCount"
+              ></p-inputNumber>
+            </div>
+          </div>
+
+          <div class="p-grid">
+            <div class="p-col-6"><label class="p-col-12 no-wrap c-label">Per-Player Experience: </label></div>
+            <div class="p-col-6"><input class="p-col-12" readonly [value]="playerXp | number: '1.0-0'" pInputText /></div>
+          </div>
+
+          <div class="p-grid">
+            <div class="p-col-6"><label class="p-col-12 no-wrap c-label">Total Experience: </label></div>
+            <div class="p-col-6"><input class="p-col-12" readonly [value]="totalXp | number: '1.0-0'" pInputText /></div>
+          </div>
         </div>
       </form>
-    </p-card>
+    </p-panel>
   </div>
 </div>

@@ -8,32 +8,32 @@
   (onHide)="dismiss()"
   [focusOnShow]="false"
 >
-  <div class="ui-g">
-    <div class="ui-g-1">
+  <div class="p-grid">
+    <div class="p-col-1">
       <p-button styleClass="ui-button-secondary" label="1" icon="fas fa-minus" (onClick)="decementValue(1)"> </p-button>
     </div>
-    <div class="ui-g-5 ui-g-offset-2"></div>
-    <div class="ui-g-1 ui-g-offset-1">
+    <div class="p-col-5 p-offset-2"></div>
+    <div class="p-col-1 p-offset-1">
       <p-button styleClass="ui-button-secondary" label="1" icon="fas fa-plus" (onClick)="incrementValue(1)"> </p-button>
     </div>
   </div>
-  <div class="ui-g">
-    <div class="ui-g-1">
+  <div class="p-grid">
+    <div class="p-col-1">
       <p-button styleClass="ui-button-secondary" label="5" icon="fas fa-minus" (onClick)="decementValue(5)"> </p-button>
     </div>
-    <div class="ui-g-5 ui-g-offset-2">
+    <div class="p-col-5 p-offset-2">
       <p-spinner name="changeNumber" [min]="-100" [max]="1000" [(ngModel)]="output"></p-spinner>
     </div>
-    <div class="ui-g-1 ui-g-offset-1">
+    <div class="p-col-1 p-offset-1">
       <p-button styleClass="ui-button-secondary" label="5" icon="fas fa-plus" (onClick)="incrementValue(5)"> </p-button>
     </div>
   </div>
-  <div class="ui-g">
-    <div class="ui-g-1">
+  <div class="p-grid">
+    <div class="p-col-1">
       <p-button styleClass="ui-button-secondary" label="10" icon="fas fa-minus" (onClick)="decementValue(10)"> </p-button>
     </div>
-    <div class="ui-g-5 ui-g-offset-2"></div>
-    <div class="ui-g-1 ui-g-offset-1">
+    <div class="p-col-5 p-offset-2"></div>
+    <div class="p-col-1 p-offset-1">
       <p-button styleClass="ui-button-secondary" label="10" icon="fas fa-plus" (onClick)="incrementValue(10)"> </p-button>
     </div>
   </div>

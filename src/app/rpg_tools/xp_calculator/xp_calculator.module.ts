@@ -6,9 +6,10 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
-import { SpinnerModule } from 'primeng/spinner';
 import { XpCalculatorComponent } from './xp_calculator.component';
 import { Routes, RouterModule } from '@angular/router';
+import { PanelModule } from 'primeng/panel';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 const routes: Routes = [
   {
@@ -26,8 +27,9 @@ const routes: Routes = [
     ButtonModule,
     DropdownModule,
     InputTextModule,
-    SpinnerModule,
+    PanelModule,
     RouterModule.forChild(routes),
+    InputNumberModule,
   ],
 })
 export class XpCalculatorModule {
