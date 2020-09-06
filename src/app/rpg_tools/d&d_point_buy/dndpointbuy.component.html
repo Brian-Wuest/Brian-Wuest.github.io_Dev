@@ -3,8 +3,8 @@
   <div class="p-col-12"><hr /></div>
 </div>
 <div class="p-grid">
-  <div class="ui-sm-12 ui-md-8 ui-md-offset-2">
-    <p-card class="p-col-12">
+  <div class="p-sm-12 p-xl-8 p-xl-offset-2">
+    <p-panel class="p-col-12">
       <p-header class="align-text-center">
         <span class="ui-card-title">Player Stats</span>
       </p-header>
@@ -91,14 +91,18 @@
                   <input class="p-col-12 align-text-center" pInputText readonly [value]="attribute.name" />
                 </td>
                 <td class="p-col-3">
-                  <p-spinner
+                  <p-inputNumber
                     [name]="attribute.name"
                     class="p-col-12 align-text-center"
                     [min]="0"
                     [max]="getMaximumPoints(attribute)"
-                    (onChange)="updateStats('statsForm', $event)"
+                    (onInput)="updateStats('statsForm', $event)"
+                    (onBlur)="updateStats('statsForm', $event)"
+                    [minFractionDigits]="0"
+                    [maxFractionDigits]="0"
+                    [showButtons]="true"
                     [(ngModel)]="attribute.points"
-                  ></p-spinner>
+                  ></p-inputNumber>
                 </td>
                 <td class="p-col-3">
                   <input class="p-col-12 align-text-center" pInputText readonly [value]="getRacialStat(attribute)" />
@@ -111,6 +115,6 @@
           </table>
         </div>
       </form>
-    </p-card>
+    </p-panel>
   </div>
 </div>

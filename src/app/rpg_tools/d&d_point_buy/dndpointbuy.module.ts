@@ -2,14 +2,15 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { DropdownModule } from 'primeng/dropdown';
+import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextModule } from 'primeng/inputtext';
 import { ListboxModule } from 'primeng/listbox';
-import { SpinnerModule } from 'primeng/spinner';
+import { PanelModule } from 'primeng/panel';
 import { DndPointBuyComponent } from './dndpointbuy.component';
-import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
@@ -27,8 +28,9 @@ const routes: Routes = [
     DropdownModule,
     InputTextModule,
     ButtonModule,
-    SpinnerModule,
+    InputNumberModule,
     ListboxModule,
+    PanelModule,
     RouterModule.forChild(routes),
   ],
 })

@@ -5,8 +5,8 @@
   </div>
 </div>
 <div class="p-grid">
-  <div class="p-col-5 p-offset-1">
-    <p-card>
+  <div class="p-col-12 p-xl-5 p-xl-offset-1">
+    <p-panel>
       <p-header class="align-text-center">
         <span class="ui-card-title">Convert</span>
       </p-header>
@@ -17,23 +17,31 @@
         </div>
         <div class="p-col-5">
           <label for="secondPart">In</label>
-          <div class="ui-inputgroup">
-            <p-spinner name="secondPart" step="0.01" [(ngModel)]="convertValue" (onChange)="calculationChanged()"></p-spinner>
-            <span class="ui-inputgroup-addon" style="padding: 0px">
+          <div class="p-inputgroup">
+            <p-inputNumber
+              name="secondPart"
+              mode="decimal"
+              [minFractionDigits]="2"
+              [maxFractionDigits]="2"
+              [(ngModel)]="convertValue"
+              (onChange)="calculationChanged()"
+              [showButtons]="true"
+            ></p-inputNumber>
+            <span class="p-inputgroup-addon" style="padding: 0px">
               <p-dropdown [options]="datePartOptions" (onChange)="calculationChanged()" [(ngModel)]="selectedPartTwoConverter"></p-dropdown>
             </span>
           </div>
         </div>
         <div class="p-col-3">
           <label for="convertResult">Is</label>
-          <p-spinner name="convertResult" disabled [(ngModel)]="convertResult"></p-spinner>
+          <p-inputNumber name="convertResult" disabled [(ngModel)]="convertResult" mode="decimal"></p-inputNumber>
         </div>
       </div>
-    </p-card>
+    </p-panel>
   </div>
 
-  <div class="p-col-5">
-    <p-card>
+  <div class="p-col-12 p-xl-5">
+    <p-panel>
       <p-header class="align-text-center">
         <span class="ui-card-title">Date Difference</span>
       </p-header>
@@ -78,11 +86,11 @@
           <p-dropdown name="differenceType" [options]="datePartOptions" (onChange)="calculateDifference()" [(ngModel)]="dateDifferenceType"></p-dropdown>
         </div>
       </div>
-    </p-card>
+    </p-panel>
   </div>
 
-  <div class="p-col-5 p-offset-1">
-    <p-card>
+  <div class="p-col-12 p-xl-5 p-xl-offset-1">
+    <p-panel>
       <p-header class="align-text-center">
         <span class="ui-card-title">Format Date/Time</span>
       </p-header>
@@ -106,7 +114,7 @@
           <p-dropdown name="formatOptions" [options]="formatOptions" [(ngModel)]="formatOption" (onChange)="updateFormat()"></p-dropdown>
         </div>
         <div class="p-col-5">
-          <div class="ui-fluid">
+          <div class="p-fluid">
             <div class="p-field">
               <label for="formatResult">Format Result</label>
               <input type="text" id="formatResult" pInputText name="formatResult" disabled [(ngModel)]="formatResult" />
@@ -114,6 +122,6 @@
           </div>
         </div>
       </div>
-    </p-card>
+    </p-panel>
   </div>
 </div>

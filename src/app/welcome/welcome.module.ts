@@ -7,6 +7,7 @@ import { ListboxModule } from 'primeng/listbox';
 // Custom app-specific modules.
 import { WelcomeComponent } from './welcome.component';
 import { RouterModule, Routes } from '@angular/router';
+import { PanelModule } from 'primeng/panel';
 
 const routes: Routes = [
   {
@@ -17,7 +18,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [WelcomeComponent],
-  imports: [CommonModule, FormsModule, CardModule, ListboxModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, FormsModule, CardModule, ListboxModule, PanelModule, RouterModule.forChild(routes)],
 })
 export class WelcomeModule {
   constructor() {}

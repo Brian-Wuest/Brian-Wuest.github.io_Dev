@@ -7,15 +7,14 @@
 html {
   height: 100%;
   body {
+    margin-top: 0px;
+    margin-bottom: 0px;
     height: 100%;
     background-color: var(--surface-a);
     color: var(--text-color);
 
-    .ui-spinner.ui-widget.ui-corner-all {
-      width: 100%;
-    }
-
-    .ui-spinner-input {
+    .ui-spinner-input,
+    .p-inputnumber-input {
       width: 100%;
     }
 
@@ -31,27 +30,29 @@ html {
       }
     }
 
-    .p-inputnumber {
-      width: 100%;
-    }
-
     .p-fluid {
       .ui-inputtext {
         width: 100%;
       }
     }
 
-    .ui-inputnumber,
-    .ui-calendar {
+    .p-inputnumber,
+    .p-calendar {
       width: 100%;
       min-height: 33px;
 
-      .ui-datepicker {
+      .p-datepicker {
         width: 100%;
+
+        table {
+          td {
+            padding: 0px;
+          }
+        }
       }
     }
 
-    .ui-calendar-w-btn {
+    .p-calendar-w-btn {
       input.ui-inputtext {
         width: calc(100% - 2.357em);
       }
@@ -85,16 +86,39 @@ html {
       text-align: center;
     }
 
-    .ui-inputgroup-addon {
-      .ui-dropdown {
+    .p-inputgroup-addon {
+      display: contents;
+      .p-dropdown {
         border-width: 0px;
-        min-height: 31px;
+        min-height: 39px;
       }
     }
 
-    .ui-tabview {
-      .ui-tabview-panel {
+    .p-tabview {
+      .p-tabview-panel {
         border-width: 1px;
+      }
+    }
+
+    .no-pad-right-left {
+      padding-right: 0px;
+      padding-left: 0px;
+    }
+
+    .no-pad-top-bottom {
+      padding-top: 0px !important;
+      padding-bottom: 0px !important;
+    }
+
+    .p-menuitem-link-active {
+      background-color: var(--surface-d);
+    }
+
+    .p-tabview {
+      .p-tabview-panels {
+        border-width: 1px;
+        border-style: solid;
+        border-color: var(--surface-d);
       }
     }
   }
