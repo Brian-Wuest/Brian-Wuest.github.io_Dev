@@ -1,25 +1,42 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-      {
-        "identifier": "ng serve",
-        "type": "npm",
-        "script": "start",
-        "problemMatcher": [],
-        "group": {
-          "kind": "build",
-          "isDefault": true
-        }
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "ng_serve",
+      "command": "ng serve",
+      "isBackground": true,
+      "type": "shell",
+      "presentation": {
+        "reveal": "always"
       },
-      {
-        "identifier": "ng test",
-        "type": "npm",
-        "script": "test",
-        "problemMatcher": [],
-        "group": {
-          "kind": "test",
-          "isDefault": true
+      "problemMatcher": [
+        {
+          "pattern": [
+            {
+              "regexp": ".",
+              "file": 1,
+              "location": 2,
+              "message": 3
+            }
+          ],
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": ".",
+            "endsPattern": "."
+          }
+        }
+      ]
+    },
+    {
+      "label": "end_serve",
+      "type": "shell",
+      "command": ["FOR /F \"tokens=1,2,3,4,5\" %A IN ('\"netstat -ano | findstr :4200\"') DO (if %D==LISTENING (TaskKill /PID %E /F))"],
+      "options": {
+        "shell": {
+          "executable": "cmd.exe",
+          "args": ["/d", "/c"]
         }
       }
-    ]
-  }
+    }
+  ]
+}
