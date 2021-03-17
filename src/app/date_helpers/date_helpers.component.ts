@@ -12,8 +12,7 @@ import { DatePart } from './models/date_part';
 import formatDate from 'date-fns/format';
 
 @Component({
-  templateUrl: './date_helpers.component.html',
-  styleUrls: ['date_helpers.component.scss'],
+  templateUrl: './date_helpers.component.html'
 })
 export class DateHelpersComponent {
   dateParts = DatePart;
