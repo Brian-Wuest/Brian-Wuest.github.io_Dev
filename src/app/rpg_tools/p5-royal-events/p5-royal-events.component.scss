@@ -1,4 +1,10 @@
 body {
+  .p-tabview {
+    .p-tabview-panels {
+      padding-left: .25rem;
+      padding-right: .25rem;
+    }
+  }
   .p-datatable {
     .p-datatable-thead {
       tr {
