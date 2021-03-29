@@ -1,18 +1,13 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import differenceInDays from 'date-fns/differenceInDays';
-import differenceInHours from 'date-fns/differenceInHours';
-import differenceInMilliseconds from 'date-fns/differenceInMilliseconds';
-import differenceInMinutes from 'date-fns/differenceInMinutes';
-import differenceInSeconds from 'date-fns/differenceInSeconds';
+import { differenceInDays, differenceInHours, differenceInMilliseconds, differenceInMinutes, differenceInSeconds, format } from 'date-fns';
 import { SelectItem } from 'primeng/api/selectitem';
 import { ConvertFunctions } from './models/convert_functions';
 import { DatePart } from './models/date_part';
-import formatDate from 'date-fns/format';
 
 @Component({
-  templateUrl: './date_helpers.component.html'
+  templateUrl: './date_helpers.component.html',
 })
 export class DateHelpersComponent {
   dateParts = DatePart;
@@ -55,19 +50,19 @@ export class DateHelpersComponent {
     this.formatOptions = new Array<{ label: string; value: string }>();
     this.formatOptions.push(
       {
-        label: 'US 12-Hour',
+        label: 'Month/Day/Year 12 Hour',
         value: 'MM/dd/yyyy hh:mm a',
       },
       {
-        label: 'US 24-Hour',
+        label: 'Month/Day/Year 24 Hour',
         value: 'MM/dd/yyyy HH:mm',
       },
       {
-        label: 'CAN 12-Hour',
+        label: 'Day/Month/Year 12 Hour',
         value: 'dd/MM/yyyy hh:mm a',
       },
       {
-        label: 'CAN 24-Hour',
+        label: 'Day/Month/Year 24 Hour',
         value: 'dd/MM/yyyy HH:mm',
       }
     );
@@ -120,7 +115,7 @@ export class DateHelpersComponent {
 
   updateFormat() {
     if (this.formatOption && this.dateToFormat) {
-      this.formatResult = formatDate(this.dateToFormat, this.formatOption);
+      this.formatResult = format(this.dateToFormat, this.formatOption);
     }
   }
 
