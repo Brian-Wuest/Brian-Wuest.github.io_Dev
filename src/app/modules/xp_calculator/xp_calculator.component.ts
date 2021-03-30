@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MonsterXP } from '../../models/monsterXP';
-import { Globals } from '../../../ts/globals';
+import { Globals } from '../../util/globals';
 import { Title } from '@angular/platform-browser';
 
 @Component({

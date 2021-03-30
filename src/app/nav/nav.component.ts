@@ -37,19 +37,19 @@ export class NavComponent implements OnInit {
         items: [
           {
             label: 'Report Issue',
-            icon: 'fas fa-exclamation-circle fa-lg',
+            icon: 'pi pi-ticket',
             url: 'https://github.com/Brian-Wuest/Brian-Wuest.github.io/issues/new',
             target: '_blank',
           },
           {
             label: 'Open Wiki',
-            icon: 'fab fa-wikipedia-w fa-lg',
+            icon: 'pi pi-user-edit',
             url: 'https://github.com/Brian-Wuest/Brian-Wuest.github.io/wiki',
             target: '_blank',
           },
           {
             label: 'About',
-            icon: 'fas fa-info-circle fa-lg',
+            icon: 'pi pi-question-circle',
             routerLink: 'about',
           },
         ],

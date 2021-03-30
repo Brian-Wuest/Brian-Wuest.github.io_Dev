@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { SelectItem } from 'primeng/api/selectitem';
 import { Dropdown } from 'primeng/dropdown';
-import { Globals } from '../../../ts/globals';
+import { Globals } from '../../util/globals';
 import { AttributeModifier } from '../../models/attributeModifier';
 import { Race } from '../../models/race';
 import { CharacterAttribute } from './characterAttribute';

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { Dropdown } from 'primeng/dropdown';
-import { Globals } from '../../../ts/globals';
+import { Globals } from '../../util/globals';
 
 export class ChangeNumberResult {
   valueUpdated: boolean;
