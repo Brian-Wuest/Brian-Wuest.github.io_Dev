@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MonsterXP } from '../../shared/monsterXP';
+import { MonsterXP } from '../../models/monsterXP';
 import { Globals } from '../../../ts/globals';
 import { Title } from '@angular/platform-browser';
 

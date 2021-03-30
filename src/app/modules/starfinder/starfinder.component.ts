@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Globals } from '../../../ts/globals';
 import { Title } from '@angular/platform-browser';
-import { Race } from '../../shared/race';
-import { AttributeModifier } from '../../shared/attributeModifier';
+import { Race } from '../../models/race';
+import { AttributeModifier } from '../../models/attributeModifier';
 import { Theme } from './theme';
 import { CharacterAttribute } from './characterAttribute';
 

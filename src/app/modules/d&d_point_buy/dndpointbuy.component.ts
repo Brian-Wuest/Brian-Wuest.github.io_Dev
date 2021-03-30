@@ -3,8 +3,8 @@ import { Title } from '@angular/platform-browser';
 import { SelectItem } from 'primeng/api/selectitem';
 import { Dropdown } from 'primeng/dropdown';
 import { Globals } from '../../../ts/globals';
-import { AttributeModifier } from '../../shared/attributeModifier';
-import { Race } from '../../shared/race';
+import { AttributeModifier } from '../../models/attributeModifier';
+import { Race } from '../../models/race';
 import { CharacterAttribute } from './characterAttribute';
 
 @Component({
