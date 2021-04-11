@@ -11,10 +11,14 @@ import { MonthEvents } from './models/MonthEvents';
 export class P5RoyalEventsComponent implements OnInit {
   months: Array<MonthEvents>;
   columns: Array<{ header: string; field: string; width: string }>;
+  flowerShopData: Array<{ request: string; combination: string }>;
+  strengthConfidantData: Array<{ personaNeeded: string; howToMake: string }>;
 
   constructor() {
     this.months = new Array<MonthEvents>();
     this.columns = new Array<{ header: string; field: string; width: string }>();
+    this.flowerShopData = new Array<{ request: string; combination: string }>();
+    this.strengthConfidantData = new Array<{ personaNeeded: string; howToMake: string }>();
 
     this.columns.push({
       header: 'Day',
@@ -53,6 +57,8 @@ export class P5RoyalEventsComponent implements OnInit {
     this.loadDecemberData();
     this.loadJanuaryData();
     this.loadFebruaryData();
+    this.loadFlowerShopData();
+    this.loadStrengthConfidantData();
   }
 
   loadAprilData() {
@@ -2302,8 +2308,68 @@ export class P5RoyalEventsComponent implements OnInit {
           dayTimeInfo: ['Final Boss Battle'],
           eveningInfo: [''],
           miscInfo: [''],
-        }
+        },
       ] as Array<MonthEvent>,
     } as MonthEvents);
+  }
+
+  loadFlowerShopData() {
+    this.flowerShopData.push({
+      request: 'Large flowers with bright colors',
+      combination: 'Scarlet Rose, Gold Gerbera, Gecko Orchid, Venerable Chrysanthemum',
+    });
+
+    this.flowerShopData.push({
+      request: 'Flowers to Express Love',
+      combination: 'Scarlet Rose, Care-Nation, Enamored Orchid',
+    });
+
+    this.flowerShopData.push({
+      request: 'Red Flowers',
+      combination: 'Scarlet Rose, Care-Nation, Gecko Orchid',
+    });
+
+    this.flowerShopData.push({
+      request: 'Thank You Flowers',
+      combination: 'The Sweetest of Peas, Rainbow Sage, Gecko Orchid',
+    });
+
+    this.flowerShopData.push({
+      request: 'Celebration Bouquet',
+      combination: 'Scarlet Rose, Care-Nation, Venerable Chrysanthemum',
+    });
+
+    this.flowerShopData.push({
+      request: 'Small Flowers with Soft Colors',
+      combination: 'Justice Jasmine, Enamored Orchid, Fluorescent Freesia',
+    });
+
+    this.flowerShopData.push({
+      request: 'Big Flowers with Little Scents',
+      combination: 'Gold Gerbera, Venerable Chrysanthemum, Fluorescent Freesia',
+    });
+
+    this.flowerShopData.push({
+      request: 'Fragrant and Gorgeous Colored Flowers',
+      combination: 'Scarlet Rose, The Sweetest of Peas, Stinking Olive',
+    });
+
+    this.flowerShopData.push({
+      request: 'Flowers to Celebrate a Friend’s Childbirth',
+      combination: 'Rainbow Sage, Delightful Lily, Gold Gerbera',
+    });
+  }
+
+  loadStrengthConfidantData() {
+    this.strengthConfidantData.push({ personaNeeded: 'Jack Frost with Mabufu', howToMake: 'Berith + Apsaras, Jack Frost: Level 12' });
+    this.strengthConfidantData.push({ personaNeeded: 'Ame-No-Uzume with Frei', howToMake: 'Suzaku + Berith, add Frei from Sukazu' });
+    this.strengthConfidantData.push({ personaNeeded: 'Flauros With Tarukaja', howToMake: 'Triple Fusion: Berith/Orobas/Eligor' });
+    this.strengthConfidantData.push({ personaNeeded: 'Phoenix With Counter', howToMake: 'Yaksini + Genbu' });
+    this.strengthConfidantData.push({ personaNeeded: 'Setanta With Rakukaja', howToMake: 'Berith + Hua Po, Pass Kakukaja to Suzaku. Suzaku + Phoenix' });
+    this.strengthConfidantData.push({ personaNeeded: 'Neko Shogun with Dekaja', howToMake: 'Orobas + High Pixie = Sudama. Triple Fusion: Anzu/Kodama/Sudama' });
+    this.strengthConfidantData.push({ personaNeeded: 'Lacheisis With Tetraja', howToMake: 'Pricipality + Sandman = Thoth. Thoth + Anzu = Lacheisis. Keep Tetraja from Principality' });
+    this.strengthConfidantData.push({ personaNeeded: 'Hecatoncheires With Masukunda', howToMake: 'Lilim (Level 34) + Anzu = Hecatoncheires' });
+    this.strengthConfidantData.push({ personaNeeded: 'Bugs With Samaerecarm', howToMake: 'Hariti (Level 41). Triple Fusion: Hariti/Pixie/Pisaca' });
+    this.strengthConfidantData.push({ personaNeeded: 'Seth With High Counter', howToMake: 'Dakini (Level 52) + Ame-no-Uzume = Anubis. Quadruple Fusion: Anubis/Horus/Isis/Thoth' });
   }
 }

@@ -10,6 +10,10 @@ html {
     background-color: var(--surface-a);
     color: var(--text-color);
 
+    a {
+      color: var(--blue-400);
+    }
+
     .ui-spinner-input,
     .p-inputnumber-input {
       width: 100%;

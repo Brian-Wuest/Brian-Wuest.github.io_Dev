@@ -1,8 +1,11 @@
 <div class="p-grid">
-  <h1 class="p-col-12 align-text-center">Persona 5 Royal Day Event Guide</h1>
+  <h1 class="p-col-12 align-text-center">Persona 5 Royal Guide</h1>
   <div class="p-col-12"><hr /></div>
 </div>
 <div class="p-grid">
+  <div class="p-col-12">
+    <p>Persona Fusion Guide: <a href="https://chinhodado.github.io/persona5_calculator/indexRoyal.html#/list" target="_blank">List</a></p>
+  </div>
   <div class="p-col-12">
     <p-tabView>
       <p-tabPanel *ngFor="let month of months; let i = index" [header]="month.name" [selected]="i == 0">
@@ -56,6 +59,39 @@
                 </tr>
               </ng-template>
             </p-table>
+          </div>
+        </div>
+      </p-tabPanel>
+
+      <p-tabPanel header="Flower Shop">
+        <div class="p-grid">
+          <div class="p-col-12">
+            <ul>
+              <li *ngFor="let info of flowerShopData">
+                {{ info.request }}
+                <ul>
+                  <li>{{ info.combination }}</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </p-tabPanel>
+
+      <p-tabPanel header="Strength Confidant">
+        <div class="p-grid">
+          <div class="p-col-12">
+            <p class="p-pl-3">Use the Persona Fusion guide (link above) for fusion recipies.</p>
+          </div>
+          <div class="p-col-12">
+            <ul>
+              <li *ngFor="let info of strengthConfidantData">
+                {{ info.personaNeeded }}
+                <ul>
+                  <li>{{ info.howToMake }}</li>
+                </ul>
+              </li>
+            </ul>
           </div>
         </div>
       </p-tabPanel>
