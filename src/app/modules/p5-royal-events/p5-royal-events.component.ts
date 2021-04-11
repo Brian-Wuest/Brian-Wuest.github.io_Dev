@@ -443,7 +443,7 @@ export class P5RoyalEventsComponent implements OnInit {
         },
         {
           day: 31,
-          dayTimeInfo: ['Buy equipment and medicine as you see fit', 'Enter Mementos (Note: Walk out with at least 80K yen'],
+          dayTimeInfo: ['Buy equipment and medicine as you see fit', 'Enter Mementos (Note: Walk out with at least 80K yen)'],
           eveningInfo: ['Solve crossword (Knowledge +1) Answer: Japanese', 'Study (Knowledge +2)'],
           miscInfo: ['Class answer: John Silver (Knowledge +1)'],
         },
