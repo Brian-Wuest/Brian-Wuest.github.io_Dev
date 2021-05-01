@@ -95,6 +95,21 @@
           </div>
         </div>
       </p-tabPanel>
+
+      <p-tabPanel header="Crossword Puzzle Answers">
+        <div class="p-grid">
+          <div class="p-col-12">
+            <p class="p-px-3">The daily guide provides when to enter these answers but if you happen to miss a day you can still refer to this list as they are based on completion not by date.</p>
+          </div>
+          <div class="p-col-12">
+            <ul>
+              <li *ngFor="let answer of crosswordAnswerData">
+                {{ answer }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </p-tabPanel>
     </p-tabView>
   </div>
 </div>

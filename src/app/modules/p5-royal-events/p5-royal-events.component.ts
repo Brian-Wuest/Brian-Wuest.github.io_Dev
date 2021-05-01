@@ -13,12 +13,14 @@ export class P5RoyalEventsComponent implements OnInit {
   columns: Array<{ header: string; field: string; width: string }>;
   flowerShopData: Array<{ request: string; combination: string }>;
   strengthConfidantData: Array<{ personaNeeded: string; howToMake: string }>;
+  crosswordAnswerData: Array<string>;
 
   constructor() {
     this.months = new Array<MonthEvents>();
     this.columns = new Array<{ header: string; field: string; width: string }>();
     this.flowerShopData = new Array<{ request: string; combination: string }>();
     this.strengthConfidantData = new Array<{ personaNeeded: string; howToMake: string }>();
+    this.crosswordAnswerData = new Array<string>();
 
     this.columns.push({
       header: 'Day',
@@ -59,6 +61,7 @@ export class P5RoyalEventsComponent implements OnInit {
     this.loadFebruaryData();
     this.loadFlowerShopData();
     this.loadStrengthConfidantData();
+    this.loadCrosswordAnswerData();
   }
 
   loadAprilData() {
@@ -107,10 +110,7 @@ export class P5RoyalEventsComponent implements OnInit {
         {
           day: 18,
           dayTimeInfo: ['Get [Pirate Legend] from library.', 'Buy Plant Nutrients. Buy materials for crafting lockpicks.', 'Talk to doctor at clinic.'],
-          eveningInfo: [
-            'Complete crossword on the first floor table (Knowledge +1). Answer: Semesters',
-            'Clean your room (find Yongen Wanderer and Social Thought)',
-          ],
+          eveningInfo: ['Complete crossword on the first floor table (Knowledge +1).', 'Clean your room (find Yongen Wanderer and Social Thought)'],
           miscInfo: [''],
         },
         {
@@ -170,7 +170,7 @@ export class P5RoyalEventsComponent implements OnInit {
         {
           day: 27,
           dayTimeInfo: ['Send calling card.'],
-          eveningInfo: ['Solve crossword (Knowledge +1). Answer: Blossom', 'Craft infiltration tools (Proficiency +2)'],
+          eveningInfo: ['Solve crossword (Knowledge +1).', 'Craft infiltration tools (Proficiency +2)'],
           miscInfo: ['Class answer: Four color theorem (Knowledge +1)'],
         },
         {
@@ -224,7 +224,7 @@ export class P5RoyalEventsComponent implements OnInit {
         {
           day: 2,
           dayTimeInfo: ['Story segment'],
-          eveningInfo: ['Solve crossword (Knowledge +1) Answer: Golden. Study (Knowledge rank 2)'],
+          eveningInfo: ['Solve crossword (Knowledge +1). Study (Knowledge rank 2)'],
           miscInfo: [''],
         },
         {
@@ -293,7 +293,7 @@ export class P5RoyalEventsComponent implements OnInit {
             '0, 2',
             '2, 0, 0',
           ],
-          eveningInfo: ['Solve crossword (Knowledge +1) Answer: Malaise', "Accept Skull's invitation to study (Knowledge +3)"],
+          eveningInfo: ['Solve crossword (Knowledge +1)', "Accept Skull's invitation to study (Knowledge +3)"],
           miscInfo: ['Class answer: The Heian period (Knowledge +1)'],
         },
         {
@@ -341,7 +341,7 @@ export class P5RoyalEventsComponent implements OnInit {
         {
           day: 18,
           dayTimeInfo: ['Death 4 (Guts +1):', '0, 2', '3, 2, 2', '2, 0, 0'],
-          eveningInfo: ['Solve crossword (Knowledge +1) Answer: Gallery', 'Talk to Yoshida at Central Square (SUN Prereq)'],
+          eveningInfo: ['Solve crossword (Knowledge +1)', 'Talk to Yoshida at Central Square (SUN Prereq)'],
           miscInfo: [''],
         },
         {
@@ -396,7 +396,7 @@ export class P5RoyalEventsComponent implements OnInit {
             '2, 3',
             '2, 0, 0',
           ],
-          eveningInfo: ['TV Quiz show “Queen of evidence” (Knowledge +1)', 'Solve crossword (Knowledge +1) Answer: Pollenosis', 'Talk to Yoshida (Sun 1)'],
+          eveningInfo: ['TV Quiz show “Queen of evidence” (Knowledge +1)', 'Solve crossword (Knowledge +1)', 'Talk to Yoshida (Sun 1)'],
           miscInfo: ['Class answer: Arther Conan Doyle (Knowledge +1)'],
         },
         {
@@ -444,7 +444,7 @@ export class P5RoyalEventsComponent implements OnInit {
         {
           day: 31,
           dayTimeInfo: ['Buy equipment and medicine as you see fit', 'Enter Mementos (Note: Walk out with at least 80K yen)'],
-          eveningInfo: ['Solve crossword (Knowledge +1) Answer: Japanese', 'Study (Knowledge +2)'],
+          eveningInfo: ['Solve crossword (Knowledge +1)', 'Study (Knowledge +2)'],
           miscInfo: ['Class answer: John Silver (Knowledge +1)'],
         },
       ] as Array<MonthEvent>,
@@ -507,7 +507,7 @@ export class P5RoyalEventsComponent implements OnInit {
         {
           day: 7,
           dayTimeInfo: ['Study at the diner, order salad set (Guts +1, Knowledge +2)'],
-          eveningInfo: ['Solve crossword (Knowledge +1) Answer: Master', 'Take the twins to the movies'],
+          eveningInfo: ['Solve crossword (Knowledge +1)', 'Take the twins to the movies'],
           miscInfo: ['Class answer: The number of legs (Knowledge +1)'],
         },
         {
@@ -581,7 +581,7 @@ export class P5RoyalEventsComponent implements OnInit {
         {
           day: 16,
           dayTimeInfo: ['Story segment'],
-          eveningInfo: ['Crossword (Knowledge +1) Answer: Conference', 'Hierophant 4 (Kindness +2)', '3, 0, 0', '0, 3, 0', '2, 0, 0'],
+          eveningInfo: ['Crossword (Knowledge +1)', 'Hierophant 4 (Kindness +2)', '3, 0, 0', '0, 3, 0', '2, 0, 0'],
           miscInfo: [''],
         },
         {
@@ -623,7 +623,7 @@ export class P5RoyalEventsComponent implements OnInit {
           eveningInfo: [
             'Put Skull’s invitation on hold',
             'Feed your plant (Kindness rank 3)',
-            'Solve crossword (Knowledge +1) Answer: Wardrobe',
+            'Solve crossword (Knowledge +1)',
             'Accept Skull’s invitation: Chariot 7 (Tsukishima unlocked)',
             '0, 3',
             '3, 2',
@@ -700,10 +700,7 @@ export class P5RoyalEventsComponent implements OnInit {
         {
           day: 30,
           dayTimeInfo: ['Emperor 3', '0, 0, 2', '0, 0, 0', '2, 3, 0', '2, 2', '2, 0, 0'],
-          eveningInfo: [
-            'Solve crossword (Knowledge +1) Answer: Currency',
-            'Travel to Shinjuku and talk to the fortune teller (Fortune confidant prerequisite)',
-          ],
+          eveningInfo: ['Solve crossword (Knowledge +1)', 'Travel to Shinjuku and talk to the fortune teller (Fortune confidant prerequisite)'],
           miscInfo: [''],
         },
       ] as Array<MonthEvent>,
@@ -775,7 +772,7 @@ export class P5RoyalEventsComponent implements OnInit {
             '0, 2, 0',
             '2, 2, 0',
           ],
-          eveningInfo: ['Solve crossword (Knowledge +1) Answer: Front', 'Visit fortune teller (Fortune 1)'],
+          eveningInfo: ['Solve crossword (Knowledge +1)', 'Visit fortune teller (Fortune 1)'],
           miscInfo: ["Class answer: the Milky Way, Traditional food, Soumen's noodles (Charm +1, Lovers +2)"],
         },
         {
@@ -821,7 +818,7 @@ export class P5RoyalEventsComponent implements OnInit {
           day: 12,
           dayTimeInfo: ['Chariot 8', '0, 0', '3, 3', '3, 2', '2, 3', '0, 2, 0'],
           eveningInfo: [
-            'Solve crossword (Knowledge +1) Answer: Narcotics',
+            'Solve crossword (Knowledge +1)',
             'Travel to Kichijoji, hand the Soothing Soba over to Sakai',
             'Justice 3',
             '0, 0',
@@ -878,7 +875,7 @@ export class P5RoyalEventsComponent implements OnInit {
         {
           day: 19,
           dayTimeInfo: ['Priestess 4', '2, 0, 0', '0, 0', '0, 0, 0', '3, 2, 0', '0, 2, 3'],
-          eveningInfo: ['Talk to Sojiro for reward', 'Solve crossword (Knowledge +1) Answer: Vacation', 'Fortune 2', '0, 0, 0', '0, 0, 0', '0, 2', '2, 0, 0'],
+          eveningInfo: ['Talk to Sojiro for reward', 'Solve crossword (Knowledge +1)', 'Fortune 2', '0, 0, 0', '0, 0, 0', '0, 2', '2, 0, 0'],
           miscInfo: ['Exam results (Charm +3)'],
         },
         {
@@ -1015,7 +1012,7 @@ export class P5RoyalEventsComponent implements OnInit {
         {
           day: 3,
           dayTimeInfo: ['Chariot 9', '3, 2', '2, 2, 3', '3, 3', '2, 0, 0', '2, 0, 2'],
-          eveningInfo: ['Solve crossword (Knowledge +1) Answer: Finals', 'Make sure you have an Emperor persona', 'Take the Twins to church'],
+          eveningInfo: ['Solve crossword (Knowledge +1)', 'Make sure you have an Emperor persona', 'Take the Twins to church'],
           miscInfo: ['Acquire Mementos mission'],
         },
         {
@@ -2367,9 +2364,33 @@ export class P5RoyalEventsComponent implements OnInit {
     this.strengthConfidantData.push({ personaNeeded: 'Phoenix With Counter', howToMake: 'Yaksini + Genbu' });
     this.strengthConfidantData.push({ personaNeeded: 'Setanta With Rakukaja', howToMake: 'Berith + Hua Po, Pass Kakukaja to Suzaku. Suzaku + Phoenix' });
     this.strengthConfidantData.push({ personaNeeded: 'Neko Shogun with Dekaja', howToMake: 'Orobas + High Pixie = Sudama. Triple Fusion: Anzu/Kodama/Sudama' });
-    this.strengthConfidantData.push({ personaNeeded: 'Lacheisis With Tetraja', howToMake: 'Pricipality + Sandman = Thoth. Thoth + Anzu = Lacheisis. Keep Tetraja from Principality' });
+    this.strengthConfidantData.push({
+      personaNeeded: 'Lacheisis With Tetraja',
+      howToMake: 'Pricipality + Sandman = Thoth. Thoth + Anzu = Lacheisis. Keep Tetraja from Principality',
+    });
     this.strengthConfidantData.push({ personaNeeded: 'Hecatoncheires With Masukunda', howToMake: 'Lilim (Level 34) + Anzu = Hecatoncheires' });
     this.strengthConfidantData.push({ personaNeeded: 'Bugs With Samaerecarm', howToMake: 'Hariti (Level 41). Triple Fusion: Hariti/Pixie/Pisaca' });
-    this.strengthConfidantData.push({ personaNeeded: 'Seth With High Counter', howToMake: 'Dakini (Level 52) + Ame-no-Uzume = Anubis. Quadruple Fusion: Anubis/Horus/Isis/Thoth' });
+    this.strengthConfidantData.push({
+      personaNeeded: 'Seth With High Counter',
+      howToMake: 'Dakini (Level 52) + Ame-no-Uzume = Anubis. Quadruple Fusion: Anubis/Horus/Isis/Thoth',
+    });
+  }
+
+  loadCrosswordAnswerData() {
+    this.crosswordAnswerData.push('Semesters');
+    this.crosswordAnswerData.push('Blossom');
+    this.crosswordAnswerData.push('Golden');
+    this.crosswordAnswerData.push('Malaise');
+    this.crosswordAnswerData.push('Gallery');
+    this.crosswordAnswerData.push('Pollenosis');
+    this.crosswordAnswerData.push('Japanese');
+    this.crosswordAnswerData.push('Master');
+    this.crosswordAnswerData.push('Conference');
+    this.crosswordAnswerData.push('Wardrobe');
+    this.crosswordAnswerData.push('Currency');
+    this.crosswordAnswerData.push('Front');
+    this.crosswordAnswerData.push('Narcotics');
+    this.crosswordAnswerData.push('Vacation');
+    this.crosswordAnswerData.push('Finals');
   }
 }
