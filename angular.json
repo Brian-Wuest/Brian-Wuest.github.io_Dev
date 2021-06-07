@@ -20,7 +20,14 @@
             "styles": ["node_modules/primeng/resources/primeng.min.css", "node_modules/primeicons/primeicons.css", "node_modules/primeflex/primeflex.css",
               "node_modules/primeng/resources/themes/bootstrap4-dark-blue/theme.css", "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "aot": false,
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -42,16 +49,15 @@
               "outputPath": "./dist"
             },
             "dev": {
-              "sourceMap": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
-              "vendorChunk": true,
               "commonChunk": true,
               "deleteOutputPath": false,
               "outputHashing": "all"
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
