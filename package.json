@@ -7,8 +7,8 @@
     "start": "ng serve",
     "build": "ng build",
     "lint": "ng lint",
-    "build:stats": "ng build --prod --stats-json --output-path=./dist",
-    "build:prod": "ng build --prod --output-path=./dist --delete-output-path=true",
+    "build:stats": "ng build --configuration production --stats-json --output-path=./dist",
+    "build:prod": "ng build --configuration production--output-path=./dist --delete-output-path=true",
     "bundle-report": "webpack-bundle-analyzer dist/stats.json"
   },
   "private": true,

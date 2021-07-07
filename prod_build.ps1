@@ -10,6 +10,6 @@ Get-ChildItem $buildPath -Include *.ttf -Recurse | ForEach-Object ($_) { Remove-
 Get-ChildItem $buildPath -Include *.woff -Recurse | ForEach-Object ($_) { Remove-Item $_.FullName }
 Get-ChildItem $buildPath -Include *.woff2 -Recurse | ForEach-Object ($_) { Remove-Item $_.FullName }
 
-ng build --prod
+ng build --configuration production
 
 Get-ChildItem .\dist -Recurse | ForEach-Object ($_) { Copy-Item -Path $_.FullName -Destination $buildPath -Force }
