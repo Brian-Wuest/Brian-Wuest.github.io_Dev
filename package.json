@@ -14,7 +14,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "12.0.3",
-    "@angular/cdk": "12.2.2",
+    "@angular/cdk": "12.2.3",
     "@angular/common": "12.0.3",
     "@angular/compiler": "12.0.3",
     "@angular/core": "12.0.3",
@@ -27,7 +27,7 @@
     "file-saver": "2.0.5",
     "font-awesome": "4.7.0",
     "primeicons": "4.1.0",
-    "primeng": "12.0.2",
+    "primeng": "12.1.0",
     "rxjs": "6.6.7",
     "tslib": "2.3.1",
     "zone.js": "0.11.4",
@@ -35,11 +35,11 @@
     "primeflex": "3.0.1"
   },
   "devDependencies": {
-    "@angular/cli": "12.2.1",
     "@angular-devkit/build-angular": "12.2.3",
+    "@angular/cli": "12.2.3",
     "@angular/compiler-cli": "12.0.3",
     "@types/jasmine": "3.8.2",
-    "@types/node": "16.7.1",
+    "@types/node": "16.7.6",
     "codelyzer": "6.0.2",
     "jasmine-core": "3.9.0",
     "jasmine-spec-reporter": "7.0.0",
