@@ -1,30 +1,30 @@
-<div class="p-grid">
-  <h1 class="p-col-12 align-text-center">Persona 5 Royal Guide</h1>
-  <div class="p-col-12"><hr /></div>
+<div class="grid">
+  <h1 class="col-12 align-text-center">Persona 5 Royal Guide</h1>
+  <div class="col-12"><hr /></div>
 </div>
-<div class="p-grid">
-  <div class="p-col-12">
+<div class="grid">
+  <div class="col-12">
     <p>Persona Fusion Guide: <a href="https://chinhodado.github.io/persona5_calculator/indexRoyal.html#/list" target="_blank">List</a></p>
   </div>
-  <div class="p-col-12">
+  <div class="col-12">
     <p-tabView>
       <p-tabPanel *ngFor="let month of months; let i = index" [header]="month.name" [selected]="i == 0">
-        <div class="p-grid">
-          <div class="p-col-6">
+        <div class="grid">
+          <div class="col-6">
             <p-panel header="Monthly Info">
               <label>{{ month.miscMonthInfo }}</label>
             </p-panel>
           </div>
-          <div class="p-col-6">
+          <div class="col-6">
             <p-panel header="Month Exit Stats">
               <p><strong>Social Stats:</strong> {{ month.exitStats[0] }}</p>
               <p><strong>Confidant Stats:</strong> {{ month.exitStats[1] }}</p>
             </p-panel>
           </div>
-          <div class="p-col-12">
+          <div class="col-12">
             <hr />
           </div>
-          <div class="p-col-12">
+          <div class="col-12">
             <p-table id="monthlyEventsTable" [value]="month.events" [columns]="columns" [autoLayout]="true" [rowHover]="true">
               <ng-template pTemplate="header" let-columns>
                 <tr>
@@ -64,8 +64,8 @@
       </p-tabPanel>
 
       <p-tabPanel header="Flower Shop">
-        <div class="p-grid">
-          <div class="p-col-12">
+        <div class="grid">
+          <div class="col-12">
             <ul>
               <li *ngFor="let info of flowerShopData">
                 {{ info.request }}
@@ -79,11 +79,11 @@
       </p-tabPanel>
 
       <p-tabPanel header="Strength Confidant">
-        <div class="p-grid">
-          <div class="p-col-12">
-            <p class="p-pl-3">Use the Persona Fusion guide (link above) for fusion recipies.</p>
+        <div class="grid">
+          <div class="col-12">
+            <p class="pl-3">Use the Persona Fusion guide (link above) for fusion recipies.</p>
           </div>
-          <div class="p-col-12">
+          <div class="col-12">
             <ul>
               <li *ngFor="let info of strengthConfidantData">
                 {{ info.personaNeeded }}
@@ -97,11 +97,11 @@
       </p-tabPanel>
 
       <p-tabPanel header="Crossword Puzzle Answers">
-        <div class="p-grid">
-          <div class="p-col-12">
-            <p class="p-px-3">The daily guide provides when to enter these answers but if you happen to miss a day you can still refer to this list as they are based on completion not by date.</p>
+        <div class="grid">
+          <div class="col-12">
+            <p class="px-3">The daily guide provides when to enter these answers but if you happen to miss a day you can still refer to this list as they are based on completion not by date.</p>
           </div>
-          <div class="p-col-12">
+          <div class="col-12">
             <ul>
               <li *ngFor="let answer of crosswordAnswerData">
                 {{ answer }}

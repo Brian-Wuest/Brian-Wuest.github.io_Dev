@@ -1,21 +1,21 @@
-<div class="p-grid">
-  <h1 class="p-col-12 align-text-center">Date/Time Calculations</h1>
-  <div class="p-col-12">
+<div class="grid">
+  <h1 class="col-12 align-text-center">Date/Time Calculations</h1>
+  <div class="col-12">
     <hr />
   </div>
 </div>
-<div class="p-grid">
-  <div class="p-col-12 p-xl-5 p-xl-offset-1">
+<div class="grid">
+  <div class="col-12 xl:col-5 xl:col-offset-1">
     <p-panel>
       <p-header class="align-text-center">
         <span class="ui-card-title">Convert</span>
       </p-header>
-      <div class="p-grid">
-        <div class="p-col-4">
+      <div class="grid">
+        <div class="col-4">
           <label for="firstPart">The Number of </label>
           <p-dropdown name="firstPart" [options]="datePartOptions" [(ngModel)]="selectedPartOneConverter" (onChange)="calculationChanged()"></p-dropdown>
         </div>
-        <div class="p-col-5">
+        <div class="col-5">
           <label for="secondPart">In</label>
           <div class="p-inputgroup">
             <p-inputNumber
@@ -32,7 +32,7 @@
             </span>
           </div>
         </div>
-        <div class="p-col-3">
+        <div class="col-3">
           <label for="convertResult">Is</label>
           <p-inputNumber name="convertResult" disabled [(ngModel)]="convertResult" mode="decimal"></p-inputNumber>
         </div>
@@ -40,13 +40,13 @@
     </p-panel>
   </div>
 
-  <div class="p-col-12 p-xl-5">
+  <div class="col-12 xl:col-5">
     <p-panel>
       <p-header class="align-text-center">
         <span class="ui-card-title">Date Difference</span>
       </p-header>
-      <div class="p-grid">
-        <div class="p-col-5">
+      <div class="grid">
+        <div class="col-5">
           <label for="startValue">Start Date/Time</label>
           <p-calendar
             name="startValue"
@@ -61,7 +61,7 @@
           ></p-calendar>
         </div>
 
-        <div class="p-col-5">
+        <div class="col-5">
           <label for="startValue">End Date/Time</label>
           <p-calendar
             name="endValue"
@@ -76,12 +76,12 @@
           ></p-calendar>
         </div>
 
-        <div class="p-col-5">
+        <div class="col-5">
           <label for="difference">Difference</label>
           <p-inputNumber name="difference" mode="decimal" [(ngModel)]="dateDifferenceResult" minFractionDigits="2" maxFracionDigits="2" [suffix]="getSuffix()">
           </p-inputNumber>
         </div>
-        <div class="p-col-5">
+        <div class="col-5">
           <label for="differenceType">Difference Type</label>
           <p-dropdown name="differenceType" [options]="datePartOptions" (onChange)="calculateDifference()" [(ngModel)]="dateDifferenceType"></p-dropdown>
         </div>
@@ -89,13 +89,13 @@
     </p-panel>
   </div>
 
-  <div class="p-col-12 p-xl-5 p-xl-offset-1">
+  <div class="col-12 xl:col-5 xl:col-offset-1">
     <p-panel>
       <p-header class="align-text-center">
         <span class="ui-card-title">Format Date/Time</span>
       </p-header>
-      <div class="p-grid">
-        <div class="p-col-5">
+      <div class="grid">
+        <div class="col-5">
           <label for="dateToFormat">Date/Time To Format</label>
           <p-calendar
             name="dateToFormat"
@@ -109,11 +109,11 @@
             (onTodayClick)="updateFormat()"
           ></p-calendar>
         </div>
-        <div class="p-col-5">
+        <div class="col-5">
           <label for="formatOptions">Format Options </label>
           <p-dropdown name="formatOptions" [options]="formatOptions" [(ngModel)]="formatOption" (onChange)="updateFormat()"></p-dropdown>
         </div>
-        <div class="p-col-5">
+        <div class="col-5">
           <div class="p-fluid">
             <div class="p-field">
               <label for="formatResult">Format Result</label>

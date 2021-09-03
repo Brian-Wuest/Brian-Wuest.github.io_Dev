@@ -1,20 +1,20 @@
-<div class="p-grid">
-  <h1 class="p-col-12 align-text-center">Starfinder Character Attribute Point Buy</h1>
-  <div class="p-col-12">
+<div class="grid">
+  <h1 class="col-12 align-text-center">Starfinder Character Attribute Point Buy</h1>
+  <div class="col-12">
     <hr />
   </div>
 </div>
-<div class="p-grid">
-  <div class="p-col-12 p-xl-3 p-xl-offset-1">
+<div class="grid">
+  <div class="col-12 xl:col-3 xl:col-offset-1">
     <p-panel>
       <p-header class="align-text-center">
         <span class="ui-card-title">Race and Theme</span>
       </p-header>
 
       <form name="raceForm" id="raceForm">
-        <div class="p-grid pad-top-5">
-          <label class="p-col-12">Race: </label>
-          <div class="p-col-12">
+        <div class="grid pad-top-5">
+          <label class="col-12">Race: </label>
+          <div class="col-12">
             <p-dropdown
               name="raceSelector"
               [options]="races"
@@ -26,9 +26,9 @@
             </p-dropdown>
           </div>
         </div>
-        <div class="p-grid pad-top-5">
-          <label class="p-col-12">Theme: </label>
-          <div class="p-col-12">
+        <div class="grid pad-top-5">
+          <label class="col-12">Theme: </label>
+          <div class="col-12">
             <p-dropdown
               name="themeSelector"
               [options]="themes"
@@ -40,9 +40,9 @@
             </p-dropdown>
           </div>
         </div>
-        <div class="p-grid pad-top-5" *ngIf="getIsHuman()">
-          <label class="p-col-12 no-wrap">Human Attribute: </label>
-          <div class="p-col-12">
+        <div class="grid pad-top-5" *ngIf="getIsHuman()">
+          <label class="col-12 no-wrap">Human Attribute: </label>
+          <div class="col-12">
             <p-dropdown
               name="humanSelector"
               [options]="characterAttributes"
@@ -54,9 +54,9 @@
             </p-dropdown>
           </div>
         </div>
-        <div class="p-grid pad-top-5" *ngIf="getIsThemeLess()">
-          <label class="p-col-12 no-wrap">Themeless Attribute: </label>
-          <div class="p-col-12">
+        <div class="grid pad-top-5" *ngIf="getIsThemeLess()">
+          <label class="col-12 no-wrap">Themeless Attribute: </label>
+          <div class="col-12">
             <p-dropdown
               name="themelessSelector"
               [options]="characterAttributes"
@@ -72,38 +72,38 @@
     </p-panel>
   </div>
 
-  <div class="p-col-12 p-xl-6 p-xl-offset-1">
+  <div class="col-12 xl:col-6 xl:col-offset-1">
     <p-panel>
       <p-header class="align-text-center">
         <span class="ui-card-title">Player Stats</span>
       </p-header>
 
       <form id="statsForm" name="statsForm">
-        <div class="p-grid">
-          <div class="p-col-12">
+        <div class="grid">
+          <div class="col-12">
             <label style="padding-top: 0px">Available Points: {{ availablePoints }}</label>
           </div>
         </div>
         <div class="">
           <table class="">
             <thead>
-              <th class="no-pad-right-left"><span class="font-weight-bold no-wrap align-text-center">Name</span></th>
-              <th class="no-pad-right-left"><span class="font-weight-bold no-wrap align-text-center">Base</span></th>
-              <th class="no-pad-right-left"><span class="font-weight-bold no-wrap align-text-center">Points</span></th>
-              <th class="no-pad-right-left"><span class="font-weight-bold no-wrap align-text-center">Race</span></th>
-              <th class="no-pad-right-left"><span class="font-weight-bold no-wrap align-text-center">Theme</span></th>
-              <th class="no-pad-right-left"><span class="font-weight-bold no-wrap align-text-center">Result</span></th>
+              <th class="px-0"><span class="font-weight-bold no-wrap align-text-center">Name</span></th>
+              <th class="px-0"><span class="font-weight-bold no-wrap align-text-center">Base</span></th>
+              <th class="px-0"><span class="font-weight-bold no-wrap align-text-center">Points</span></th>
+              <th class="px-0"><span class="font-weight-bold no-wrap align-text-center">Race</span></th>
+              <th class="px-0"><span class="font-weight-bold no-wrap align-text-center">Theme</span></th>
+              <th class="px-0"><span class="font-weight-bold no-wrap align-text-center">Result</span></th>
             </thead>
 
             <tbody>
               <tr class="pad-top-5" *ngFor="let attribute of characterAttributes">
-                <td class="p-col-2 no-pad-right-left">
-                  <input class="p-col-12 align-text-center" pInputText readonly [value]="attribute.name" />
+                <td class="col-2 px-0">
+                  <input class="col-12 align-text-center" pInputText readonly [value]="attribute.name" />
                 </td>
-                <td class="p-col-2 no-pad-right-left">
-                  <input class="p-col-12 align-text-center" pInputText readonly value="10" />
+                <td class="col-2 px-0">
+                  <input class="col-12 align-text-center" pInputText readonly value="10" />
                 </td>
-                <td class="p-col-2 no-pad-right-left">
+                <td class="col-2 px-0">
                   <p-inputNumber
                     [name]="attribute.name"
                     class="align-text-center"
@@ -117,14 +117,14 @@
                     [(ngModel)]="attribute.points"
                   ></p-inputNumber>
                 </td>
-                <td class="p-col-2 no-pad-right-left">
-                  <input class="p-col-12 align-text-center" pInputText readonly [value]="getRacialStat(attribute)" />
+                <td class="col-2 px-0">
+                  <input class="col-12 align-text-center" pInputText readonly [value]="getRacialStat(attribute)" />
                 </td>
-                <td class="p-col-2 no-pad-right-left">
-                  <input class="p-col-12 align-text-center" pInputText readonly [value]="getThemeStat(attribute)" />
+                <td class="col-2 px-0">
+                  <input class="col-12 align-text-center" pInputText readonly [value]="getThemeStat(attribute)" />
                 </td>
-                <td class="p-col-2 no-pad-right-left">
-                  <input class="p-col-12 align-text-center" pInputText readonly [value]="getComputedStat(attribute)" />
+                <td class="col-2 px-0">
+                  <input class="col-12 align-text-center" pInputText readonly [value]="getComputedStat(attribute)" />
                 </td>
               </tr>
             </tbody>
