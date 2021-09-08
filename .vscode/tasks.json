@@ -30,7 +30,7 @@
     {
       "label": "end_serve",
       "type": "shell",
-      "command": ["FOR /F \"tokens=1,2,3,4,5\" %A IN ('\"netstat -ano | findstr :4200\"') DO (if %D==LISTENING (TaskKill /PID %E /F))"],
+      "command": ["FOR /F \"tokens=1,2,3,4,5\" %A IN ('\"netstat -ano | findstr :4200 | findstr LISTENING\"') DO (TaskKill /PID %E /F)"],
       "options": {
         "shell": {
           "executable": "cmd.exe",
