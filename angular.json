@@ -84,11 +84,6 @@
           }
         }
       }
-    },
-    "app-e2e": {
-      "root": "e2e",
-      "sourceRoot": "e2e",
-      "projectType": "application"
     }
   },
   "defaultProject": "app",
