@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MonsterXP } from '../../models/monsterXP';
-import { Globals } from '../../util/globals';
 import { Title } from '@angular/platform-browser';
+import { generateGuid, validateForm } from 'src/app/util/globals';
 
 @Component({
   templateUrl: './xp_calculator.component.html',
@@ -9,7 +9,6 @@ import { Title } from '@angular/platform-browser';
 })
 export class XpCalculatorComponent implements OnInit {
   currentMonsters: Array<MonsterInfo>;
-  globals: Globals;
   templateMonster: MonsterXP;
   playerCount: number;
   playerXp: number;
@@ -17,7 +16,6 @@ export class XpCalculatorComponent implements OnInit {
   monsterXpList: Array<MonsterXP>;
 
   constructor(private _titleService: Title) {
-    this.globals = new Globals();
     this.templateMonster = MonsterXP.dnd5thMonsterExperience[0];
     this.playerCount = 4;
     this.currentMonsters = [];
@@ -50,7 +48,7 @@ export class XpCalculatorComponent implements OnInit {
 
   addMonster() {
     this.currentMonsters.push({
-      MonsterId: this.globals.generateGuid(),
+      MonsterId: generateGuid(),
       XpInfo: this.templateMonster,
       MonsterCount: 0,
     });
@@ -62,7 +60,7 @@ export class XpCalculatorComponent implements OnInit {
     }
 
     // Validate the changed form before continuing.
-    if (formId && !this.globals.validateForm(formId)) {
+    if (formId && !validateForm(formId)) {
       return;
     }
 

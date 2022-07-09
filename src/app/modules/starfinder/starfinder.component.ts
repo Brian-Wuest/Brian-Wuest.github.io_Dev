@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Globals } from '../../util/globals';
 import { Title } from '@angular/platform-browser';
 import { Race } from '../../models/race';
 import { AttributeModifier } from '../../models/attributeModifier';
@@ -11,7 +10,6 @@ import { CharacterAttribute } from './characterAttribute';
   styleUrls: ['./starfinder.component.scss'],
 })
 export class StarfinderComponent implements OnInit {
-  globals: Globals;
   races: Array<Race>;
   themes: Array<Theme>;
   characterAttributes: Array<CharacterAttribute>;
@@ -22,7 +20,6 @@ export class StarfinderComponent implements OnInit {
   availablePoints: number;
 
   constructor(private titleService: Title) {
-    this.globals = new Globals();
     this.availablePoints = 10;
     this.titleService.setTitle('Starfinder Point Buy');
     this.createRaceInfo();
