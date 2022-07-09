@@ -1,21 +1,19 @@
 import { Component, OnInit } from "@angular/core";
-import { Globals } from "../../../ts/globals";
 import { Title } from "@angular/platform-browser";
-import { Character } from "./character";
-import { Stat } from "./stat";
+import { getSupportsHtml5Storage, validateForm } from 'src/app/util/globals';
+import { Character } from "./models/character";
+import { Stat } from "./models/stat";
 
 @Component({
 	templateUrl: "./stat_tracker.component.html",
 	styleUrls: ["./stat_tracker.component.css"]
 })
 export class StatTrackerComponent implements OnInit {
-	globals: Globals;
 	characters: Array<Character>;
 	selectedCharacter: Character;
 	selectedStat: Stat;
 
 	constructor(private titleService: Title) {
-		this.globals = new Globals();
 		this.characters = new Array<Character>();
 		this.titleService.setTitle("Stat Tracker");
 	}
@@ -31,7 +29,7 @@ export class StatTrackerComponent implements OnInit {
 	 */
 	loadCharacters() {
 		// If storage is availabe, check to see if there are any saved characters and if any are found, load them up.
-		if (this.globals.getSupportsHtml5Storage()) {
+		if (getSupportsHtml5Storage()) {
 			if (localStorage.statTrackerCharacters) {
 				this.characters = JSON.parse(
 					localStorage.statTrackerCharacters
@@ -55,7 +53,7 @@ export class StatTrackerComponent implements OnInit {
 	 * Saves the characters to local storage.
 	 */
 	saveCharacters() {
-		if (this.globals.getSupportsHtml5Storage()) {
+		if (getSupportsHtml5Storage()) {
 			localStorage.statTrackerCharacters = JSON.stringify(
 				this.characters
 			);
@@ -153,7 +151,7 @@ export class StatTrackerComponent implements OnInit {
 	 */
 	checkStatsForm(formId: string, updatedName: string) {
 		// Validate the changed form before continuing.
-		if (formId && !this.globals.validateForm(formId)) {
+		if (formId && !validateForm(formId)) {
 			return;
 		}
 
@@ -199,7 +197,7 @@ export class StatTrackerComponent implements OnInit {
 	 * @param eventKey The key name of the field updated in this event.
 	 */
 	checkUpdateForm(formId: string, eventData: any, eventKey: string) {
-		if (formId && !this.globals.validateForm(formId)) {
+		if (formId && !validateForm(formId)) {
 			return;
 		}
 
@@ -217,4 +215,20 @@ export class StatTrackerComponent implements OnInit {
 
 		this.saveCharacters();
 	}
+
+  getSelectedCharacterStyle(character: Character) {
+    if (character.selected) {
+      return 'p-button-outlined'
+    }
+
+    return null;
+  }
+
+  incrementStat(stat: Stat) {
+    stat.value = stat.value + 1;
+  }
+
+  decrementStat(stat: Stat) {
+    stat.value = stat.value - 1;
+  }
 }

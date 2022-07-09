@@ -1,0 +1,195 @@
+<ng-template #pageHelpContent>
+  <ul>
+    <li>Add characters in the [Characters] card.</li>
+    <li>Add stats from the [Character Details] card.</li>
+    <li>Update stats in the [Update Stats] card.</li>
+  </ul>
+</ng-template>
+
+<div class="grid">
+  <h1 class="col-12 align-text-center">
+    RPG Stat Tracker
+    <i class="fas fa-question fa-lg text-info" [ngbTooltip]="pageHelpContent" placement="bottom" style="font-size: x-large"></i>
+  </h1>
+  <div class="col-12">
+    <hr />
+  </div>
+</div>
+<div class="grid">
+  <div class="col-6 col-md-4">
+    <p-panel>
+      <p-header class="align-text-center">
+        <span class="ui-card-title">Characters</span>
+      </p-header>
+
+      <div>
+        <div class="grid">
+          <div class="col-12">
+            <div class="list-group">
+              <p-button
+                *ngFor="let character of characters"
+                (onClick)="updateSelectedCharacter(character)"
+                [styleClass]="getSelectedCharacterStyle(character)"
+                [label]="character.name"
+                class="mx-3"
+              ></p-button>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="col-12">
+            <hr />
+          </div>
+
+          <div class="col-12">
+            <p-button type="button" class="btn btn-secondary mx-3" (click)="addCharacter()">Add Character</p-button>
+            <p-button type="button" class="btn btn-secondary mx-3" (click)="removeCharacter()" [disabled]="selectedCharacter === null"
+              >Remove Character</p-button
+            >
+          </div>
+        </div>
+      </div>
+    </p-panel>
+  </div>
+
+  <div class="col-6 col-md-4">
+    <p-panel>
+      <p-header class="align-text-center">
+        <div>Character Details</div>
+      </p-header>
+
+      <form id="statsForm" name="statsForm">
+        <div class="grid field">
+          <label class="col-3 no-wrap" for="characterName">Name: </label>
+          <div class="col-6">
+            <input
+              id="characterName"
+              type="text"
+              pInputText
+              name="characterName"
+              required
+              [ngModel]="selectedCharacter?.name"
+              (ngModelChange)="checkStatsForm('statsForm', $event)"
+              [disabled]="selectedCharacter === null"
+            />
+          </div>
+        </div>
+        <div class="grid">
+          <div class="col-12">
+            <div class="list-group">
+              <div
+                *ngFor="let stat of selectedCharacter?.stats"
+                (click)="updateSelectedStat(stat)"
+                class="list-group-item list-group-item-action"
+                [ngClass]="{ active: stat.selected }"
+              >
+                <div class="grid">
+                  <div class="col-6">
+                    <span>{{ stat.name }}: {{ stat.value }}</span>
+                  </div>
+                  <div class="col-3 offset-md-1 button-group">
+                    <p-button type="button" class="btn btn-primary btn-sm mx-3" icon="pi pi-plus" (onClick)="incrementStat(stat)"> </p-button>
+                    <p-button type="button" class="btn btn-primary btn-sm mx-3" icon="pi pi-minus" (onClick)="decrementStat(stat)"> </p-button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="col-12">
+            <hr />
+          </div>
+
+          <div class="col-12" role="group">
+            <p-button type="button" class="btn btn-primary mx-3" [disabled]="selectedCharacter === null" (onClick)="addStat()">Add Stat</p-button>
+            <p-button type="button" class="btn btn-primary mx-3" [disabled]="selectedCharacter === null" (onClick)="removeStat()">Remove Stat</p-button>
+          </div>
+        </div>
+      </form>
+    </p-panel>
+  </div>
+
+  <div class="col-12 col-md-4">
+    <p-panel>
+      <p-header class="align-text-center">
+        <div>Update Stats</div>
+      </p-header>
+
+      <form id="updateStatsForm" name="updateStatsForm">
+        <div class="grid form-group">
+          <label class="col-4 no-wrap" for="statName">Name:</label>
+          <div class="col-6">
+            <input
+              id="statName"
+              pInputText
+              type="text"
+              name="statName"
+              class="form-control form-control-sm"
+              required
+              [ngModel]="selectedStat?.name"
+              (ngModelChange)="checkUpdateForm('updateStatsForm', $event, 'name')"
+              [disabled]="selectedStat === null"
+            />
+          </div>
+        </div>
+
+        <div class="grid form-group">
+          <label class="col-4 no-wrap" for="statValue">Value:</label>
+          <div class="col-6">
+            <input
+              id="statValue"
+              type="number"
+              [min]="selectedStat?.minValue"
+              [max]="selectedStat?.maxValue"
+              step="0.1"
+              name="statValue"
+              class="form-control form-control-sm"
+              [ngModel]="selectedStat?.value"
+              (ngModelChange)="checkUpdateForm('updateStatsForm', $event, 'value')"
+              [disabled]="selectedStat === null"
+            />
+          </div>
+        </div>
+
+        <div class="grid form-group">
+          <label class="col-4 no-wrap" for="minValue">Min Value:</label>
+          <div class="col-6">
+            <input
+              id="minValue"
+              type="number"
+              min="-9999"
+              [max]="selectedStat?.maxValue"
+              step="0.1"
+              name="minValue"
+              class="form-control form-control-sm"
+              [ngModel]="selectedStat?.minValue"
+              (ngModelChange)="checkUpdateForm('updateStatsForm', $event, 'min')"
+              [disabled]="selectedStat === null"
+            />
+          </div>
+        </div>
+
+        <div class="grid form-group">
+          <label class="col-4 no-wrap" for="maxValue">Max Value:</label>
+          <div class="col-6">
+            <input
+              id="maxValue"
+              type="number"
+              [min]="selectedStat?.minValue"
+              max="9999"
+              step="0.1"
+              name="maxValue"
+              class="form-control form-control-sm"
+              [ngModel]="selectedStat?.maxValue"
+              (ngModelChange)="checkUpdateForm('updateStatsForm', $event, 'max')"
+              [disabled]="selectedStat === null"
+            />
+          </div>
+        </div>
+      </form>
+    </p-panel>
+  </div>
+</div>

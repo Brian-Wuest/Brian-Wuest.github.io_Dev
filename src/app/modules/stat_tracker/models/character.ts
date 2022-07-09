@@ -1,5 +1,5 @@
+import { generateGuid } from 'src/app/util/globals';
 import { Stat } from "./stat";
-import { Globals } from "../../../ts/globals";
 
 /**
  * A character which contains various stats.
@@ -27,7 +27,6 @@ export class Character {
 	constructor(public name: string) {
 		this.stats = new Array<Stat>();
 		this.selected = false;
-		const globals = new Globals();
-		this.id = globals.generateGuid();
+		this.id = generateGuid();
 	}
 }
