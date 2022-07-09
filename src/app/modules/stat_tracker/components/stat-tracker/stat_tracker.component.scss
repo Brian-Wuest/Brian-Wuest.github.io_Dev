@@ -1,0 +1,13 @@
+.p-button.edit-stat {
+  width: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .stat-row {
+    margin-bottom: 12px;
+
+    &.stat-row-button {
+      margin-left: 10px;
+    }
+  }
+}

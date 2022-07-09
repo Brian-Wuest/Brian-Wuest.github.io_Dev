@@ -1,0 +1,132 @@
+<div class="grid">
+  <h1 class="col-12 align-text-center">RPG Stat Tracker</h1>
+  <div class="col-12">
+    <hr />
+  </div>
+</div>
+<div class="grid">
+  <div class="col-12 lg:col-offset-3 lg:col-6">
+    <p-panel>
+      <p-header class="align-text-center">
+        <span class="ui-card-title">Characters</span>
+      </p-header>
+
+      <div>
+        <div class="grid">
+          <div class="col-12">
+            <p-button type="button" styleClass="p-button-secondary mx-3" (click)="addCharacter()">Add</p-button>
+            <p-button type="button" styleClass="p-button-secondary mx-3" (click)="removeCharacter()" [disabled]="selectedCharacter === null">Remove</p-button>
+          </div>
+
+          <div class="col-12">
+            <hr />
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="col-12">
+            <div class="list-group">
+              <p-button
+                *ngFor="let character of characters"
+                (onClick)="updateSelectedCharacter(character)"
+                [styleClass]="getSelectedCharacterStyle(character)"
+                [label]="character.name"
+                class="mx-3"
+              ></p-button>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid mt-4">
+          <p-panel class="col-12">
+            <p-header class="align-text-center">
+              <div>Character Details</div>
+            </p-header>
+
+            <form id="statsForm" name="statsForm">
+              <div class="grid field">
+                <label class="col-3 no-wrap" for="characterName">Name: </label>
+                <div class="col-6">
+                  <input
+                    id="characterName"
+                    type="text"
+                    pInputText
+                    name="characterName"
+                    required
+                    [ngModel]="selectedCharacter?.name"
+                    (ngModelChange)="checkStatsForm('statsForm', $event)"
+                    [disabled]="selectedCharacter === null"
+                  />
+                </div>
+              </div>
+
+              <div class="grid mb-4">
+                <div class="col-12">
+                  <hr />
+                </div>
+
+                <div class="col-12" role="group">
+                  <p-button type="button" styleClass="p-button-primary mr-3" [disabled]="selectedCharacter === null" (onClick)="addStat()">Add Stat</p-button>
+                  <p-button type="button" styleClass="p-button-primary ml-3" [disabled]="selectedCharacter === null" (onClick)="removeStat()"
+                    >Remove Stat</p-button
+                  >
+                </div>
+              </div>
+
+              <div class="grid">
+                <div class="col-12">
+                  <div class="list-group">
+                    <div *ngFor="let stat of selectedCharacter?.stats" class="list-group-item list-group-item-action" [ngClass]="{ active: stat.selected }">
+                      <div class="grid field">
+                        <p-button
+                          class="col-fixed"
+                          class="edit-stat stat-row stat-row-button"
+                          styleClass="p-button-secondary"
+                          icon="pi pi-pencil"
+                          (click)="updateSelectedStat(stat); stat_overlay.toggle($event)"
+                        ></p-button>
+                        <p-radioButton
+                          name="groupname"
+                          [value]="stat.id"
+                          class="lg:col-3 md:col-3 col-10 stat-row"
+                          [label]="stat.name"
+                          [(ngModel)]="selectedStatId"
+                          (onClick)="updateSelectedStat(stat)"
+                        ></p-radioButton>
+                        <div class="lg:col-6 md:col-6 col-12">
+                          <p-inputNumber
+                            id="statValue"
+                            inputId="statValue"
+                            [(ngModel)]="stat.value"
+                            [min]="stat.minValue"
+                            [max]="stat.maxValue"
+                            showButtons="true"
+                            [ngModelOptions]="{ standalone: true }"
+                          ></p-inputNumber>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </p-panel>
+        </div>
+      </div>
+    </p-panel>
+  </div>
+</div>
+
+<p-overlayPanel #stat_overlay [dismissable]="true" [showCloseIcon]="true">
+  <ng-template pTemplate>
+    <input
+      id="overlayInput"
+      type="text"
+      pInputText
+      name="overlayInput"
+      minlength="1"
+      [(ngModel)]="selectedStat.name"
+      (ngModelChange)="saveCharacters()"
+    />
+  </ng-template>
+</p-overlayPanel>

@@ -7,14 +7,16 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { DropdownModule } from 'primeng/dropdown';
-import { InputTextModule } from 'primeng/inputtext';
-import { Routes, RouterModule } from '@angular/router';
-import { PanelModule } from 'primeng/panel';
 import { InputNumberModule } from 'primeng/inputnumber';
-import { StatTrackerComponent } from './stat_tracker.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { PanelModule } from 'primeng/panel';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { StatTrackerComponent } from './components/stat-tracker/stat_tracker.component';
 
 const routes: Routes = [
   {
@@ -35,6 +37,8 @@ const routes: Routes = [
     PanelModule,
     RouterModule.forChild(routes),
     InputNumberModule,
+    RadioButtonModule,
+    OverlayPanelModule,
   ],
 })
 export class StatTrackerModule {

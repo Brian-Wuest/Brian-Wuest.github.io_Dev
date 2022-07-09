@@ -1,17 +1,18 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { Title } from "@angular/platform-browser";
 import { getSupportsHtml5Storage, validateForm } from 'src/app/util/globals';
-import { Character } from "./models/character";
-import { Stat } from "./models/stat";
-
+import { Character } from '../../models/character';
+import { Stat } from '../../models/stat';
 @Component({
 	templateUrl: "./stat_tracker.component.html",
-	styleUrls: ["./stat_tracker.component.css"]
+	styleUrls: ["./stat_tracker.component.scss"],
+  encapsulation: ViewEncapsulation.None
 })
 export class StatTrackerComponent implements OnInit {
 	characters: Array<Character>;
 	selectedCharacter: Character;
 	selectedStat: Stat;
+  selectedStatId: string;
 
 	constructor(private titleService: Title) {
 		this.characters = new Array<Character>();
@@ -140,6 +141,7 @@ export class StatTrackerComponent implements OnInit {
 
 		if (foundSelectedStat) {
 			this.selectedStat = stat;
+      this.selectedStatId = stat.id;
 		} else {
 			this.selectedStat = null;
 		}
@@ -164,7 +166,10 @@ export class StatTrackerComponent implements OnInit {
 	 */
 	addStat() {
 		if (this.selectedCharacter) {
-			const stat: Stat = new Stat("New Stat", 0, -999, 9999);
+      let statCounter = 0;
+      const statName = this.createUniqueStatName(statCounter);
+
+			const stat: Stat = new Stat(statName, 0, -999, 9999);
 			this.selectedCharacter.stats.push(stat);
 			this.updateSelectedStat(stat);
 			this.saveCharacters();
@@ -226,9 +231,31 @@ export class StatTrackerComponent implements OnInit {
 
   incrementStat(stat: Stat) {
     stat.value = stat.value + 1;
+    this.saveCharacters();
   }
 
   decrementStat(stat: Stat) {
     stat.value = stat.value - 1;
+    this.saveCharacters();
+  }
+
+  createUniqueStatName(counter: number): string {
+    let baseName = "New Stat"
+    let statName = baseName;
+
+    if (counter !== 0) {
+      statName = baseName + counter.toString();
+    }
+
+    for (let stat of this.selectedCharacter.stats) {
+      if (stat.name === statName) {
+        counter++;
+        
+        // Check this new name
+        statName = this.createUniqueStatName(counter);
+      }
+    }
+
+    return statName;
   }
 }
