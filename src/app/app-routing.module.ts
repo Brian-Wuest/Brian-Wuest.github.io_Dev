@@ -31,6 +31,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/p5-royal-events/p5-royal-events.module').then(m => m.P5RoyalEventsModule),
   },
   {
+    path: 'stat_tracker',
+    loadChildren: () => import('./modules/stat_tracker/stat_tracker.module').then(m => m.StatTrackerModule),
+  },
+  {
     path: '',
     redirectTo: 'welcome',
     pathMatch: 'full',

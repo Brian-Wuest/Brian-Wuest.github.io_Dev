@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { SelectItem } from 'primeng/api/selectitem';
 import { Dropdown } from 'primeng/dropdown';
-import { Globals } from '../../util/globals';
+import { validateForm } from 'src/app/util/globals';
 import { AttributeModifier } from '../../models/attributeModifier';
 import { Race } from '../../models/race';
 import { CharacterAttribute } from './characterAttribute';
@@ -12,7 +12,6 @@ import { CharacterAttribute } from './characterAttribute';
   styleUrls: ['./dndpointbuy.component.scss'],
 })
 export class DndPointBuyComponent implements OnInit {
-  globals: Globals;
   races: Array<Race>;
   currentRace: Race;
   availablePoints: number;
@@ -34,7 +33,6 @@ export class DndPointBuyComponent implements OnInit {
   CHR = 'CHR';
 
   constructor(private titleService: Title) {
-    this.globals = new Globals();
     this.availablePoints = 27;
     this.maximumAvailablePoints = 27;
     this.titleService.setTitle('D&D 5th Edition Stat Point Buy');
@@ -50,7 +48,7 @@ export class DndPointBuyComponent implements OnInit {
    * @param event The event object if necessary.
    */
   updateStats(formId: string, event: any) {
-    if (this.globals.validateForm(formId)) {
+    if (validateForm(formId)) {
       let tempAvailablePoints = this.maximumAvailablePoints;
 
       // TODO: Loop through all of the stats and accumulate their points.
