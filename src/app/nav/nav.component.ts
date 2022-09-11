@@ -5,11 +5,15 @@ import { MenuItem } from 'primeng/api/menuitem';
   // tslint:disable-next-line:component-selector
   selector: 'nav-menu',
   templateUrl: './nav.component.html',
+  styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
   items: MenuItem[];
+  isLightTheme: boolean;
 
-  constructor() {}
+  constructor() {
+    this.isLightTheme = true;
+  }
 
   ngOnInit(): void {
     this.items = [
@@ -56,5 +60,51 @@ export class NavComponent implements OnInit {
         ],
       },
     ];
+
+    var isDark = sessionStorage.getItem("isDark")?.toLowerCase() === 'true';
+
+    if (isDark) {
+      this.isLightTheme = false;
+      this.darkToggleChanged();
+    }
+  }
+
+  darkToggleChanged() {
+    if (this.isLightTheme) {
+      this.changeLightDarkTheme('theme-css', 'light-theme');
+    }
+    else {
+      this.changeLightDarkTheme('theme-css', 'dark-theme');
+    }
+  }
+
+  changeLightDarkTheme(id: string, value: string) {
+    this.changeLightDarkElement(id, value);
+    sessionStorage.setItem("isDark", (!this.isLightTheme).valueOf().toString());
+  }
+
+  changeLightDarkLayout(id: string, value: string) {
+    this.changeLightDarkElement(id, value);
+  }
+
+  changeLightDarkElement(id:string, value: string) {
+    const element = document.getElementById(id);
+    const urlTokens = element.getAttribute('href').split('/');
+    urlTokens[urlTokens.length - 1] = value + '.css';
+    const newURL = urlTokens.join('/');
+    this.replaceLink(element, newURL);
+  }
+
+  replaceLink(linkElement: HTMLElement, href: string) {
+    const id = linkElement.getAttribute('id');
+    const cloneLinkElement = linkElement.cloneNode(true) as HTMLElement;
+    cloneLinkElement.setAttribute('href', href);
+    cloneLinkElement.setAttribute('id', id + '-clone');
+    linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling);
+
+    cloneLinkElement.addEventListener('load', () => {
+      linkElement.remove();
+      cloneLinkElement.setAttribute('id', id);
+    });
   }
 }

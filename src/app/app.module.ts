@@ -8,12 +8,13 @@ import { MenuModule } from 'primeng/menu';
 import { MenubarModule } from 'primeng/menubar';
 import { AppRoutingModule } from './app-routing.module';
 // Custom app-specific modules.
+import { InputSwitchModule } from 'primeng/inputswitch';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [AppComponent, NavComponent],
-  imports: [CommonModule, FormsModule, MenubarModule, MenuModule, NoopAnimationsModule, AppRoutingModule],
+  imports: [CommonModule, FormsModule, MenubarModule, MenuModule, NoopAnimationsModule, AppRoutingModule, InputSwitchModule],
   providers: [Title],
   bootstrap: [AppComponent],
 })

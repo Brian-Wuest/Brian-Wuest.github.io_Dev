@@ -1,2 +1,4 @@
 <p-menubar [model]="items">
+    <label class="pi light-icon" [ngClass]="{'pi-sun': isLightTheme, 'pi-moon': !isLightTheme }"></label>
+    <p-inputSwitch id="theme-switcher" name="theme-switcher" (onChange)="darkToggleChanged()" [(ngModel)]="isLightTheme" class="w-full"></p-inputSwitch>
 </p-menubar>
