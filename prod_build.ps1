@@ -12,4 +12,5 @@ Get-ChildItem $buildPath -Include *.woff2 -Recurse | ForEach-Object ($_) { Remov
 
 ng build --configuration production
 
-Get-ChildItem .\dist -Recurse | ForEach-Object ($_) { Copy-Item -Path $_.FullName -Destination $buildPath -Force }
+#Get-ChildItem .\dist | ForEach-Object ($_) { Copy-Item -Path $_.FullName -Destination $buildPath -Force }
+Copy-Item -Path .\dist\* -Destination $buildPath -Recurse -Force
