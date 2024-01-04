@@ -213,7 +213,7 @@ export class P5RoyalEventsComponent implements OnInit {
           dayTimeInfo: [
             'Check TV for home shopping (Optional, Muscle set recommended)',
             'Get Aojiru (Proficiency +1)',
-            'Death 2, requires Guts rank 2!',
+            'Death 2, requires Guts rank 2! (Guts +1)',
             '2, 0, 0',
             '2, 0, 0',
             '2, 0, 2',
@@ -269,7 +269,7 @@ export class P5RoyalEventsComponent implements OnInit {
         {
           day: 8,
           dayTimeInfo: ['Home shopping (Optional, Plant Nutrient set recommended)', 'Story segment'],
-          eveningInfo: ['Get Aojiru (Guts +1)', 'Work at beef bowl, SUN Prereq'],
+          eveningInfo: ['Get Aojiru (Guts +1)', 'Work at beef bowl, SUN Prereq (Proficiency +3 for all correct orders)'],
           miscInfo: [''],
         },
         {
@@ -298,7 +298,7 @@ export class P5RoyalEventsComponent implements OnInit {
         },
         {
           day: 11,
-          dayTimeInfo: ['Minamoto no Yoshitsune', 'Minamoto no Toritomo, Yoritomo wonn, the weak'],
+          dayTimeInfo: ['Minamoto no Yoshitsune', 'Minamoto no Yoritomo, Yoritomo won, the weak'],
           eveningInfo: ['Unavailable'],
           miscInfo: ['Finals week begings!'],
         },
@@ -322,8 +322,8 @@ export class P5RoyalEventsComponent implements OnInit {
         },
         {
           day: 15,
-          dayTimeInfo: ['Home shopping (optional, no recommendations)', 'Story segment'],
-          eveningInfo: ['Study at Leblanc (Knowledge +2)'],
+          dayTimeInfo: ['Story segment'],
+          eveningInfo: ['Home shopping (optional, no recommendations)', 'Study at Leblanc (Knowledge +2)'],
           miscInfo: [''],
         },
         {
@@ -348,7 +348,7 @@ export class P5RoyalEventsComponent implements OnInit {
           day: 19,
           dayTimeInfo: ['Study at the diner, order the sandwich set (Guts +1, Knowledge +2)'],
           eveningInfo: ['Answer TV quiz, “Make noise to cause neurosis” (Knowledge +1)', 'Bathhouse (Charm +2, Guts +1)'],
-          miscInfo: ['Class answer: Katsushika Hokusai* (Knowledge +1)'],
+          miscInfo: ['Class answer: Hokusai Katsushika (Knowledge +1)'],
         },
         {
           day: 20,
