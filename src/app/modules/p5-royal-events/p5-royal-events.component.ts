@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { MonthEvent } from './models/event';
+import { MonthEvent } from './models/Event';
 import { MonthEvents } from './models/MonthEvents';
 
 @Component({
