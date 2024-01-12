@@ -663,6 +663,11 @@ export class P5RoyalEventsComponent implements OnInit {
             'Make sure to leave palace with at least 150k Yen',
             'After securing route, go to velvet room to learn about Fusion Alarms',
             'Catch up on Strength confidant',
+            'Lock Pins:',
+            'RICH: 0102',
+            'REAP: 0931',
+            'HUGE: 2319',
+            'GOLD: 1841'
           ],
         },
         {
