@@ -866,7 +866,7 @@ export class P5RoyalEventsComponent implements OnInit {
             'Aojiru (Knowledge +1)',
             'Turn in Betsy, take out ICU',
             'Get Charm reading from Chihaya',
-            'Respond to Panther’s invitation to the movies (Charm rank 4)',
+            'Respond to Panther’s invitation to the movies (Charm rank +3)',
             '2, 3',
           ],
           miscInfo: [''],
@@ -881,7 +881,7 @@ export class P5RoyalEventsComponent implements OnInit {
           day: 19,
           dayTimeInfo: ['Priestess 4', '2, 0, 0', '0, 0', '0, 0, 0', '3, 2, 0', '0, 2, 3'],
           eveningInfo: ['Talk to Sojiro for reward', 'Solve crossword (Knowledge +1)', 'Fortune 2', '0, 0, 0', '0, 0, 0', '0, 2', '2, 0, 0'],
-          miscInfo: ['Exam results (Charm +3)'],
+          miscInfo: ['Exam results (Charm Rank 4)'],
         },
         {
           day: 20,
