@@ -898,7 +898,7 @@ export class P5RoyalEventsComponent implements OnInit {
         {
           day: 22,
           dayTimeInfo: ['Story segment'],
-          eveningInfo: ['Read On Modern Thought* (Knowledge +3)'],
+          eveningInfo: ['Read Medjed Menace* (Knowledge +3)'],
           miscInfo: [''],
         },
         {
@@ -935,7 +935,7 @@ export class P5RoyalEventsComponent implements OnInit {
         {
           day: 27,
           dayTimeInfo: ['Spend time with Fox (Charm +3)', '2, 2, 3'],
-          eveningInfo: ['Continue your date with Fox, go to the bathhouse with him (Charm +2)', '2, 2'],
+          eveningInfo: ['Continue your date with Fox, go to the bathhouse with him (Charm +3)', '2, 2'],
           miscInfo: [''],
         },
         {
@@ -969,7 +969,7 @@ export class P5RoyalEventsComponent implements OnInit {
           ],
           eveningInfo: [
             'Travel to Kichijoji and interact with the donut shop across the street from Stoneon and Penguin Sniper',
-            'Pick any answer (Guts +2)',
+            'Answer: 10 (Guts +2)',
             'Star 3',
             '2, 0, 0',
             '0, 2, 0',
@@ -982,7 +982,7 @@ export class P5RoyalEventsComponent implements OnInit {
           dayTimeInfo: [
             'Aojiru (Charm +1)',
             'Buy medicine and equipment as necessary (another SP Adhesive 3 if you can afford it)',
-            'Get a luck reading from Chihaya',
+            'Get a money reading from Chihaya',
             'Secure infiltration route at the palace',
           ],
           eveningInfo: ['Call Kawakami. Make sure you have an Emperor persona', 'Hanged 3', '0, 0', '3, 0, 2', '0, 0, 3', '0, 0'],
@@ -1010,7 +1010,7 @@ export class P5RoyalEventsComponent implements OnInit {
         },
         {
           day: 2,
-          dayTimeInfo: ['Get luck reading from Chihaya', 'Buy medicine and equipment as needed', 'Send calling card, and clear the palace'],
+          dayTimeInfo: ['Get money reading from Chihaya', 'Buy medicine and equipment as needed', 'Send calling card, and clear the palace'],
           eveningInfo: ['Call Kawakami', 'Justice 4 (Unlock Jazz Club)', '0, 0', '2, 0, 3', '3, 2, 0', '2, 0', '0, 0, 0', '3, 3, 2', '0, 2, 0'],
           miscInfo: [''],
         },
