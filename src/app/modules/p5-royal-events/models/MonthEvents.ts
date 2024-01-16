@@ -1,4 +1,4 @@
-import { MonthEvent } from './event';
+import { MonthEvent } from './Event';
 
 export interface MonthEvents {
   name: string;
