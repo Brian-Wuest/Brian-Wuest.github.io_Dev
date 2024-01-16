@@ -61,7 +61,7 @@ export class NavComponent implements OnInit {
       },
     ];
 
-    var isDark = sessionStorage.getItem("isDark")?.toLowerCase() === 'true';
+    var isDark = localStorage.getItem("isDark")?.toLowerCase() === 'true';
 
     if (isDark) {
       this.isLightTheme = false;
@@ -80,7 +80,7 @@ export class NavComponent implements OnInit {
 
   changeLightDarkTheme(id: string, value: string) {
     this.changeLightDarkElement(id, value);
-    sessionStorage.setItem("isDark", (!this.isLightTheme).valueOf().toString());
+    localStorage.setItem("isDark", (!this.isLightTheme).valueOf().toString());
   }
 
   changeLightDarkLayout(id: string, value: string) {
