@@ -1,0 +1,67 @@
+<div class="grid">
+  <h1 class="col-12 align-text-center">Persona 3 Reload Guide</h1>
+  <div class="col-12"><hr /></div>
+</div>
+<div class="grid">
+  <div class="col-12">
+    <p>Persona Fusion Guide: TBD</p>
+  </div>
+  <div class="col-12">
+    <p-tabView>
+      <p-tabPanel *ngFor="let month of months; let i = index" [header]="month.name" [selected]="i == 0">
+        <div class="grid">
+          <div class="col-6">
+            <p-panel header="Monthly Info">
+              <label>{{ month.miscMonthInfo }}</label>
+            </p-panel>
+          </div>
+          <div class="col-6">
+            <p-panel header="Month Exit Stats">
+              <p><strong>Social Stats:</strong> {{ month.exitStats[0] }}</p>
+              <p><strong>Confidant Stats:</strong> {{ month.exitStats[1] }}</p>
+            </p-panel>
+          </div>
+          <div class="col-12">
+            <hr />
+          </div>
+          <div class="col-12">
+            <p-table id="monthlyEventsTable" [value]="month.events" [columns]="columns" [autoLayout]="true" [rowHover]="true">
+              <ng-template pTemplate="header" let-columns>
+                <tr>
+                  <th *ngFor="let col of columns" [style.maxWidth]="col.width">
+                    {{ col.header }}
+                  </th>
+                </tr>
+              </ng-template>
+
+              <ng-template pTemplate="body" let-event let-columns="columns">
+                <tr class="ui-selectable-row">
+                  <td *ngFor="let col of columns" [ngSwitch]="col.field" [style.maxWidth]="col.width">
+                    <ul *ngSwitchCase="'dayTimeInfo'">
+                      <li *ngFor="let info of event[col.field]">
+                        {{ info }}
+                      </li>
+                    </ul>
+
+                    <ul *ngSwitchCase="'eveningInfo'">
+                      <li *ngFor="let info of event[col.field]">
+                        {{ info }}
+                      </li>
+                    </ul>
+
+                    <div *ngSwitchCase="'miscInfo'">
+                      <p *ngFor="let info of event[col.field]">
+                        {{ info }}
+                      </p>
+                    </div>
+                    <label *ngSwitchDefault>{{ event[col.field] }}</label>
+                  </td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+        </div>
+      </p-tabPanel>
+    </p-tabView>
+  </div>
+</div>

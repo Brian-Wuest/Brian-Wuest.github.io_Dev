@@ -27,6 +27,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/date_helpers/date_helpers.module').then(m => m.DateHelpersModule),
   },
   {
+    path: 'p3_reload',
+    loadChildren: () => import('./modules/p3-reload-events/p3-reload-events.module').then(m => m.P3ReloadEventsModule),
+  },
+  {
     path: 'p5_royal',
     loadChildren: () => import('./modules/p5-royal-events/p5-royal-events.module').then(m => m.P5RoyalEventsModule),
   },

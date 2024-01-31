@@ -27,6 +27,7 @@ export class NavComponent implements OnInit {
           { label: 'Experience Calculator', routerLink: 'experience_calculator' },
           { label: 'Starfinder Point Buy', routerLink: 'starfinder_pointbuy' },
           { label: 'D&D Point Buy', routerLink: 'dnd_pointbuy' },
+          { label: 'Persona 3 Reload Day Guide', routerLink: 'p3_reload' },
           { label: 'Persona 5 Royal Day Guide', routerLink: 'p5_royal' },
           { label: 'Stat Tracker', routerLink: 'stat_tracker' },
           /* { label: 'Encounter Tracker', routerLink: 'encounter_tracker' } */
