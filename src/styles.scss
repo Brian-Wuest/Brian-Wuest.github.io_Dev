@@ -37,6 +37,15 @@ html {
       }
     }
 
+    .p-inputnumber {
+      .p-inputnumber-button-group {
+        .p-inputnumber-button {
+          padding: 0;
+          height: 20px;
+        }
+      }
+    }
+
     .p-inputnumber,
     .p-calendar {
       width: 100%;
